@@ -8,9 +8,11 @@ import { MOTION_VIDEOS, EXPLORE_PROJECTS, WALL_ITEMS } from "@/data/projects";
 import { useHoverSound } from "@/components/HoverSound";
 
 // Build interleaved scroll images from specific brands + wall items
+// Using compressed scroll-row copies (lower quality, exploration originals untouched)
 const SCROLL_BRANDS = ["cartier", "north-face", "rolex", "nike", "mfk", "louis-vuitton"];
 const brandGroups = SCROLL_BRANDS.map(
-  slug => EXPLORE_PROJECTS.find(p => p.slug === slug)?.images ?? []
+  slug => (EXPLORE_PROJECTS.find(p => p.slug === slug)?.images ?? [])
+    .map(src => src.replace("/media/exploration/", "/media/scroll-row/"))
 );
 const maxLen = Math.max(...brandGroups.map(g => g.length));
 const brandInterleaved: string[] = [];
@@ -24,10 +26,10 @@ let wallIdx = 0;
 for (let i = 0; i < brandInterleaved.length; i++) {
   allScrollImages.push(brandInterleaved[i]);
   if ((i + 1) % 3 === 0 && wallIdx < WALL_ITEMS.length) {
-    allScrollImages.push(WALL_ITEMS[wallIdx++]);
+    allScrollImages.push(WALL_ITEMS[wallIdx++].replace("/media/creative-wall/", "/media/scroll-row/wall/"));
   }
 }
-while (wallIdx < WALL_ITEMS.length) allScrollImages.push(WALL_ITEMS[wallIdx++]);
+while (wallIdx < WALL_ITEMS.length) allScrollImages.push(WALL_ITEMS[wallIdx++].replace("/media/creative-wall/", "/media/scroll-row/wall/"));
 
 const rowSize = Math.ceil(allScrollImages.length / 3);
 const ROWS = [
@@ -88,6 +90,9 @@ export default function MotionPage() {
                     src={src}
                     alt=""
                     fill
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     className="motion-scroll-img"
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 768px) 280px, 380px"
@@ -109,6 +114,7 @@ export default function MotionPage() {
                 className="video-box"
                 onClick={() => setVlb({ src: v.src, title: v.name })}
                 onMouseEnter={playTick}
+                style={v.thumb ? { backgroundImage: `url('${v.thumb}')`, backgroundSize: "cover", backgroundPosition: "center" } : { background: "#1a1a1a" }}
               >
                 <video
                   className="video-bg"
@@ -116,7 +122,7 @@ export default function MotionPage() {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   onMouseEnter={e => (e.currentTarget as HTMLVideoElement).play()}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLVideoElement; el.pause(); el.currentTime = 0; }}
                 />

@@ -200,13 +200,13 @@ export const EXPLORE_PROJECTS = [
 // ─── MOTION VIDEOS ───────────────────────────────────────────────────────────
 
 export const MOTION_VIDEOS = [
-  { id: 1, name: "Sesko — Complete Striker",         type: "Campaign",  ratio: "16:9", src: "/media/motion/sesko/video.mp4" },
-  { id: 2, name: "Fyonlli — The Science of Gifting",  type: "Fashion",   ratio: "9:16", src: "/media/motion/fyonlli.mp4" },
-  { id: 3, name: "Nike Ad",                           type: "Campaign",  ratio: "21:9", src: "/media/motion/nike-ad.mp4" },
-  { id: 4, name: "Bluewater",                         type: "Corporate", ratio: "16:9", src: "/media/motion/bluewater.mp4" },
-  { id: 5, name: "Jubel",                             type: "Brand",     ratio: "16:9", src: "/media/motion/jubel.mp4" },
-  { id: 6, name: "Inception Top",                     type: "Film",      ratio: "4:3",  src: "/media/motion/inception.mp4" },
-  { id: 7, name: "Evision Legal",                     type: "Legal Tech",ratio: "16:9", src: "/media/motion/evision-legal.mp4" },
+  { id: 1, name: "Sesko — Complete Striker",         type: "Campaign",  ratio: "16:9", src: "/media/motion/sesko/video.mp4",      thumb: "/media/motion/sesko/thumb.jpg" },
+  { id: 2, name: "Fyonlli — The Science of Gifting",  type: "Fashion",   ratio: "9:16", src: "/media/motion/fyonlli.mp4",           thumb: "/media/motion/fyonlli-thumb.jpg" },
+  { id: 3, name: "Nike Ad",                           type: "Campaign",  ratio: "21:9", src: "/media/motion/nike-ad.mp4",           thumb: "/media/motion/nike-ad-thumb.jpg" },
+  { id: 4, name: "Bluewater",                         type: "Corporate", ratio: "16:9", src: "/media/motion/bluewater.mp4",         thumb: "/media/motion/bluewater-thumb.jpg" },
+  { id: 5, name: "Jubel",                             type: "Brand",     ratio: "16:9", src: "/media/motion/jubel.mp4",             thumb: "/media/motion/jubel-thumb.jpg" },
+  { id: 6, name: "Inception Top",                     type: "Film",      ratio: "4:3",  src: "/media/motion/inception.mp4",         thumb: "/media/motion/inception-thumb.jpg" },
+  { id: 7, name: "Evision Legal",                     type: "Legal Tech",ratio: "16:9", src: "/media/motion/evision-legal.mp4",     thumb: "/media/motion/evision-legal-thumb.jpg" },
 ];
 
 // ─── CREATIVE WALL ────────────────────────────────────────────────────────────

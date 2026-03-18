@@ -144,6 +144,8 @@ export default function WorkPage() {
                                 src={src}
                                 alt=""
                                 fill
+                                loading="lazy"
+                                decoding="async"
                                 quality={40}
                                 style={{ objectFit: "cover" }}
                                 sizes="120px"

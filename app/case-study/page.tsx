@@ -58,7 +58,8 @@ export default function CaseStudyPage() {
             width={1165}
             height={768}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 
@@ -83,7 +84,8 @@ export default function CaseStudyPage() {
             width={591}
             height={801}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 
@@ -102,7 +104,8 @@ export default function CaseStudyPage() {
             width={1200}
             height={800}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 
@@ -113,7 +116,8 @@ export default function CaseStudyPage() {
             width={1200}
             height={800}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 
@@ -132,7 +136,8 @@ export default function CaseStudyPage() {
             width={591}
             height={602}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 
@@ -145,7 +150,8 @@ export default function CaseStudyPage() {
             width={593}
             height={584}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
-            sizes="(max-width: 768px) 100vw, 720px"
+            loading="lazy"
+            decoding="async"            sizes="(max-width: 768px) 100vw, 720px"
           />
         </figure>
 

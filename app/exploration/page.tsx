@@ -149,6 +149,8 @@ export default function ExplorationPage() {
                             src={src}
                             alt={`${p.name} visual ${i + 1}`}
                             fill
+                            loading="lazy"
+                            decoding="async"
                             style={{ objectFit: "cover" }}
                             sizes="(max-width: 768px) 50vw, 33vw"
                           />
