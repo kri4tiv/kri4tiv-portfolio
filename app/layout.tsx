@@ -5,6 +5,7 @@ import Grain from "@/components/Grain";
 import MusicToggle from "@/components/MusicToggle";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "KRI4TIV | Anirudh Kandpal, Creative Marketer",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <MusicToggle />
         <SmoothScroll />
+        <SpeedInsights />
       </body>
     </html>
   );
