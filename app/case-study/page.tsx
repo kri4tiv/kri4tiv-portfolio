@@ -15,7 +15,7 @@ export default function CaseStudyPage() {
       <div className="cs-hero">
         <Image
           src="/media/case-study/hero.webp"
-          alt="From Idea to 400K Views"
+          alt="From Idea to Half a Million Views"
           fill
           priority
           style={{ objectFit: "cover" }}
@@ -25,7 +25,7 @@ export default function CaseStudyPage() {
         <div className="cs-hero-content">
           <p className="cs-eyebrow">Case Study</p>
           <h1 className="cs-title">
-            From Idea to 400K Views:<br />
+            From Idea to Half a Million Views ≈ 503K:<br />
             How I Built a Viral<br />
             <em>Football Edit</em>
           </h1>
