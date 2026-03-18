@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const STATS = [
-  { val: "398.4K", label: "Views" },
-  { val: "7.8K",   label: "Likes" },
+  { val: "503.5K", label: "Views" },
+  { val: "8K",     label: "Likes" },
   { val: "1.2K",   label: "Bookmarks" },
   { val: "559",    label: "Reposts" },
 ];
@@ -13,16 +13,7 @@ export default function CaseStudyPage() {
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <div className="cs-hero">
-        <Image
-          src="/media/case-study/hero.webp"
-          alt="From Idea to Half a Million Views"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "75% center" }}
-          sizes="100vw"
-        />
-        <div className="cs-hero-overlay" />
-        <div className="cs-hero-content">
+        <div className="cs-hero-left">
           <p className="cs-eyebrow">Case Study</p>
           <h1 className="cs-title">
             From Idea to Half a Million Views ≈ 503K:<br />
@@ -34,6 +25,16 @@ export default function CaseStudyPage() {
             <span className="cs-meta-sep">·</span>
             <span>4–7 min read</span>
           </div>
+        </div>
+        <div className="cs-hero-right">
+          <Image
+            src="/media/case-study/hero.webp"
+            alt="From Idea to Half a Million Views"
+            fill
+            priority
+            style={{ objectFit: "cover", objectPosition: "center center" }}
+            sizes="(max-width: 768px) 100vw, 45vw"
+          />
         </div>
       </div>
 
