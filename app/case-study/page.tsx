@@ -47,11 +47,9 @@ export default function CaseStudyPage() {
       {/* ── Article body ─────────────────────────────────────────── */}
       <article className="cs-body">
 
-        <p>I&apos;m a United fan, and when I saw David Ornstein&apos;s tweets about Benjamin Sesko to United gaining momentum, I had a feeling this was happening. On Football Twitter/X, player compilations usually blow up when a transfer is close, so I thought I should get started on one for Sesko.</p>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>How I Made a Football Edit That Hit 400K Views, And Why It Worked</h2>
 
-        <p>But here&apos;s the thing, I didn&apos;t just want a random highlight reel. I wanted a story. A plot. Around the same time, the news broke that Gyokeres was joining Arsenal. He was actually United&apos;s first choice, an ex-Amorim player who became a 90-goal striker under him. Arsenal got him, while we were getting Sesko, who Arteta wanted. Basically, both managers ended up with each other&apos;s targets.</p>
-
-        <p>That gave me the idea. The storyline should connect the two, maybe even create a rivalry from the start.</p>
+        <p>I&apos;m a Manchester United fan. So when journalist David Ornstein reported that striker Benjamin Sesko was close to signing for United, I wanted to be ready. On Football Twitter/X, player highlight compilations tend to blow up right when a transfer is about to happen. I decided to make one but I didn&apos;t want a random highlight reel. I wanted a story.</p>
 
         <figure className="cs-figure">
           <Image
@@ -64,9 +62,19 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>I remembered a Gyokeres celebration compilation trending on X. It was his unique mask celebration, with clips of fans and kids copying him before it cut to his goals. The video was by an editor called 1899INE. Since Gyokeres chose Arsenal over United, I thought starting my Sesko edit with that celebration, then flipping it into Sesko goals and his play, would be perfect.</p>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>The Storyline</h2>
 
-        <p>So that&apos;s how I built the structure. I collected short clips of his goals, one-touch linkups, interviews, and press conferences where he explained his playing style. At one point, I remembered a United fan channel, Muppetiers saying Sesko doesn&apos;t score &ldquo;striker goals.&rdquo; I decided to layer that audio over a clip of him scoring a trademark striker&apos;s goal. That contrast worked perfectly.</p>
+        <p>Around the same time, news broke that Viktor Gyokeres, a striker United actually wanted first, was joining Arsenal instead. Arsenal are United&apos;s biggest rivals. Meanwhile, Sesko, who Arsenal&apos;s manager wanted, was heading to United. Both managers ended up with each other&apos;s top targets. That swap gave me the whole idea for the video.</p>
+
+        <p>I remembered a trending compilation of Gyokeres by an editor called 1899INE. It was built around his signature mask celebration, with clips of fans and kids copying it before cutting to his goals. Since Gyokeres chose Arsenal over United, I thought: what if I opened my Sesko edit with that celebration, then flipped it into Sesko&apos;s world? A direct comparison. Their guy versus ours.</p>
+
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Building the Edit</h2>
+
+        <p>For the soundtrack, 1899INE had used &ldquo;Shook Ones, Part II&rdquo; by Mobb Deep. I went with the same track so the comparison would hit right away. The hard part was the transition. How do you shift from one player to another without it feeling forced? The answer: celebration for celebration. Sesko&apos;s signature move is a sprint to the corner flag followed by a huge leap with a raised fist.</p>
+
+        <p>Before that moment, I dropped in a short cut of Drake&apos;s &ldquo;Passionfruit,&rdquo; the line where he says &ldquo;hold on, hold on, f that.&rdquo; It worked as a clean switch: forget their guy, here&apos;s ours.</p>
+
+        <p>From there, I showed Sesko arriving at an airport. In reality, it was Berlin. But by cutting in shots of Manchester and Old Trafford (United&apos;s stadium) right after, it looked like he was arriving at United. I then used clips from Leipzig&apos;s stadium, his actual home ground in Germany, but in the edit, it gave the feeling he was stepping into Old Trafford for the first time.</p>
 
         <figure className="cs-figure">
           <Image
@@ -79,9 +87,13 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>For the soundtrack, the choice was obvious. 1899INE used &ldquo;Shook Ones, Part II&rdquo; by Mobb Deep, so I went with the same track to create a direct comparison. The challenge was figuring out how to transition from Gyokeres to Sesko. Then it hit me; celebration for celebration. Sesko&apos;s signature is his sprint to the corner flag and huge leap with a raised fist. I needed a stop-gap before that moment, so I used a short cut of Drake&apos;s Passionfruit where he says, &ldquo;Hold on, hold on, f that, f that shit.&rdquo; Not meant disrespectfully, it&apos;s just a famous line that worked as a &ldquo;forget that, here&apos;s ours&rdquo; moment.</p>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>The Zlatan Connection</h2>
 
-        <p>From there, I showed Sesko arriving at Berlin Airport. The airport itself wasn&apos;t visible, just him coming out and getting into a van. I then cut in Manchester videos of Old Trafford to make it look as if he was on his way there. After that, I switched to clips of him at Leipzig&apos;s stadium; in reality, his old ground, but in the edit, it gave the impression he was visiting Old Trafford.</p>
+        <p>To add another layer, I brought in Zlatan Ibrahimovic, a legendary striker who played for United and is also Sesko&apos;s idol growing up. I cut between their similar celebration leaps, side by side. Later, I matched a Sesko long-range goal with Zlatan scoring from the exact same spot for United, then lined up their celebrations again. The idea was to show Sesko as a striker following in Zlatan&apos;s footsteps at the same club.</p>
+
+        <p>I also added audio from a United fan channel called Muppetiers, where someone said Sesko doesn&apos;t score &ldquo;striker goals.&rdquo; I placed that over a clip of him scoring a textbook striker&apos;s goal. That contrast worked perfectly.</p>
+
+        <p>The outro was a montage of seven or eight clips of Sesko&apos;s signature leap, ending with him signing a jersey marked &ldquo;2028.&rdquo;</p>
 
         <figure className="cs-figure">
           <Image
@@ -94,10 +106,6 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>Once that transition was set, I brought in his signature jump celebration. To strengthen the storyline, I mixed it with Zlatan; his role model, showing their similar leaps and cutting between the two. From there, I moved into a sequence of his goals, linkups, and interviews where he explained his playing style, making the clips flow with his finishes.</p>
-
-        <p>Toward the end, I tied it back to Zlatan again: Sesko scoring a long-range strike, then Zlatan scoring from the exact same position for United. I mirrored this with their celebrations too, cutting between Sesko&apos;s jump and Zlatan&apos;s landing. The aim was to frame Sesko as a striker following in Zlatan&apos;s footsteps.</p>
-
         <figure className="cs-figure">
           <Image
             src="/media/case-study/04.png"
@@ -109,20 +117,18 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>The outro was a montage of seven to eight clips of Sesko&apos;s jumps, closing with him signing a jersey marked &ldquo;2028.&rdquo;</p>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>How It Went Viral</h2>
 
-        <hr className="cs-rule" />
+        <p>I posted the edit from my own X account. For a new account, it did well: 28K views, 193 likes, 34 reposts. But the real story happened next.</p>
 
-        <p>Once I finished the edit, I posted it from my own X account. For a new account like mine, I thought it did pretty well: 28K views, 193 likes, and 34 reposts. But that wasn&apos;t the full story.</p>
+        <p>An Arsenal fan had made his own Sesko compilation, thinking Sesko was joining Arsenal. A United fan found it and reshared it, and it started getting good numbers. But then the Arsenal fan deleted the original out of spite, he didn&apos;t want United fans enjoying work he&apos;d put together for Arsenal. Once the source was gone, the repost disappeared too.</p>
 
-        <p>Around the same time, an Arsenal fan had made a Sesko compilation because they thought he was signing for Arsenal. A United fan came across it and reshared it, which started getting good engagement. But then the Arsenal fan deleted the original video out of spite. He didn&apos;t want United fans enjoying the work he had put together for Arsenal. Once he deleted it, the United fan&apos;s repost also became invisible since the source was gone.</p>
-
-        <p>That&apos;s when I stepped in. I commented, &ldquo;I got you,&rdquo; and shared my own video, pointing out that I had also made a compilation, and in my view, a better one. Soon after, a United fan account picked it up and reposted it with the caption, &ldquo;We got the receipts, don&apos;t worry.&rdquo;</p>
+        <p>That&apos;s when I stepped in. I commented &ldquo;I got you&rdquo; and shared my video. Soon after, a United fan account picked it up and reposted it with the caption: &ldquo;We got the receipts, don&apos;t worry.&rdquo; He thought I&apos;d just saved the deleted Arsenal video and reposted it. He didn&apos;t realise it was my own original work, so he didn&apos;t credit me. But the repost took off: 398.4K views, 7.8K likes, 559 reposts, and 1.2K bookmarks.</p>
 
         <figure className="cs-figure">
           <Image
             src="/media/case-study/05.png"
-            alt="The viral repost — receipts caption"
+            alt="The viral repost, receipts caption"
             width={591}
             height={602}
             style={{ width: "100%", height: "auto", borderRadius: "6px" }}
@@ -130,7 +136,7 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>Here&apos;s the twist: he thought I had simply downloaded the Arsenal fan&apos;s deleted video and reposted it myself, which is why he used that caption. Since he didn&apos;t realize I was the original creator, he didn&apos;t give me credit. But the repost blew up anyway; 398.4K views, 7.8K likes, 559 reposts, 21 comments, and 1.2K bookmarks. Later, when he found out the video was mine, he apologized for not crediting me. He even mentioned me in the comments and followed me back.</p>
+        <p>When he later found out the video was actually mine, he apologised, credited me in the comments, and followed me.</p>
 
         <figure className="cs-figure">
           <Image
@@ -143,11 +149,11 @@ export default function CaseStudyPage() {
           />
         </figure>
 
-        <p>For me, the numbers weren&apos;t the main thing. What mattered was that my idea worked. The storyline, the Gyokeres-to-Sesko transition, the Zlatan parallels, it all landed exactly how I thought it would. That reinforced something I&apos;ve always believed: I understand what an audience wants.</p>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>What This Showed Me</h2>
 
-        <p>Whether it&apos;s a video, copywriting, emails, or marketing campaigns, I know how to create content that connects. My strengths are creativity, persistence, and thinking differently.</p>
+        <p>The numbers were great. But what mattered more was that the idea worked. The Gyokeres-to-Sesko transition, the Zlatan connection, the audio layering, it all landed the way I planned it. That proved something I&apos;ve always believed: I understand what an audience wants to see.</p>
 
-        <p>On the technical side, I made the edit in Adobe Premiere Pro, using effects and transitions to shape the story. The project took me about 5–7 hours. It could have been done faster, but I spent time carefully cutting and matching clips because the small details are what make a piece stand out.</p>
+        <p>Whether it&apos;s a video edit, copywriting, email campaigns, or marketing content, I know how to build something that connects with people. My strengths are creativity, persistence, and thinking differently. I made this edit in Adobe Premiere Pro over about five to seven hours. It could have been faster, but I spent time on the small cuts and details, because that&apos;s what makes a piece stand out.</p>
 
         {/* ── Stats grid ─────────────────────────────────────────── */}
         <div className="cs-stats">
