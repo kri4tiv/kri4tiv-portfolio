@@ -743,7 +743,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .cs-hero-right { position: relative; height: 100%; overflow: hidden; }
 .cs-eyebrow { font-family: var(--fm); font-size: .55rem; letter-spacing: .35em; text-transform: uppercase; color: var(--ac); margin-bottom: .9rem; }
-.cs-title { font-family: var(--fd); font-size: clamp(1.8rem,3.2vw,3.4rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: var(--t0); margin: 0 0 1.2rem; }
+.cs-title { font-family: var(--fd); font-size: clamp(2.16rem,3.84vw,4.08rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: var(--t0); margin: 0 0 1.2rem; }
 .cs-title em { color: var(--ac); font-style: italic; }
 .cs-meta { font-family: var(--fm); font-size: .58rem; color: var(--t3); letter-spacing: .1em; display: flex; align-items: center; gap: .6rem; }
 .cs-meta-sep { color: var(--t4); }
@@ -770,6 +770,17 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .cs-back { margin-top: 2.5rem; }
 .cs-back-link { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--fm); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); text-decoration: none; transition: color .3s; }
 .cs-back-link:hover { color: var(--ac); }
+
+/* AUDIO PLAYER */
+.cs-audio-wrap { max-width: 720px; margin: 0 auto; padding: 0 clamp(1.2rem,4vw,2rem); }
+.cs-audio { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.4rem; border: 1px solid var(--br2); border-radius: 8px; background: var(--b1); }
+.cs-audio-btn { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ac); background: transparent; color: var(--ac); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s, transform .2s; }
+.cs-audio-btn:hover { background: rgba(210,243,77,.1); transform: scale(1.06); }
+.cs-audio-label { font-family: var(--fb); font-size: .85rem; color: var(--t1); white-space: nowrap; }
+.cs-audio-progress-wrap { flex: 1; display: flex; flex-direction: column; gap: .35rem; }
+.cs-audio-track { position: relative; height: 3px; background: var(--br2); border-radius: 2px; cursor: pointer; }
+.cs-audio-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--ac); border-radius: 2px; pointer-events: none; transition: width .1s linear; }
+.cs-audio-time { font-family: var(--fm); font-size: .5rem; color: var(--t3); letter-spacing: .06em; }
 
 /* FOOTER */
 .footer { padding: 1.2rem clamp(1.2rem,4vw,3.5rem); border-top: 1px solid var(--br); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }

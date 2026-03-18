@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const STATS = [
   { val: "503.5K", label: "Views" },
@@ -36,6 +37,11 @@ export default function CaseStudyPage() {
             sizes="(max-width: 768px) 100vw, 45vw"
           />
         </div>
+      </div>
+
+      {/* ── Audio player ─────────────────────────────────────────── */}
+      <div style={{ paddingTop: "clamp(1.5rem,3vw,2.5rem)" }}>
+        <AudioPlayer src="/media/case-study/narration.mp3" />
       </div>
 
       {/* ── Article body ─────────────────────────────────────────── */}
