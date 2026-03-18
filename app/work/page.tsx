@@ -1,0 +1,134 @@
+"use client";
+import { useState } from "react";
+import Reveal from "@/components/Reveal";
+import Carousel from "@/components/Carousel";
+import Lightbox from "@/components/Lightbox";
+import { WORK_PROJECTS } from "@/data/projects";
+import { useHoverSound } from "@/components/HoverSound";
+
+type LbState = { projectName: string; images: string[]; index: number };
+
+export default function WorkPage() {
+  const [active, setActive] = useState<null | typeof WORK_PROJECTS[0]>(null);
+  const [lb, setLb]         = useState<LbState | null>(null);
+  const playTick = useHoverSound();
+
+  const openThumb = (e: React.MouseEvent, projectName: string, images: string[], index: number) => {
+    e.stopPropagation();
+    setLb({ projectName, images, index });
+  };
+
+  const lbSrc   = lb ? lb.images[lb.index] : undefined;
+  const lbLabel = lb ? `${lb.projectName} — Frame ${lb.index + 1}` : undefined;
+
+  return (
+    <>
+      {active && (
+        <Carousel
+          title={active.name}
+          tag={active.type}
+          slides={active.images.map((src, i) => ({
+            n: i + 1,
+            label: `${active.name} — Frame ${i + 1}`,
+            bg: active.bg,
+            src,
+          }))}
+          onClose={() => setActive(null)}
+        />
+      )}
+
+      <Lightbox
+        isOpen={lb !== null}
+        onClose={() => setLb(null)}
+        src={lbSrc}
+        label={lbLabel}
+        images={lb?.images}
+        imageIndex={lb?.index}
+        onPrev={lb && lb.index > 0 ? () => setLb(p => p ? { ...p, index: p.index - 1 } : null) : undefined}
+        onNext={lb && lb.index < (lb.images.length - 1) ? () => setLb(p => p ? { ...p, index: p.index + 1 } : null) : undefined}
+      />
+
+      <section>
+        <div className="sec-header-wrap" style={{ paddingTop: "clamp(7rem, 14vw, 12rem)" }}>
+          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg/02-work.jpg)` }} />
+          <div className="section" style={{ paddingBottom: "clamp(2rem,4vw,3rem)" }}>
+            <div className="sec-head">
+              <span className="sec-num">02</span>
+              <div>
+                <p className="sec-eyebrow">Selected Work</p>
+                <h1 className="sec-h2">
+                  Projects that<br />
+                  <em>convert &amp; resonate</em>
+                </h1>
+                <p className="sec-desc">
+                  <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>2+ years, 20+ brands, Dubai, London and global</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Reveal>
+          <div className="work-list">
+            {WORK_PROJECTS.map((p, i) => (
+              <div
+                key={p.id}
+                className="work-row"
+                role="button"
+                tabIndex={0}
+                onClick={() => setActive(p)}
+                onKeyDown={e => e.key === "Enter" && setActive(p)}
+                onMouseEnter={playTick}
+              >
+                {p.images[0] && (
+                  <img src={p.images[0]} alt="" className="work-row-bg" />
+                )}
+                <span className="work-num">{String(i + 1).padStart(2, "0")}</span>
+                <div className="work-mid">
+                  <span className="work-name">{p.name}</span>
+                  <span className="work-type">{p.type}</span>
+                </div>
+                <div className="work-right">
+                  {p.images.length > 0 && (
+                    <div className="work-filmstrip">
+                      <div className="work-filmstrip-track">
+                        {p.images.map((src, idx) => (
+                          <div
+                            key={idx}
+                            className="work-film-thumb"
+                            style={{ background: p.bg }}
+                            onClick={e => openThumb(e, p.name, p.images, idx)}
+                            title={`Frame ${idx + 1}`}
+                          >
+                            <img
+                              src={src}
+                              alt=""
+                              className="work-film-img"
+                              onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="work-filmstrip-fade" />
+                    </div>
+                  )}
+                  <div className="work-arrow">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <footer className="footer">
+        <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
+        <span>Selected Work, 2022 to 2024</span>
+        <span>© {new Date().getFullYear()}</span>
+      </footer>
+    </>
+  );
+}
