@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import Preloader from "@/components/Preloader";
 import Reveal from "@/components/Reveal";
@@ -15,6 +15,8 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const handleDone = useCallback(() => setLoaded(true), []);
   const playTick = useHoverSound();
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => { if (heroVideoRef.current) heroVideoRef.current.playbackRate = 1.05; }, []);
 
   return (
     <>
@@ -25,7 +27,7 @@ export default function Home() {
         {/* Video background */}
         <div className="hero-bg">
           <div className="hero-placeholder">
-            <video className="hero-video" autoPlay muted loop playsInline preload="metadata" src="/media/hero/showreel.mp4" />
+            <video ref={heroVideoRef} className="hero-video" autoPlay muted loop playsInline preload="metadata" src="/media/hero/showreel.mp4" />
           </div>
           <div className="hero-video-overlay" />
         </div>

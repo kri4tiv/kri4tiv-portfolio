@@ -371,7 +371,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .work-num { font-family: var(--fm); font-size: .52rem; color: var(--t4); position: relative; z-index: 1; }
 .work-mid { display: flex; align-items: baseline; gap: clamp(.5rem,1.5vw,1.2rem); flex-wrap: wrap; position: relative; z-index: 1; }
 .work-name {
-  font-family: var(--fd); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 600; letter-spacing: -.03em;
+  font-family: var(--fd); font-size: clamp(2rem,4vw,3.5rem); font-weight: 600; letter-spacing: -.03em;
   transition: color .3s, transform 0.4s cubic-bezier(0.25,1,0.5,1);
   position: relative; display: inline-block;
 }
@@ -383,7 +383,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .work-row:hover .work-name { color: var(--ac); transform: translateX(12px); }
 .work-row:hover .work-name::after { width: 100%; }
 .work-slash { font-family: var(--fd); font-size: .48rem; color: var(--t4); }
-.work-type { font-family: var(--fm); font-size: .48rem; color: var(--t3); letter-spacing: .12em; text-transform: uppercase; }
+.work-type { font-family: var(--fm); font-size: .58rem; color: var(--ac); letter-spacing: .12em; text-transform: uppercase; }
 .work-right { display: flex; align-items: center; gap: 1rem; }
 .work-year { font-family: var(--fm); font-size: .52rem; color: var(--t4); }
 .work-arrow { width: 28px; height: 28px; border: 1px solid var(--br2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all .3s var(--ease); flex-shrink: 0; color: var(--t3); }
@@ -521,7 +521,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .explore-strip:hover .explore-strip-name { transform: translateX(12px); }
 .explore-strip:hover .explore-strip-name::after { width: 100%; }
 .explore-strip-meta { display: flex; align-items: center; gap: 2rem; }
-.explore-strip-cat { font-family: var(--fm); font-size: 0.5rem; color: var(--t3); letter-spacing: 0.25em; text-transform: uppercase; }
+.explore-strip-cat { font-family: var(--fm); font-size: 0.6rem; color: var(--ac); letter-spacing: 0.25em; text-transform: uppercase; }
 .explore-strip-toggle { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--br2); display: flex; align-items: center; justify-content: center; color: var(--t3); transition: all 0.3s; }
 .explore-strip.open .explore-strip-toggle { background: var(--ac); border-color: var(--ac); color: var(--b0); }
 /* grid layout for visuals — 3 columns, no overflow-x */
