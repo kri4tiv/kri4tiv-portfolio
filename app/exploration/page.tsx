@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Lightbox from "@/components/Lightbox";
@@ -22,9 +22,30 @@ const STRIP_COLORS: Record<string, string> = {
 type LbState = { projectName: string; images: string[]; index: number };
 
 export default function ExplorationPage() {
-  const [openId, setOpenId] = useState<number | null>(null);
-  const [lb, setLb]         = useState<LbState | null>(null);
+  const [openId, setOpenId]           = useState<number | null>(null);
+  const [lb, setLb]                   = useState<LbState | null>(null);
+  // First 2 strips visible immediately; rest revealed by IntersectionObserver
+  const [visibleStrips, setVisibleStrips] = useState<Set<number>>(new Set([0, 1]));
+  const stripRefs = useRef<(HTMLDivElement | null)[]>([]);
   const playTick = useHoverSound();
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const idx = Number(e.target.getAttribute("data-strip-idx"));
+            setVisibleStrips(prev => new Set([...prev, idx]));
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
+    stripRefs.current.forEach((el, i) => {
+      if (el && i >= 2) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
 
   const toggle = (id: number) => setOpenId(prev => (prev === id ? null : id));
 
@@ -38,6 +59,9 @@ export default function ExplorationPage() {
 
   return (
     <>
+      {/* Preload first strip wallpaper */}
+      <link rel="preload" as="image" href={EXPLORE_PROJECTS[0].images[0]} />
+
       <Lightbox
         isOpen={lb !== null}
         onClose={() => setLb(null)}
@@ -71,11 +95,13 @@ export default function ExplorationPage() {
 
         <Reveal>
           <div className="explore-strips">
-            {EXPLORE_PROJECTS.map((p) => {
+            {EXPLORE_PROJECTS.map((p, i) => {
               const isOpen = openId === p.id;
               return (
                 <div
                   key={p.id}
+                  ref={el => { stripRefs.current[i] = el; }}
+                  data-strip-idx={String(i)}
                   className={`explore-strip${isOpen ? " open" : ""}`}
                   style={{ background: isOpen ? STRIP_COLORS[p.name] : undefined }}
                   onClick={() => toggle(p.id)}
@@ -84,8 +110,14 @@ export default function ExplorationPage() {
                   onKeyDown={e => e.key === "Enter" && toggle(p.id)}
                   onMouseEnter={playTick}
                 >
-                  {p.images[0] && (
-                    <img src={p.images[0]} alt="" className="explore-strip-bg" />
+                  {/* Wallpaper: inject src only once in viewport; first 2 get fetchPriority high */}
+                  {p.images[0] && visibleStrips.has(i) && (
+                    <img
+                      src={p.images[0]}
+                      alt=""
+                      className="explore-strip-bg"
+                      fetchPriority={i < 2 ? "high" : "low"}
+                    />
                   )}
                   <div className="explore-strip-header">
                     <span className="explore-strip-name">{p.name}</span>
