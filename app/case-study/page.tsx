@@ -18,7 +18,7 @@ export default function CaseStudyPage() {
           alt="From Idea to Half a Million Views"
           fill
           priority
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover", objectPosition: "75% center" }}
           sizes="100vw"
         />
         <div className="cs-hero-overlay" />
