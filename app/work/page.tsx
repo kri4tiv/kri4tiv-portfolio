@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Carousel from "@/components/Carousel";
 import Lightbox from "@/components/Lightbox";
@@ -96,15 +97,16 @@ export default function WorkPage() {
                           <div
                             key={idx}
                             className="work-film-thumb"
-                            style={{ background: p.bg }}
+                            style={{ background: p.bg, position: "relative" }}
                             onClick={e => openThumb(e, p.name, p.images, idx)}
                             title={`Frame ${idx + 1}`}
                           >
-                            <img
+                            <Image
                               src={src}
                               alt=""
-                              className="work-film-img"
-                              onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                              fill
+                              style={{ objectFit: "cover" }}
+                              sizes="80px"
                             />
                           </div>
                         ))}

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Lightbox from "@/components/Lightbox";
 import { EXPLORE_PROJECTS } from "@/data/projects";
@@ -112,11 +113,12 @@ export default function ExplorationPage() {
                           className="explore-visual"
                           onClick={e => openLightbox(e, p.images, i, p.name)}
                         >
-                          <img
+                          <Image
                             src={src}
                             alt={`${p.name} visual ${i + 1}`}
-                            className="explore-visual-img"
-                            onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            sizes="(max-width: 768px) 50vw, 33vw"
                           />
                         </div>
                       ))}

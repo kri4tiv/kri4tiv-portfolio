@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Lightbox from "@/components/Lightbox";
 
 interface Slide {
@@ -54,12 +55,13 @@ export default function Carousel({ title, tag, slides, onClose }: CarouselProps)
               title="Click to expand"
             >
               {slide.src ? (
-                <img
+                <Image
                   src={slide.src}
                   alt={slide.label}
-                  className="carousel-slide-img"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 90vw, 620px"
                   onLoad={() => setLoaded(p => ({ ...p, [i]: true }))}
-                  onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                 />
               ) : null}
               {!loaded[i] && (

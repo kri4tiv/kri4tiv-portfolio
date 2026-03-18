@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import VideoLightbox from "@/components/VideoLightbox";
 import Lightbox from "@/components/Lightbox";
@@ -83,11 +84,13 @@ export default function MotionPage() {
                   className="motion-scroll-item"
                   onClick={() => setImgLb(src)}
                 >
-                  <img
+                  <Image
                     src={src}
                     alt=""
+                    fill
                     className="motion-scroll-img"
-                    onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 280px, 380px"
                   />
                 </div>
               ))}

@@ -540,6 +540,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   border-radius: 3px;
   border: none;
   box-shadow: none;
+  position: relative; overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
