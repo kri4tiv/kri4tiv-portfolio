@@ -136,6 +136,11 @@ export default function Nav() {
               <span className="mm-name">{link.label}</span>
             </button>
           ))}
+          <div className="mm-cta-wrap">
+            <Link href="/contact" className="mm-cta" onClick={() => setMenuOpen(false)}>
+              Let&apos;s Talk
+            </Link>
+          </div>
         </div>
       )}
     </>

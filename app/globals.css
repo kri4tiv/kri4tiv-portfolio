@@ -799,11 +799,68 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .music-bar:nth-child(4) { height: 8px; animation-delay: .05s; }
 @keyframes mbar { 0% { height: 2px; } 100% { height: 10px; } }
 
+/* MOBILE CTA in menu */
+.mm-cta-wrap { display: none; margin-top: 1.5rem; width: 100%; display: flex; justify-content: center; }
+.mm-cta {
+  font-family: var(--fm); font-size: .75rem; font-weight: 700;
+  color: var(--b0); background: var(--ac);
+  padding: 0.8rem 2rem; border-radius: 100px;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; transition: all .3s var(--ease);
+  display: inline-block;
+}
+.mm-cta:hover { background: var(--t0); transform: scale(1.04); }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  /* NAV */
   .nav-links, .nav-cta-desktop { display: none; }
   .nav-hamburger { display: flex; }
-  .about-grid { grid-template-columns: 1fr; }
+  .mm-cta-wrap { display: flex; }
+
+  /* HERO — fix overflow */
+  .hero { overflow: hidden; }
+  .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+
+  /* HERO FOOTER */
   .hero-footer { flex-direction: column; align-items: flex-start; }
+  .hero-desc { max-width: 100%; font-size: clamp(.88rem, 3.5vw, 1rem); }
+
+  /* SECTION BASE */
+  .section { padding: clamp(3rem, 8vw, 5rem) clamp(1.2rem, 4vw, 2rem); }
+
+  /* SECTION NUMBERS & HEADINGS */
+  .sec-num { font-size: clamp(3.5rem, 8vw, 6rem); }
+  .sec-h2 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); }
+
+  /* ABOUT */
+  .about-grid { grid-template-columns: 1fr; }
+  .about-bio { padding-left: 0; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .tools-list { gap: .3rem; }
+
+  /* WORK */
   .work-right .work-year { display: none; }
+  .work-num { min-width: 1.8rem; }
+  .work-mid { gap: .4rem; }
+
+  /* EXPLORATION — 1 col visual grid */
+  .explore-strip-visuals { grid-template-columns: 1fr; }
+
+  /* MOTION — ensure full width video boxes */
+  .video-stack { gap: 6px; }
+  .video-box { border-radius: 4px; }
+
+  /* CASE STUDY */
+  .cs-body { padding: clamp(2rem, 6vw, 3.5rem) 1.2rem; }
+  .cs-audio-wrap { padding: 0 1.2rem; }
+  .cs-audio { flex-wrap: wrap; }
+
+  /* CONTACT */
+  .contact-big { font-size: clamp(2.2rem, 9vw, 4rem); text-align: left; }
+  .contact-links { width: 100%; }
+  .contact-link { width: 100%; }
+
+  /* FOOTER */
+  .footer { flex-direction: column; align-items: flex-start; gap: .3rem; }
 }
