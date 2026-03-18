@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import Preloader from "@/components/Preloader";
 import Reveal from "@/components/Reveal";
@@ -13,7 +13,14 @@ const MARQUEE_ITEMS = [
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
-  const handleDone = useCallback(() => setLoaded(true), []);
+  // Skip preloader on repeat visits within the same session
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("pre_shown") === "1") setLoaded(true);
+  }, []);
+  const handleDone = useCallback(() => {
+    sessionStorage.setItem("pre_shown", "1");
+    setLoaded(true);
+  }, []);
   const playTick = useHoverSound();
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => { if (heroVideoRef.current) heroVideoRef.current.playbackRate = 1.05; }, []);
