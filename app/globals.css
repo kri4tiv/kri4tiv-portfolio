@@ -263,7 +263,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .hero-content {
   position: relative; z-index: 2; flex: 1;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 clamp(1.2rem,4vw,3.5rem) clamp(2rem,5vw,4.5rem);
+  padding: 0 clamp(1.2rem,4vw,3.5rem) clamp(4rem,7vw,6.5rem);
 }
 .hero-eyebrow {
   font-family: var(--fm); font-size: clamp(.48rem,.78vw,.56rem);
@@ -276,7 +276,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .hero-h1 {
   font-family: var(--fd); font-weight: 700; line-height: .83;
   letter-spacing: -.055em; font-size: clamp(2.8rem,8vw,7.5rem);
-  margin-bottom: clamp(1.5rem,3vw,2.5rem);
+  margin-bottom: 0.5rem;
 }
 .hero-line { display: block; overflow: hidden; }
 .hero-line > span {
@@ -289,7 +289,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .hero-line .accent  { color: var(--ac); }
 @keyframes hslide { to { opacity:1; transform:translateY(0) skewY(0); } }
 .hero-footer { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
-.hero-desc { font-size: clamp(.76rem,1.1vw,.88rem); color: var(--t2); max-width: 400px; line-height: 1.8; font-weight: 300; opacity: 0; animation: hfade .8s .45s var(--ease) forwards; }
+.hero-desc { font-size: clamp(.95rem,1.375vw,1.1rem); color: var(--t2); max-width: 400px; line-height: 1.8; font-weight: 500; opacity: 0; animation: hfade .8s .45s var(--ease) forwards; }
 .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: .5rem; opacity: 0; animation: hfade .8s .6s var(--ease) forwards; }
 .scroll-indicator span { font-family: var(--fm); font-size: .42rem; letter-spacing: .38em; text-transform: uppercase; color: var(--t4); writing-mode: vertical-rl; }
 .scroll-line { width: 1.5px; height: clamp(28px,4vh,44px); background: var(--br2); border-radius: 1px; position: relative; overflow: hidden; }

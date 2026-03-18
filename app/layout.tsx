@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "KRI4TIV | Anirudh Kandpal, Creative Marketer",
   description:
     "Creative marketing studio based in Dubai. Brand strategy, creative production, AI automation, motion and more.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

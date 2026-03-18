@@ -213,4 +213,7 @@ npm run build
 | v11 | Section background images added (02-05) — `.sec-bg-img` CSS, `brightness(0.70)` darkening, black fallback for missing images, edge-to-edge on all inner pages |
 | v12 | Section numbers (01–05) changed from grey `var(--b3)` to lime `var(--ac)`. Highlighted subtitle text on Work, Exploration, Contact pages — lime glow `rgba(210,243,77,0.15)` background |
 | v13 | Strip wallpaper blur reduced 70% (15px→5px default, 9px→3px hover), brightness increased 80% (Work: 0.3→0.54 / 0.4→0.72, Exploration: 0.25→0.45 / 0.35→0.63) |
-| Final | All exports overwritten with latest version: backup `/kri4tiv-FINAL-v2`, standalone `~/Desktop/KRI4TIV-Portfolio`, Next.js export `~/Desktop/KRI4TIV-NextJS-Export`, organized source `/kri4tiv-organized` |
+| v14 | New hero video replaced (18MB), hero video plays at 1.05x speed via playbackRate ref. Work company names matched to Exploration size (clamp(2rem,4vw,3.5rem)). Work + Exploration sector labels +20% larger and lime green. Contact page new background image |
+| v15 | Hero overlay removed completely — both .hero-bg::after and .hero-video-overlay set to background:none |
+| v16 | Vercel Speed Insights + Analytics added to root layout |
+| Final | GitHub: github.com/kri4tiv/kri4tiv-portfolio (main). All old backups deleted. Live at Vercel. Desktop reference: ~/Desktop/KRI4TIV-Portfolio/ |
