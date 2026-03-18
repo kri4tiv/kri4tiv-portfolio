@@ -18,6 +18,7 @@ interface CarouselProps {
 
 export default function Carousel({ title, tag, slides, onClose }: CarouselProps) {
   const [lbIndex, setLbIndex] = useState<number | null>(null);
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
   const srcs = slides.map(s => s.src ?? "");
 
   return (
@@ -57,13 +58,16 @@ export default function Carousel({ title, tag, slides, onClose }: CarouselProps)
                   src={slide.src}
                   alt={slide.label}
                   className="carousel-slide-img"
+                  onLoad={() => setLoaded(p => ({ ...p, [i]: true }))}
                   onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                 />
               ) : null}
-              <span className="carousel-slide-num">
-                {String(slide.n).padStart(2, "0")}
-              </span>
-              <span className="carousel-slide-label">{slide.label}</span>
+              {!loaded[i] && (
+                <>
+                  <span className="carousel-slide-num">{String(slide.n).padStart(2, "0")}</span>
+                  <span className="carousel-slide-label">{slide.label}</span>
+                </>
+              )}
             </div>
           ))}
         </div>
