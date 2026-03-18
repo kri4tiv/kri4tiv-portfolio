@@ -838,6 +838,13 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .hero { overflow: hidden; }
   .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
 
+  /* HERO — pin text block to bottom on mobile */
+  .hero-content {
+    justify-content: flex-end;
+    padding-top: 0;
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
   /* HERO FOOTER */
   .hero-footer { flex-direction: column; align-items: flex-start; }
   .hero-desc { max-width: 100%; font-size: clamp(.88rem, 3.5vw, 1rem); }
