@@ -2,7 +2,7 @@
 
 export const WORK_PROJECTS = [
   {
-    id: 1, name: "Fyonlli", type: "Fashion", year: "2024",
+    id: 1, name: "Fyonlli", type: "Gifting & Lifestyle", year: "2024",
     slug: "fyonlli", bg: "#1b2618",
     images: [
       "/media/work/fyonlli/01.jpeg",
@@ -201,7 +201,7 @@ export const EXPLORE_PROJECTS = [
 
 export const MOTION_VIDEOS = [
   { id: 1, name: "Sesko — Complete Striker",         type: "Campaign",  ratio: "16:9", src: "/media/motion/sesko/video.mp4",      thumb: "/media/motion/sesko/thumb.jpg" },
-  { id: 2, name: "Fyonlli — The Science of Gifting",  type: "Fashion",   ratio: "9:16", src: "/media/motion/fyonlli.mp4",           thumb: "/media/motion/fyonlli-thumb.jpg" },
+  { id: 2, name: "Fyonlli — The Science of Gifting",  type: "Gifting & Lifestyle",   ratio: "9:16", src: "/media/motion/fyonlli.mp4",           thumb: "/media/motion/fyonlli-thumb.jpg" },
   { id: 3, name: "Nike Ad",                           type: "Campaign",  ratio: "21:9", src: "/media/motion/nike-ad.mp4",           thumb: "/media/motion/nike-ad-thumb.jpg" },
   { id: 4, name: "Bluewater",                         type: "Corporate", ratio: "16:9", src: "/media/motion/bluewater.mp4",         thumb: "/media/motion/bluewater-thumb.jpg" },
   { id: 5, name: "Jubel",                             type: "Brand",     ratio: "16:9", src: "/media/motion/jubel.mp4",             thumb: "/media/motion/jubel-thumb.jpg" },
