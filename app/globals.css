@@ -140,17 +140,19 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 /* mobile menu overlay */
 .mobile-menu {
   position: fixed; inset: 0; background: var(--b0);
-  z-index: 190; display: flex; flex-direction: column;
+  z-index: 9999; display: flex; flex-direction: column;
   justify-content: center;
   padding: 0 clamp(2rem,8vw,5rem);
 }
 .mobile-menu-close {
-  position: absolute; top: 1.2rem; right: 1.2rem;
-  width: 48px; height: 48px; border-radius: 50%;
-  border: 1.5px solid var(--br3); background: var(--b1);
-  color: var(--t0); cursor: pointer; z-index: 201;
+  position: absolute; top: 20px; right: 20px;
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.08);
+  color: var(--t0); cursor: pointer; z-index: 99999;
   display: flex; align-items: center; justify-content: center;
-  transition: all .3s var(--ease); font-size: 1.1rem;
+  transition: all .3s var(--ease); font-size: 1.2rem;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .mobile-menu-close:hover { background: var(--rd); border-color: var(--rd); transform: rotate(90deg); }
 .mobile-menu-row {
@@ -813,10 +815,24 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  /* Hide custom cursor entirely on mobile — pointer-events:none is already set
+     but display:none ensures it never blocks anything */
+  .custom-cursor { display: none !important; pointer-events: none !important; }
+
+  /* Restore default cursor on touch — desktop sets cursor:none globally */
+  *, *::before, *::after { cursor: auto !important; }
+  a, button, [role="button"] { cursor: pointer !important; }
+
   /* NAV */
   .nav-links, .nav-cta-desktop { display: none; }
   .nav-hamburger { display: flex; }
   .mm-cta-wrap { display: flex; }
+
+  /* Mobile menu rows: ensure tap targets work */
+  .mobile-menu-row, .mm-cta {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 
   /* HERO — fix overflow */
   .hero { overflow: hidden; }
