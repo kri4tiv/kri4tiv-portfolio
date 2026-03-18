@@ -17,7 +17,7 @@ export default function CaseStudyPage() {
         <div className="cs-hero-left">
           <p className="cs-eyebrow">Case Study</p>
           <h1 className="cs-title">
-            From Idea to Half a Million Views ≈ 503K:<br />
+            From Idea to Half a Million Views ≈ 498.7K:<br />
             How I Built a Viral<br />
             <em>Football Edit</em>
           </h1>
