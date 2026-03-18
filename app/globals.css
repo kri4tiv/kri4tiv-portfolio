@@ -240,7 +240,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(5,5,5,.1) 0%, transparent 20%, rgba(5,5,5,.45) 60%, var(--b0) 100%);
+  background: none;
 }
 .hero-placeholder {
   width: 100%; height: 100%;
@@ -303,7 +303,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .hero-video-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.1) 30%, rgba(5,5,5,0.5) 60%, rgba(5,5,5,0.95) 100%);
+  background: none;
 }
 .hero-play-btn {
   display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
