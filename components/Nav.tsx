@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
   { label: "Motion",      href: "/motion" },
-  { label: "Contact",     href: "/contact" },
+  { label: "Case Study",  href: "/case-study" },
 ];
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
