@@ -733,13 +733,13 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   gap: 0;
   height: clamp(500px, 70vh, 700px);
   background: var(--b0);
-  /* nav sits above, so push content down on the text side only via padding-top on left */
+  overflow: hidden;
 }
 .cs-hero-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(7rem,14vw,12rem) 2rem clamp(2rem,4vw,3rem) clamp(1.5rem,4vw,3.5rem);
+  padding: clamp(5rem,8vw,7rem) 2rem clamp(2rem,4vw,3rem) clamp(1.5rem,4vw,3.5rem);
 }
 .cs-hero-right { position: relative; height: 100%; overflow: hidden; }
 .cs-eyebrow { font-family: var(--fm); font-size: .55rem; letter-spacing: .35em; text-transform: uppercase; color: var(--ac); margin-bottom: .9rem; }

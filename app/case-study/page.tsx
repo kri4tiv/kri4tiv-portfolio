@@ -40,7 +40,7 @@ export default function CaseStudyPage() {
       </div>
 
       {/* ── Audio player ─────────────────────────────────────────── */}
-      <div style={{ paddingTop: "clamp(1.5rem,3vw,2.5rem)" }}>
+      <div style={{ marginTop: "2rem" }}>
         <AudioPlayer src="/media/case-study/narration.mp3" />
       </div>
 
