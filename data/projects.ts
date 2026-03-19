@@ -52,7 +52,7 @@ export const WORK_PROJECTS = [
     ],
   },
   {
-    id: 5, name: "BoldCube", type: "E-Commerce", year: "2023",
+    id: 5, name: "BoldCube", type: "Kids' Cycle Company (Ages 4-14)", year: "2023",
     slug: "boldcube", bg: "#17281b",
     images: [
       "/media/work/boldcube/01.jpeg",
