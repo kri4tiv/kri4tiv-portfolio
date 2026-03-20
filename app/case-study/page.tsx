@@ -44,8 +44,8 @@ export default function CaseStudiesListingPage() {
             onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)"; }}
             onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)"; }}
             >
-              <div style={{ position: "relative", width: "100%", aspectRatio: "16/10" }}>
-                <Image src="/media/case-study/ai-workflow/9.png" alt="AI Workflow first draft" fill style={{ objectFit: "cover" }} />
+              <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", backgroundColor: "#0a0a0a" }}>
+                <Image src="/media/case-study/ai-workflow/9.png" alt="AI Workflow first draft" fill style={{ objectFit: "contain", padding: "2rem" }} />
               </div>
               <div style={{ padding: "1.5rem 1.5rem 2rem 1.5rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem", fontSize: "0.85rem", color: "var(--ac)", fontWeight: 500 }}>
@@ -53,7 +53,7 @@ export default function CaseStudiesListingPage() {
                   <span>·</span>
                   <span>Workflow</span>
                 </div>
-                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>How I Use AI to Create High-Quality First Drafts — Fast</h3>
+                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>How I Use AI to Create High-Quality First Drafts - Fast</h3>
                 <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A KRI4TIV workflow for rapid concept development resulting in production-ready drafts.</p>
               </div>
             </Link>

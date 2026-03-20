@@ -8,7 +8,7 @@ export default function AIWorkflowCaseStudyPage() {
         <div className="cs-hero-left">
           <p className="cs-eyebrow">Case Study</p>
           <h1 className="cs-title">
-            How I Use AI to Create <em>High-Quality</em> First Drafts — Fast
+            How I Use AI to Create <em>High-Quality</em> First Drafts - Fast
           </h1>
           <div className="cs-meta">
             <span>March 2026</span>
@@ -16,13 +16,13 @@ export default function AIWorkflowCaseStudyPage() {
             <span>4–6 min read</span>
           </div>
         </div>
-        <div className="cs-hero-right">
+        <div className="cs-hero-right" style={{ backgroundColor: "#0a0a0a" }}>
           <Image
             src="/media/case-study/ai-workflow/9.png"
             alt="AI Workflow First Draft"
             fill
             priority
-            style={{ objectFit: "cover", objectPosition: "center center" }}
+            style={{ objectFit: "contain", padding: "2.5rem" }}
             sizes="(max-width: 768px) 100vw, 45vw"
           />
         </div>
@@ -36,7 +36,7 @@ export default function AIWorkflowCaseStudyPage() {
 
         <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>The Challenge</h2>
         
-        <p>In most design projects, the hardest part isn&apos;t execution — it&apos;s the beginning.</p>
+        <p>In most design projects, the hardest part isn&apos;t execution - it&apos;s the beginning.</p>
         <p>Translating a vague idea into a strong visual direction often takes the most time. You&apos;re balancing strategy, aesthetics, messaging, and layout all at once.</p>
         <p>I found that this slowed down momentum.</p>
         <p>So instead of starting in design tools, I built a workflow that allows me to quickly move from strategy → concept → visual draft.</p>
@@ -53,7 +53,7 @@ export default function AIWorkflowCaseStudyPage() {
         </ul>
         <p>By breaking these apart, I can focus on each step with more clarity and speed.</p>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 1 — Defining the Brand Context</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 1 - Defining the Brand Context</h2>
         
         <p>Every project starts with structured input.</p>
         <p>I provide:</p>
@@ -85,7 +85,7 @@ export default function AIWorkflowCaseStudyPage() {
         <p>For this case, the objective was to reposition JLT from a functional location into:</p>
         <p>A premium, future-facing urban ecosystem.</p>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 2 — Translating Strategy Into Creative Direction</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 2 - Translating Strategy Into Creative Direction</h2>
         
         <p>The system outputs a structured strategy report, including:</p>
         <ul style={{ paddingLeft: "1.5rem", marginBottom: "1.5rem", listStyleType: "disc" }}>
@@ -110,7 +110,7 @@ export default function AIWorkflowCaseStudyPage() {
         <p>This removes guesswork and gives me a clear starting point.</p>
         <p>From here, I select a strong direction to develop further.</p>
         <p>One of the chosen concepts was:</p>
-        <p>“The Visionary — Investor & Future-Forward Focus”</p>
+        <p>“The Visionary - Investor & Future-Forward Focus”</p>
 
         <figure className="cs-figure" style={{ marginTop: "2.5rem" }}>
           <Image
@@ -125,9 +125,9 @@ export default function AIWorkflowCaseStudyPage() {
           />
         </figure>
 
-        <p>At this stage, the focus is still conceptual — no design decisions yet.</p>
+        <p>At this stage, the focus is still conceptual - no design decisions yet.</p>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 3 — Converting Ideas Into Production-Ready Prompts</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 3 - Converting Ideas Into Production-Ready Prompts</h2>
         
         <p>Strong visuals require precise inputs.</p>
         <p>So I pass the selected concept into my prompt enhancement system, trained on high-performing visual prompts.</p>
@@ -168,7 +168,7 @@ export default function AIWorkflowCaseStudyPage() {
 
         <p>The result is a set of prompts that are specific enough to generate high-quality, consistent outputs.</p>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 4 — Rapid Visual Exploration</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 4 - Rapid Visual Exploration</h2>
         
         <p>These prompts are then used to generate multiple visual directions.</p>
 
@@ -195,7 +195,7 @@ export default function AIWorkflowCaseStudyPage() {
         <p>Instead of imagining ideas, I can now see them.</p>
         <p>This significantly improves decision-making early in the process.</p>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 5 — Building a Functional First Draft</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 5 - Building a Functional First Draft</h2>
         
         <p>Once a direction is selected, I move into layout.</p>
         <p>Using my design system, I quickly:</p>
@@ -231,7 +231,7 @@ export default function AIWorkflowCaseStudyPage() {
           />
         </figure>
 
-        <p>This creates a functional first draft — something that looks and feels like a real asset.</p>
+        <p>This creates a functional first draft - something that looks and feels like a real asset.</p>
         <p>At this point, I can assess:</p>
         <ul style={{ paddingLeft: "1.5rem", marginBottom: "1.5rem", listStyleType: "disc" }}>
           <li>Readability</li>
@@ -239,7 +239,7 @@ export default function AIWorkflowCaseStudyPage() {
           <li>Overall impact</li>
         </ul>
 
-        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 6 — The Output</h2>
+        <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Step 6 - The Output</h2>
         
         <p>The result is a clean, high-quality first draft that captures both the strategy and the visual direction.</p>
 
@@ -256,7 +256,7 @@ export default function AIWorkflowCaseStudyPage() {
           />
         </figure>
 
-        <p>This is not the final design — but it&apos;s a strong foundation.</p>
+        <p>This is not the final design - but it&apos;s a strong foundation.</p>
 
         <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Refinement and Final Execution</h2>
         
@@ -290,7 +290,7 @@ export default function AIWorkflowCaseStudyPage() {
 
         <h2 style={{ fontFamily: "var(--fd)", fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 600, color: "var(--t0)", marginTop: "2.5rem", marginBottom: "1rem" }}>Final Thought</h2>
         
-        <p>AI is not replacing the design process — it&apos;s restructuring it.</p>
+        <p>AI is not replacing the design process - it&apos;s restructuring it.</p>
         <p>It accelerates the early stages, where uncertainty is highest.</p>
         <p>And by doing that, it gives me more time to focus on what truly matters:</p>
         <ul style={{ paddingLeft: "1.5rem", marginBottom: "1.5rem", listStyleType: "disc" }}>
@@ -299,7 +299,7 @@ export default function AIWorkflowCaseStudyPage() {
           <li>Final execution</li>
         </ul>
         <p style={{ fontSize: "1.1rem", fontWeight: 500, color: "var(--t0)", marginTop: "2rem" }}>
-          Because a great design doesn&apos;t start perfect —<br />
+          Because a great design doesn&apos;t start perfect -<br />
           it starts with a strong, clear direction.
         </p>
 
@@ -316,7 +316,7 @@ export default function AIWorkflowCaseStudyPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Case Study — AI Workflow</span>
+        <span>Case Study - AI Workflow</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>
