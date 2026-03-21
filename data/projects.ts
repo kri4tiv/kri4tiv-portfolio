@@ -240,7 +240,7 @@ export const SERVICES = [
 export const TOOLS = [
   "Adobe Creative Cloud", "Photoshop", "Premiere Pro", "Canva", "CapCut", "Figma",
   "Midjourney", "NanoBanana", "DALL-E", "Veo3.1", "Kling", "Artlist.io", "Higgsfield",
-  "ChatGPT", "DaVinci Resolve", "HubSpot", "MailChimp", "SEMrush", "Ahrefs", "GA4", "Notion",
+  "ChatGPT", "Codex", "Claude", "Claude Code", "Antigravity", "Cursor", "OpenClaw", "DaVinci Resolve", "HubSpot", "MailChimp", "SEMrush", "Ahrefs", "GA4", "Notion",
 ];
 
 export const NAV_LINKS = [

@@ -9,6 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bekri4tiv.com"),
   title: "KRI4TIV | Anirudh Kandpal, Creative Marketer",
   description:
     "Creative marketing studio based in Dubai. Brand strategy, creative production, AI automation, motion and more.",
