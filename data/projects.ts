@@ -199,14 +199,82 @@ export const EXPLORE_PROJECTS = [
 
 // ─── MOTION VIDEOS ───────────────────────────────────────────────────────────
 
-export const MOTION_VIDEOS = [
-  { id: 1, name: "Sesko — Complete Striker",         type: "Campaign",  ratio: "16:9", src: "/media/motion/sesko/video.mp4",      thumb: "/media/motion/sesko/thumb.jpg" },
-  { id: 2, name: "Fyonlli — The Science of Gifting",  type: "Gifting & Lifestyle",   ratio: "9:16", src: "/media/motion/fyonlli.mp4",           thumb: "/media/motion/fyonlli-thumb.jpg" },
-  { id: 3, name: "Nike Ad",                           type: "Campaign",  ratio: "21:9", src: "/media/motion/nike-ad.mp4",           thumb: "/media/motion/nike-ad-thumb.jpg" },
-  { id: 4, name: "Bluewater",                         type: "Corporate", ratio: "16:9", src: "/media/motion/bluewater.mp4",         thumb: "/media/motion/bluewater-thumb.jpg" },
-  { id: 5, name: "Jubel",                             type: "Brand",     ratio: "16:9", src: "/media/motion/jubel.mp4",             thumb: "/media/motion/jubel-thumb.jpg" },
-  { id: 6, name: "Inception Top",                     type: "Film",      ratio: "4:3",  src: "/media/motion/inception.mp4",         thumb: "/media/motion/inception-thumb.jpg" },
-  { id: 7, name: "Evision Legal",                     type: "Legal Tech",ratio: "16:9", src: "/media/motion/evision-legal.mp4",     thumb: "/media/motion/evision-legal-thumb.jpg" },
+export type MotionVideoProject = {
+  id: string;
+  title: string;
+  category: "Cinematic" | "Brand & Commercial" | "Motion & Animation" | "Social & Reels";
+  poster: string;
+  youtubeId: string | null;
+  description: string;
+  aspectRatio: string;
+  featured?: boolean;
+};
+
+export const MOTION_VIDEOS: MotionVideoProject[] = [
+  {
+    id: "sesko-complete-striker",
+    title: "Sesko - Complete Striker",
+    category: "Cinematic",
+    poster: "/media/motion/sesko/thumb.jpg",
+    youtubeId: null,
+    description: "A sports-led AI film concept built around rhythm, pressure, and striker energy.",
+    aspectRatio: "16:9",
+    featured: true,
+  },
+  {
+    id: "fyonlli-science-of-gifting",
+    title: "Fyonlli - The Science of Gifting",
+    category: "Brand & Commercial",
+    poster: "/media/motion/fyonlli-thumb.jpg",
+    youtubeId: null,
+    description: "A lifestyle product film exploring gifting rituals, detail, and emotional recall.",
+    aspectRatio: "9:16",
+  },
+  {
+    id: "nike-spec-ad",
+    title: "Nike Spec Ad",
+    category: "Brand & Commercial",
+    poster: "/media/motion/nike-ad-thumb.jpg",
+    youtubeId: null,
+    description: "A performance-led campaign concept built around speed, impact, and product energy.",
+    aspectRatio: "21:9",
+  },
+  {
+    id: "bluewater",
+    title: "Bluewater",
+    category: "Motion & Animation",
+    poster: "/media/motion/bluewater-thumb.jpg",
+    youtubeId: null,
+    description: "A clean corporate motion piece shaped for atmosphere, pace, and visual polish.",
+    aspectRatio: "16:9",
+  },
+  {
+    id: "jubel",
+    title: "Jubel",
+    category: "Social & Reels",
+    poster: "/media/motion/jubel-thumb.jpg",
+    youtubeId: null,
+    description: "A compact brand edit designed for quick recognition and social-first motion.",
+    aspectRatio: "16:9",
+  },
+  {
+    id: "inception-top",
+    title: "Inception Top",
+    category: "Cinematic",
+    poster: "/media/motion/inception-thumb.jpg",
+    youtubeId: null,
+    description: "A film-style visual experiment exploring surreal framing and cinematic tension.",
+    aspectRatio: "4:3",
+  },
+  {
+    id: "evision-legal",
+    title: "Evision Legal",
+    category: "Motion & Animation",
+    poster: "/media/motion/evision-legal-thumb.jpg",
+    youtubeId: null,
+    description: "A composed legal-tech motion piece focused on clarity, trust, and interface-led storytelling.",
+    aspectRatio: "16:9",
+  },
 ];
 
 // ─── CREATIVE WALL ────────────────────────────────────────────────────────────
@@ -247,6 +315,6 @@ export const NAV_LINKS = [
   { label: "Home",        href: "/" },
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
-  { label: "Motion",      href: "/motion" },
+  { label: "AI Motion",   href: "/motion" },
   { label: "Contact",     href: "/contact" },
 ];

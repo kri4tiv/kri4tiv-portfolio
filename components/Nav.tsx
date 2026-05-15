@@ -7,8 +7,8 @@ const NAV_LINKS = [
   { label: "Home",        href: "/" },
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
-  { label: "Motion",      href: "/motion" },
-  { label: "Case Study",  href: "/case-study" },
+  { label: "AI Motion",   href: "/motion" },
+  { label: "Insights",    href: "/case-study" },
 ];
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

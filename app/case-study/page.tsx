@@ -12,10 +12,10 @@ export default function CaseStudiesListingPage() {
           <div>
             <p className="sec-eyebrow">Insights & Breakdowns</p>
             <h1 className="sec-h2" style={{ fontFamily: "var(--fh)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-              Case <em>Studies</em>
+              Insights & Creative <em>Breakdowns</em>
             </h1>
             <p className="sec-desc" style={{ marginTop: "1rem" }}>
-              Deep dives into strategy, creative processes, and results.
+              Deep dives into strategy, creative process, AI workflows, campaign thinking, and results.
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function CaseStudiesListingPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Case Studies</span>
+        <span>Insights & Creative Breakdowns</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>
