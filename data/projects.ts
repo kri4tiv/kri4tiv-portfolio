@@ -297,6 +297,24 @@ export const WALL_ITEMS = [
   "/media/creative-wall/15.png",
 ];
 
+export const OPTIMIZED_WALL_ITEMS = [
+  "/media/creative-wall-optimized/01.webp",
+  "/media/creative-wall-optimized/02.webp",
+  "/media/creative-wall-optimized/03.webp",
+  "/media/creative-wall-optimized/04.webp",
+  "/media/creative-wall-optimized/05.webp",
+  "/media/creative-wall-optimized/06.webp",
+  "/media/creative-wall-optimized/07.webp",
+  "/media/creative-wall-optimized/08.webp",
+  "/media/creative-wall-optimized/09.webp",
+  "/media/creative-wall-optimized/10.webp",
+  "/media/creative-wall-optimized/11.webp",
+  "/media/creative-wall-optimized/12.webp",
+  "/media/creative-wall-optimized/13.webp",
+  "/media/creative-wall-optimized/14.webp",
+  "/media/creative-wall-optimized/15.webp",
+];
+
 // ─── STATIC DATA ─────────────────────────────────────────────────────────────
 
 export const SERVICES = [

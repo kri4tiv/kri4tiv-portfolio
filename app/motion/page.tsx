@@ -3,49 +3,30 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import VideoLightbox from "@/components/VideoLightbox";
-import Lightbox from "@/components/Lightbox";
-import { MOTION_VIDEOS, EXPLORE_PROJECTS, WALL_ITEMS } from "@/data/projects";
+import { MOTION_VIDEOS } from "@/data/projects";
 import { useHoverSound } from "@/components/HoverSound";
 
 const CATEGORIES = ["Cinematic", "Brand & Commercial", "Motion & Animation", "Social & Reels"];
-const SCROLL_BRANDS = ["cartier", "north-face", "rolex", "nike", "mfk", "louis-vuitton"];
 
-const brandGroups = SCROLL_BRANDS.map(
-  slug => (EXPLORE_PROJECTS.find(p => p.slug === slug)?.images ?? [])
-    .map(src => src.replace("/media/exploration/", "/media/scroll-row/"))
-);
-const maxLen = Math.max(...brandGroups.map(g => g.length));
-const brandInterleaved: string[] = [];
-for (let i = 0; i < maxLen; i++) {
-  for (const group of brandGroups) {
-    if (i < group.length) brandInterleaved.push(group[i]);
-  }
-}
-const allScrollImages: string[] = [];
-let wallIdx = 0;
-for (let i = 0; i < brandInterleaved.length; i++) {
-  allScrollImages.push(brandInterleaved[i]);
-  if ((i + 1) % 3 === 0 && wallIdx < WALL_ITEMS.length) {
-    allScrollImages.push(WALL_ITEMS[wallIdx++].replace("/media/creative-wall/", "/media/scroll-row/wall/"));
-  }
-}
-while (wallIdx < WALL_ITEMS.length) allScrollImages.push(WALL_ITEMS[wallIdx++].replace("/media/creative-wall/", "/media/scroll-row/wall/"));
+const CATEGORY_NOTES: Record<string, string> = {
+  "Cinematic": "Film-led experiments with atmosphere, pacing, and visual tension.",
+  "Brand & Commercial": "Campaign concepts, spec ads, product films, and brand-led motion.",
+  "Motion & Animation": "Design movement, visual systems, product loops, and motion graphics.",
+  "Social & Reels": "Short-form edits shaped for fast recognition and social rhythm.",
+};
 
-const rowSize = Math.ceil(allScrollImages.length / 3);
-const ROWS = [
-  allScrollImages.slice(0, rowSize),
-  allScrollImages.slice(rowSize, rowSize * 2),
-  allScrollImages.slice(rowSize * 2),
-];
+const slugFor = (value: string) => value.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-");
 
 type MotionProject = (typeof MOTION_VIDEOS)[number];
 
-function MotionCard({
+function MotionProjectPanel({
   project,
+  index,
   featured = false,
   onWatch,
 }: {
   project: MotionProject;
+  index: number;
   featured?: boolean;
   onWatch: (project: MotionProject) => void;
 }) {
@@ -53,8 +34,8 @@ function MotionCard({
   const canWatch = Boolean(project.youtubeId);
 
   return (
-    <article className={`motion-project-card${featured ? " featured" : ""}`}>
-      <div className="motion-project-poster">
+    <article className={`motion-editorial-card${featured ? " featured" : ""}${index % 2 === 1 ? " alternate" : ""}`}>
+      <div className="motion-editorial-media">
         <Image
           src={project.poster}
           alt={`${project.title} thumbnail`}
@@ -62,12 +43,14 @@ function MotionCard({
           loading={featured ? undefined : "lazy"}
           priority={featured}
           decoding="async"
-          sizes={featured ? "(max-width: 900px) 100vw, 55vw" : "(max-width: 768px) 100vw, 33vw"}
+          sizes={featured ? "(max-width: 900px) 100vw, 64vw" : "(max-width: 768px) 100vw, 52vw"}
           style={{ objectFit: "cover" }}
         />
-        <span className="motion-project-ratio">{project.aspectRatio}</span>
+        <div className="motion-media-shade" />
+        <span className="motion-editorial-index">{String(index + 1).padStart(2, "0")}</span>
+        <span className="motion-editorial-ratio">{project.aspectRatio}</span>
       </div>
-      <div className="motion-project-copy">
+      <div className="motion-editorial-copy">
         <p className="motion-project-kicker">{project.category}</p>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
@@ -89,7 +72,6 @@ function MotionCard({
 
 export default function MotionPage() {
   const [video, setVideo] = useState<MotionProject | null>(null);
-  const [imgLb, setImgLb] = useState<string | null>(null);
 
   const featuredProject = MOTION_VIDEOS.find(project => project.featured) ?? MOTION_VIDEOS[0];
   const groupedProjects = useMemo(() => (
@@ -107,11 +89,6 @@ export default function MotionPage() {
         youtubeId={video?.youtubeId}
         title={video?.title}
       />
-      <Lightbox
-        isOpen={imgLb !== null}
-        onClose={() => setImgLb(null)}
-        src={imgLb ?? undefined}
-      />
 
       <section>
         <div className="sec-header-wrap motion-hero" style={{ paddingTop: "clamp(7rem,14vw,12rem)" }}>
@@ -126,11 +103,10 @@ export default function MotionPage() {
                   <em>Motion Studio</em>
                 </h1>
                 <p className="sec-desc">
-                  A curated collection of AI-led films, brand visuals, motion experiments, and short-form creative work built for campaigns, social content, and visual storytelling.
+                  AI-led films, brand visuals, motion experiments, and short-form creative work built for campaigns, social content, and visual storytelling.
                 </p>
                 <div className="motion-hero-actions">
                   <a href="#motion-projects">View Motion Projects</a>
-                  <a href="#concept-wall">Explore Visual Wall</a>
                 </div>
               </div>
             </div>
@@ -138,20 +114,20 @@ export default function MotionPage() {
         </div>
       </section>
 
-      <main id="motion-projects" className="motion-projects-wrap">
+      <main id="motion-projects" className="motion-editorial-wrap">
         <Reveal>
           <section className="motion-featured-section" aria-label="Featured motion project">
             <div className="motion-section-intro">
               <p className="sec-eyebrow">Featured Motion Project</p>
-              <h2>Start with the film work.</h2>
+              <h2>Film work first, framed with intent.</h2>
             </div>
-            <MotionCard project={featuredProject} featured onWatch={setVideo} />
+            <MotionProjectPanel project={featuredProject} index={0} featured onWatch={setVideo} />
           </section>
         </Reveal>
 
         <nav className="motion-category-nav" aria-label="Motion project categories">
           {groupedProjects.map(group => (
-            <a key={group.category} href={`#${group.category.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}`}>
+            <a key={group.category} href={`#${slugFor(group.category)}`}>
               {group.category}
             </a>
           ))}
@@ -159,63 +135,26 @@ export default function MotionPage() {
 
         {groupedProjects.map(group => (
           <Reveal key={group.category}>
-            <section
-              id={group.category.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-")}
-              className="motion-project-section"
-            >
+            <section id={slugFor(group.category)} className="motion-editorial-section">
               <div className="motion-section-intro">
                 <p className="sec-eyebrow">{group.category}</p>
                 <h2>{group.category}</h2>
+                <p>{CATEGORY_NOTES[group.category]}</p>
               </div>
-              <div className="motion-project-grid">
-                {group.projects.map(project => (
-                  <MotionCard key={project.id} project={project} onWatch={setVideo} />
+              <div className="motion-editorial-list">
+                {group.projects.map((project, index) => (
+                  <MotionProjectPanel
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    onWatch={setVideo}
+                  />
                 ))}
               </div>
             </section>
           </Reveal>
         ))}
       </main>
-
-      <section id="concept-wall" className="motion-wall-section">
-        <div className="section motion-wall-head">
-          <div className="motion-section-intro">
-            <p className="sec-eyebrow">Concept Frames & Visual Tests</p>
-            <h2>Visual exploration wall.</h2>
-            <p>
-              A moving archive of AI-generated frames, campaign moods, product concepts, and visual experiments.
-            </p>
-          </div>
-        </div>
-        <div className="motion-rows" aria-label="Concept frames and visual tests">
-          {ROWS.map((row, rowIdx) => (
-            <div key={rowIdx} className="motion-scroll-row">
-              <div className={`motion-scroll-track ${rowIdx === 1 ? "rtl" : "ltr"}`}>
-                {[...row, ...row].map((src, i) => (
-                  <button
-                    key={`${src}-${i}`}
-                    className="motion-scroll-item"
-                    type="button"
-                    onClick={() => setImgLb(src)}
-                    aria-label={`Open concept frame ${i + 1}`}
-                  >
-                    <Image
-                      src={src}
-                      alt={`KRI4TIV concept frame ${i + 1}`}
-                      fill
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                      className="motion-scroll-img"
-                      sizes="(max-width: 768px) 240px, 340px"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle:"italic", color:"var(--ac)" }}>4</span>TIV</span>

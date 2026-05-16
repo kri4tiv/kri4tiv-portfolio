@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
   { label: "AI Motion",   href: "/motion" },
-  { label: "Insights",    href: "/case-study" },
+  { label: "Stories",     href: "/case-study" },
 ];
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -80,8 +80,6 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const handleNav = (href: string) => {
     setMenuOpen(false);

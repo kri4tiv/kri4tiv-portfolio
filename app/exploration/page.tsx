@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Lightbox from "@/components/Lightbox";
-import { EXPLORE_PROJECTS } from "@/data/projects";
+import { EXPLORE_PROJECTS, OPTIMIZED_WALL_ITEMS } from "@/data/projects";
 import { useHoverSound } from "@/components/HoverSound";
 
 const STRIP_COLORS: Record<string, string> = {
@@ -20,6 +20,13 @@ const STRIP_COLORS: Record<string, string> = {
 };
 
 type LbState = { projectName: string; images: string[]; index: number };
+
+const wallRowSize = Math.ceil(OPTIMIZED_WALL_ITEMS.length / 3);
+const WALL_ROWS = [
+  OPTIMIZED_WALL_ITEMS.slice(0, wallRowSize),
+  OPTIMIZED_WALL_ITEMS.slice(wallRowSize, wallRowSize * 2),
+  OPTIMIZED_WALL_ITEMS.slice(wallRowSize * 2),
+];
 
 export default function ExplorationPage() {
   const [openId, setOpenId]           = useState<number | null>(null);
@@ -88,6 +95,9 @@ export default function ExplorationPage() {
                 <p className="sec-desc">
                   <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>Unsolicited concepts for brands I admire</span>
                 </p>
+                <div className="exploration-hero-actions">
+                  <a href="#concept-wall">View Concept Wall</a>
+                </div>
               </div>
             </div>
           </div>
@@ -164,6 +174,47 @@ export default function ExplorationPage() {
           </div>
         </Reveal>
       </section>
+
+      <Reveal>
+        <section id="concept-wall" className="exploration-wall-section">
+          <div className="exploration-wall-intro">
+            <p className="sec-eyebrow">Concept Frames & Visual Tests</p>
+            <h2>From individual worlds into one moving wall.</h2>
+            <p>
+              A compact archive of AI-generated frames, campaign moods, product concepts, and visual tests from across the exploration work.
+            </p>
+          </div>
+
+          <div className="exploration-wall-wrap" aria-label="Concept frames and visual tests">
+            {WALL_ROWS.map((row, rowIdx) => (
+              <div key={rowIdx} className="exploration-wall-row">
+                <div className={`exploration-wall-track ${rowIdx === 1 ? "reverse" : ""}`}>
+                  {[...row, ...row].map((src, i) => (
+                    <button
+                      key={`${src}-${i}`}
+                      className="exploration-wall-item"
+                      type="button"
+                      onClick={() => setLb({ projectName: "Concept Wall", images: OPTIMIZED_WALL_ITEMS, index: OPTIMIZED_WALL_ITEMS.indexOf(src) })}
+                      aria-label={`Open concept wall frame ${i + 1}`}
+                    >
+                      <Image
+                        src={src}
+                        alt={`KRI4TIV concept wall frame ${i + 1}`}
+                        fill
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        sizes="(max-width: 768px) 220px, 320px"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle:"italic", color:"var(--ac)" }}>4</span>TIV</span>

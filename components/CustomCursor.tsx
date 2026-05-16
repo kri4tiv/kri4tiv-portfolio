@@ -37,7 +37,7 @@ export default function CustomCursor() {
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as Element;
       const isClickable = target.closest(
-        "a, button, [role='button'], input, textarea, select, .motion-scroll-item, .work-row, .explore-strip, .explore-visual, .video-box, .carousel-slide, .work-film-thumb"
+        "a, button, [role='button'], input, textarea, select, .exploration-wall-item, .work-row, .explore-strip, .explore-visual, .carousel-slide, .work-film-thumb"
       );
       if (isClickable) {
         cursor.style.width  = "40px";
