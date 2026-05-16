@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function SmoothScroll() {
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function SmoothScroll() {
     });
 
     document.documentElement.classList.add("has-smooth-scroll");
+    lenis.on("scroll", ScrollTrigger.update);
 
     function raf(time: number) {
       lenis.raf(time);
