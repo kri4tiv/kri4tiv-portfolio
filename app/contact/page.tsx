@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <>
       <div className="sec-header-wrap" style={{ paddingTop: "clamp(7rem, 14vw, 12rem)" }}>
-        <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg/05-contact.jpg)` }} />
+        <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg-optimized/05-contact.webp)` }} />
         <section className="section contact-section" style={{ position: "relative", zIndex: 1 }}>
         <div style={{ width: "100%" }}>
           <div className="sec-head" style={{ marginBottom: "2rem" }}>

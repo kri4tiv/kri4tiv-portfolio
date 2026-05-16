@@ -13,7 +13,7 @@ export default function AIWorkflowCaseStudyPage() {
           <div className="cs-meta">
             <span>March 2026</span>
             <span className="cs-meta-sep">·</span>
-            <span>4–6 min read</span>
+            <span>4-6 min read</span>
           </div>
         </div>
         <div className="cs-hero-right" style={{ backgroundColor: "#0a0a0a" }}>
@@ -39,7 +39,7 @@ export default function AIWorkflowCaseStudyPage() {
         <p>In most design projects, the hardest part isn&apos;t execution - it&apos;s the beginning.</p>
         <p>Translating a vague idea into a strong visual direction often takes the most time. You&apos;re balancing strategy, aesthetics, messaging, and layout all at once.</p>
         <p>I found that this slowed down momentum.</p>
-        <p>So instead of starting in design tools, I built a workflow that allows me to quickly move from strategy → concept → visual draft.</p>
+        <p>So instead of starting in design tools, I built a workflow that helps me move from strategy to concept to visual draft.</p>
         <p>The goal is simple:</p>
         <p>Create strong, high-quality first drafts in hours, not days.</p>
 

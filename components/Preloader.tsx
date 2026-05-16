@@ -22,7 +22,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
   useEffect(() => {
     const startTime = Date.now();
 
-    // Animate counter cosmetically — always smooth regardless of load state
+    // Animate counter cosmetically; always smooth regardless of load state
     const animate = (ts: number) => {
       if (!startRef.current) startRef.current = ts;
       const elapsed = ts - startRef.current;
@@ -37,7 +37,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
     };
     rafRef.current = requestAnimationFrame(animate);
 
-    // Hard max timeout — never block user longer than MAX_MS
+    // Hard max timeout; never block user longer than MAX_MS
     const maxTimer = setTimeout(() => finish(onDone), MAX_MS);
 
     // Wait for fonts + window load, but respect MIN time

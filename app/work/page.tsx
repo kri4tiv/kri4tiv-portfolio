@@ -9,12 +9,18 @@ import { useHoverSound } from "@/components/HoverSound";
 
 type LbState = { projectName: string; images: string[]; index: number };
 
+const optimizeWorkSrc = (src: string) => (
+  src
+    .replace("/media/work/", "/media/work-optimized/")
+    .replace(/\.(png|jpe?g|webp)$/i, ".webp")
+);
+
 export default function WorkPage() {
   const [active, setActive]           = useState<null | typeof WORK_PROJECTS[0]>(null);
   const [lb, setLb]                   = useState<LbState | null>(null);
   // First 2 rows visible immediately; rest revealed by IntersectionObserver
   const [visibleRows, setVisibleRows] = useState<Set<number>>(new Set([0, 1]));
-  // Filmstrip expands from 3 → all on hover
+  // Filmstrip expands from 3 to all on hover
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const playTick = useHoverSound();
@@ -43,12 +49,12 @@ export default function WorkPage() {
   };
 
   const lbSrc   = lb ? lb.images[lb.index] : undefined;
-  const lbLabel = lb ? `${lb.projectName} — Frame ${lb.index + 1}` : undefined;
+  const lbLabel = lb ? `${lb.projectName} - Frame ${lb.index + 1}` : undefined;
 
   return (
     <>
-      {/* Preload first strip wallpaper — starts downloading before React renders */}
-      <link rel="preload" as="image" href={WORK_PROJECTS[0].images[0]} />
+      {/* Preload first strip wallpaper before React renders */}
+      <link rel="preload" as="image" href={optimizeWorkSrc(WORK_PROJECTS[0].images[0])} />
 
       {active && (
         <Carousel
@@ -56,9 +62,9 @@ export default function WorkPage() {
           tag={active.type}
           slides={active.images.map((src, i) => ({
             n: i + 1,
-            label: `${active.name} — Frame ${i + 1}`,
+            label: `${active.name} - Frame ${i + 1}`,
             bg: active.bg,
-            src,
+            src: optimizeWorkSrc(src),
           }))}
           onClose={() => setActive(null)}
         />
@@ -77,7 +83,7 @@ export default function WorkPage() {
 
       <section>
         <div className="sec-header-wrap" style={{ paddingTop: "clamp(7rem, 14vw, 12rem)" }}>
-          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg/02-work.jpg)` }} />
+          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg-optimized/02-work.webp)` }} />
           <div className="section" style={{ paddingBottom: "clamp(2rem,4vw,3rem)" }}>
             <div className="sec-head">
               <span className="sec-num">02</span>
@@ -99,6 +105,8 @@ export default function WorkPage() {
           <div className="work-list">
             {WORK_PROJECTS.map((p, i) => {
               const filmSrcs = expandedRows.has(p.id) ? p.images : p.images.slice(0, 3);
+              const optimizedFilmSrcs = filmSrcs.map(optimizeWorkSrc);
+              const optimizedProjectImages = p.images.map(optimizeWorkSrc);
               return (
                 <div
                   key={p.id}
@@ -117,7 +125,7 @@ export default function WorkPage() {
                   {/* Wallpaper: only inject src once in viewport; first 2 get fetchPriority high */}
                   {p.images[0] && visibleRows.has(i) && (
                     <img
-                      src={p.images[0]}
+                      src={optimizedProjectImages[0]}
                       alt=""
                       className="work-row-bg"
                       fetchPriority={i < 2 ? "high" : "low"}
@@ -132,12 +140,12 @@ export default function WorkPage() {
                     {p.images.length > 0 && (
                       <div className="work-filmstrip">
                         <div className="work-filmstrip-track">
-                          {filmSrcs.map((src, idx) => (
+                          {optimizedFilmSrcs.map((src, idx) => (
                             <div
                               key={idx}
                               className="work-film-thumb"
                               style={{ background: p.bg, position: "relative" }}
-                              onClick={e => openThumb(e, p.name, p.images, idx)}
+                              onClick={e => openThumb(e, p.name, optimizedProjectImages, idx)}
                               title={`Frame ${idx + 1}`}
                             >
                               <Image

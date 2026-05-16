@@ -24,7 +24,7 @@ export default function CaseStudyPage() {
           <div className="cs-meta">
             <span>August 19, 2025</span>
             <span className="cs-meta-sep">·</span>
-            <span>4–7 min read</span>
+            <span>4-7 min read</span>
           </div>
         </div>
         <div className="cs-hero-right">
@@ -175,7 +175,7 @@ export default function CaseStudyPage() {
         <div className="cs-article-footer">
           <span>Tools Used: Adobe Premiere Pro</span>
           <span className="cs-meta-sep">·</span>
-          <span>Time: 5–7 hours</span>
+          <span>Time: 5-7 hours</span>
         </div>
 
         <div className="cs-back">
@@ -191,7 +191,7 @@ export default function CaseStudyPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Case Study — Sesko Edit</span>
+        <span>Case Study - Sesko Edit</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

@@ -11,13 +11,13 @@ const CATEGORIES = ["Cinematic", "Brand & Commercial", "Motion & Animation", "So
 const CATEGORY_COPY: Record<string, { label: string; title: string; text: string }> = {
   "Cinematic": {
     label: "Film Direction",
-    title: "Cinematic AI films",
-    text: "Atmospheric AI films, sports edits, and story-led visual experiments built around pace, mood, and impact.",
+    title: "Cinematic films",
+    text: "Atmospheric films, sports edits, and story-led visual experiments built around pace, mood, and impact.",
   },
   "Brand & Commercial": {
     label: "Campaign Work",
     title: "Brand and commercial motion",
-    text: "Spec ads, product films, campaign ideas, and AI video concepts made for brands, launches, and social campaigns.",
+    text: "Spec ads, product films, campaign ideas, and video concepts made for brands, launches, and social campaigns.",
   },
   "Motion & Animation": {
     label: "Design in Motion",
@@ -48,7 +48,7 @@ function MotionThumb({
       <div className="motion-thumb-media">
         <Image
           src={project.poster}
-          alt={`${project.title} AI motion video thumbnail`}
+          alt={`${project.title} video thumbnail`}
           fill
           loading="lazy"
           decoding="async"
@@ -101,21 +101,21 @@ export default function MotionPage() {
 
       <section>
         <div className="sec-header-wrap motion-hero" style={{ paddingTop: "clamp(7rem,14vw,12rem)" }}>
-          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg/04-motion.jpg)` }} />
+          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg-optimized/04-motion.webp)` }} />
           <div className="section" style={{ paddingBottom: "clamp(2rem,4vw,3rem)" }}>
             <div className="sec-head">
               <span className="sec-num">04</span>
               <div>
-                <p className="sec-eyebrow">AI Motion Studio</p>
+                <p className="sec-eyebrow">Video Lab</p>
                 <h1 className="sec-h2">
-                  AI video work for<br />
-                  <em>films, brands and motion</em>
+                  Video work for<br />
+                  <em>films, brands and reels</em>
                 </h1>
                 <p className="sec-desc">
-                  A focused AI video portfolio for cinematic films, commercial concepts, motion graphics, and short-form social edits.
+                  A focused video portfolio for AI films, commercial concepts, motion graphics, edits, and short-form social work.
                 </p>
                 <div className="motion-hero-actions">
-                  <a href="#motion-library">Browse AI Motion Work</a>
+                  <a href="#motion-library">Browse Video Work</a>
                 </div>
               </div>
             </div>
@@ -125,17 +125,17 @@ export default function MotionPage() {
 
       <main id="motion-library" className="motion-library-wrap">
         <Reveal>
-          <section className="motion-library-panel" aria-label="AI motion project library">
+          <section className="motion-library-panel" aria-label="Video project library">
             <div className="motion-library-intro">
               <p className="sec-eyebrow">Choose the work you want to see</p>
               <h2>One studio, four clear lanes.</h2>
               <p>
-                Select a category, then open the project that matches the kind of AI video work you want to review.
+                Select a category, then open the video work that matches what you want to review.
               </p>
             </div>
 
             <div className="motion-selector">
-              <div className="motion-selector-tabs" role="tablist" aria-label="AI motion categories">
+              <div className="motion-selector-tabs" role="tablist" aria-label="Video work categories">
                 {groupedProjects.map((group, index) => (
                   <button
                     key={group.category}
@@ -171,7 +171,7 @@ export default function MotionPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle:"italic", color:"var(--ac)" }}>4</span>TIV</span>
-        <span>AI Video Portfolio</span>
+        <span>Video Lab</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

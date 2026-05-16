@@ -21,6 +21,12 @@ const STRIP_COLORS: Record<string, string> = {
 
 type LbState = { projectName: string; images: string[]; index: number };
 
+const optimizeExploreSrc = (src: string) => (
+  src
+    .replace("/media/exploration/", "/media/exploration-optimized/")
+    .replace(/\.(png|jpe?g|webp)$/i, ".webp")
+);
+
 const wallRowSize = Math.ceil(OPTIMIZED_WALL_ITEMS.length / 3);
 const WALL_ROWS = [
   OPTIMIZED_WALL_ITEMS.slice(0, wallRowSize),
@@ -67,7 +73,7 @@ export default function ExplorationPage() {
   return (
     <>
       {/* Preload first strip wallpaper */}
-      <link rel="preload" as="image" href={EXPLORE_PROJECTS[0].images[0]} />
+      <link rel="preload" as="image" href={optimizeExploreSrc(EXPLORE_PROJECTS[0].images[0])} />
 
       <Lightbox
         isOpen={lb !== null}
@@ -82,7 +88,7 @@ export default function ExplorationPage() {
 
       <section>
         <div className="sec-header-wrap" style={{ paddingTop: "clamp(7rem, 14vw, 12rem)" }}>
-          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg/03-exploration.jpg)` }} />
+          <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg-optimized/03-exploration.webp)` }} />
           <div className="section" style={{ paddingBottom: "clamp(2rem,4vw,3rem)" }}>
             <div className="sec-head">
               <span className="sec-num">03</span>
@@ -107,6 +113,7 @@ export default function ExplorationPage() {
           <div className="explore-strips">
             {EXPLORE_PROJECTS.map((p, i) => {
               const isOpen = openId === p.id;
+              const optimizedImages = p.images.map(optimizeExploreSrc);
               return (
                 <div
                   key={p.id}
@@ -123,7 +130,7 @@ export default function ExplorationPage() {
                   {/* Wallpaper: inject src only once in viewport; first 2 get fetchPriority high */}
                   {p.images[0] && visibleStrips.has(i) && (
                     <img
-                      src={p.images[0]}
+                      src={optimizedImages[0]}
                       alt=""
                       className="explore-strip-bg"
                       fetchPriority={i < 2 ? "high" : "low"}
@@ -149,11 +156,11 @@ export default function ExplorationPage() {
 
                   {isOpen && (
                     <div className="explore-strip-visuals" onClick={e => e.stopPropagation()}>
-                      {p.images.map((src, i) => (
+                      {optimizedImages.map((src, i) => (
                         <div
                           key={i}
                           className="explore-visual"
-                          onClick={e => openLightbox(e, p.images, i, p.name)}
+                          onClick={e => openLightbox(e, optimizedImages, i, p.name)}
                         >
                           <Image
                             src={src}
@@ -200,7 +207,7 @@ export default function ExplorationPage() {
                       <img
                         src={src}
                         alt={`KRI4TIV concept wall frame ${i + 1}`}
-                        loading="eager"
+                        loading="lazy"
                         decoding="async"
                         className="exploration-wall-img"
                       />

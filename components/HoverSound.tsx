@@ -27,7 +27,7 @@ export function useHoverSound() {
       oscillator.start(ctx.currentTime);
       oscillator.stop(ctx.currentTime + 0.06);
     } catch {
-      // AudioContext blocked or unavailable — silently ignore
+      // AudioContext blocked or unavailable; silently ignore
     }
   }, []);
 

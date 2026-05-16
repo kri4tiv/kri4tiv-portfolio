@@ -400,7 +400,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .work-arrow { width: 28px; height: 28px; border: 1px solid var(--br2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all .3s var(--ease); flex-shrink: 0; color: var(--t3); }
 .work-row:hover .work-arrow { background: var(--ac); border-color: var(--ac); color: var(--b0); }
 
-/* WORK RIGHT — filmstrip + arrow layout */
+/* WORK RIGHT: filmstrip + arrow layout */
 .work-right { display: flex; align-items: center; gap: clamp(.6rem,1.2vw,1rem); position: relative; z-index: 1; }
 
 /* WORK FILMSTRIP */
@@ -505,7 +505,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   filter: blur(3px) brightness(0.63);
 }
 .explore-strip:first-child { border-top: 1px solid var(--br); }
-/* open: column layout, no gap forcing — height auto-expands to content */
+/* open: column layout, no gap forcing; height auto-expands to content */
 .explore-strip.open {
   height: auto;
   min-height: 164px;
@@ -535,7 +535,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 .explore-strip-cat { font-family: var(--fm); font-size: 0.6rem; color: var(--ac); letter-spacing: 0.25em; text-transform: uppercase; }
 .explore-strip-toggle { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--br2); display: flex; align-items: center; justify-content: center; color: var(--t3); transition: all 0.3s; }
 .explore-strip.open .explore-strip-toggle { background: var(--ac); border-color: var(--ac); color: var(--b0); }
-/* grid layout for visuals — 3 columns, no overflow-x */
+/* grid layout for visuals: 3 columns, no overflow-x */
 .explore-strip-visuals {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -820,6 +820,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .motion-category-panel {
   min-height: 590px; display: grid; grid-template-rows: auto 1fr;
+  overflow: hidden;
 }
 .motion-category-copy {
   padding: clamp(1.25rem,2.4vw,2rem) clamp(1.25rem,2.6vw,2.2rem);
@@ -833,11 +834,14 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   max-width: 620px; color: var(--t2); line-height: 1.7; margin: .75rem 0 0;
 }
 .motion-thumb-grid {
-  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 0; background: transparent;
+  display: flex; gap: 0; background: transparent; overflow-x: auto;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+.motion-thumb-grid::-webkit-scrollbar { display: none; }
 .motion-thumb-card {
   background: #080808; min-height: 100%; display: grid; grid-template-rows: auto 1fr;
+  flex: 0 0 clamp(310px, 30vw, 440px); scroll-snap-align: start;
   border-left: 1px solid var(--br);
 }
 .motion-thumb-media {
@@ -1081,11 +1085,11 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  /* Hide custom cursor entirely on mobile — pointer-events:none is already set
+  /* Hide custom cursor entirely on mobile; pointer-events:none is already set
      but display:none ensures it never blocks anything */
   .custom-cursor { display: none !important; pointer-events: none !important; }
 
-  /* Restore default cursor on touch — desktop sets cursor:none globally */
+  /* Restore default cursor on touch; desktop sets cursor:none globally */
   *, *::before, *::after { cursor: auto !important; }
   a, button, [role="button"] { cursor: pointer !important; }
 
@@ -1100,7 +1104,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     touch-action: manipulation;
   }
 
-  /* HERO — fix overflow + force full height on mobile */
+  /* HERO: fix overflow + force full height on mobile */
   .hero {
     overflow: hidden;
     height: 100vh !important;
@@ -1110,7 +1114,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   }
   .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
 
-  /* HERO — pin text block to bottom on mobile via absolute positioning */
+  /* HERO: pin text block to bottom on mobile via absolute positioning */
   .hero-content {
     position: absolute !important;
     bottom: 0 !important;
@@ -1146,7 +1150,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .work-num { min-width: 1.8rem; }
   .work-mid { gap: .4rem; }
 
-  /* EXPLORATION — 1 col visual grid */
+  /* EXPLORATION: 1 col visual grid */
   .explore-strip-visuals { grid-template-columns: 1fr; }
   .exploration-hero-actions { flex-direction: column; align-items: stretch; }
   .exploration-hero-actions a { text-align: center; }
@@ -1171,7 +1175,8 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     top: auto; left: 0; right: 0; bottom: 0; width: auto; height: 2px;
   }
   .motion-category-panel { min-height: 0; }
-  .motion-thumb-grid { grid-template-columns: 1fr; }
+  .motion-thumb-grid { overflow-x: auto; }
+  .motion-thumb-card { flex-basis: 86vw; min-height: 0; }
   .motion-editorial-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-editorial-card,
   .motion-editorial-card.alternate,
