@@ -7,7 +7,7 @@ export default function CaseStudiesListingPage() {
   return (
     <>
       <section className="section" style={{ paddingTop: "clamp(6rem, 12vw, 10rem)", paddingBottom: "3rem" }}>
-        <div className="sec-head">
+        <div className="sec-head stories-head">
           <span className="sec-num" style={{ opacity: 0 }}>00</span>
           <div>
             <p className="sec-eyebrow">Insights & Breakdowns</p>
@@ -15,7 +15,7 @@ export default function CaseStudiesListingPage() {
               Insights & Creative <em>Breakdowns</em>
             </h1>
             <p className="sec-desc" style={{ marginTop: "1rem" }}>
-              Deep dives into strategy, creative process, AI workflows, campaign thinking, and results.
+              Stories on AI creative workflow, campaign strategy, video editing, portfolio process, and the thinking behind KRI4TIV work.
             </p>
           </div>
         </div>
@@ -53,8 +53,8 @@ export default function CaseStudiesListingPage() {
                   <span>·</span>
                   <span>Workflow</span>
                 </div>
-                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>How I Use AI to Create High-Quality First Drafts - Fast</h3>
-                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A KRI4TIV workflow for rapid concept development resulting in production-ready drafts.</p>
+                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>How I Use AI to Create High-Quality First Drafts Fast</h3>
+                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A practical KRI4TIV workflow for turning early prompts, references, and creative direction into stronger first drafts.</p>
               </div>
             </Link>
 
@@ -82,8 +82,8 @@ export default function CaseStudiesListingPage() {
                   <span>·</span>
                   <span>Viral Video Edit</span>
                 </div>
-                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>From Idea to Half a Million Views ≈ 498.7K</h3>
-                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>Engineering a Viral Long-Form Video and the methodology behind the storytelling.</p>
+                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>From Idea to Half a Million Views</h3>
+                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A closer look at the structure, editing choices, and storytelling behind a high-performing football video.</p>
               </div>
             </Link>
 

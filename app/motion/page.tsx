@@ -8,50 +8,56 @@ import { useHoverSound } from "@/components/HoverSound";
 
 const CATEGORIES = ["Cinematic", "Brand & Commercial", "Motion & Animation", "Social & Reels"];
 
-const CATEGORY_NOTES: Record<string, string> = {
-  "Cinematic": "Film-led experiments with atmosphere, pacing, and visual tension.",
-  "Brand & Commercial": "Campaign concepts, spec ads, product films, and brand-led motion.",
-  "Motion & Animation": "Design movement, visual systems, product loops, and motion graphics.",
-  "Social & Reels": "Short-form edits shaped for fast recognition and social rhythm.",
+const CATEGORY_COPY: Record<string, { label: string; title: string; text: string }> = {
+  "Cinematic": {
+    label: "Film Direction",
+    title: "Cinematic AI films",
+    text: "Atmospheric AI films, sports edits, and story-led visual experiments built around pace, mood, and impact.",
+  },
+  "Brand & Commercial": {
+    label: "Campaign Work",
+    title: "Brand and commercial motion",
+    text: "Spec ads, product films, campaign ideas, and AI video concepts made for brands, launches, and social campaigns.",
+  },
+  "Motion & Animation": {
+    label: "Design in Motion",
+    title: "Motion graphics and animation",
+    text: "Animated visual systems, brand movement, product loops, and motion-led design experiments.",
+  },
+  "Social & Reels": {
+    label: "Short Form",
+    title: "Social video and reels",
+    text: "Short-form AI edits for Instagram, TikTok, Reels, and fast campaign storytelling.",
+  },
 };
-
-const slugFor = (value: string) => value.toLowerCase().replaceAll(" & ", "-").replaceAll(" ", "-");
 
 type MotionProject = (typeof MOTION_VIDEOS)[number];
 
-function MotionProjectPanel({
+function MotionThumb({
   project,
-  index,
-  featured = false,
   onWatch,
 }: {
   project: MotionProject;
-  index: number;
-  featured?: boolean;
   onWatch: (project: MotionProject) => void;
 }) {
   const playTick = useHoverSound();
   const canWatch = Boolean(project.youtubeId);
 
   return (
-    <article className={`motion-editorial-card${featured ? " featured" : ""}${index % 2 === 1 ? " alternate" : ""}`}>
-      <div className="motion-editorial-media">
+    <article className="motion-thumb-card">
+      <div className="motion-thumb-media">
         <Image
           src={project.poster}
-          alt={`${project.title} thumbnail`}
+          alt={`${project.title} AI motion video thumbnail`}
           fill
-          loading={featured ? undefined : "lazy"}
-          priority={featured}
+          loading="lazy"
           decoding="async"
-          sizes={featured ? "(max-width: 900px) 100vw, 64vw" : "(max-width: 768px) 100vw, 52vw"}
+          sizes="(max-width: 768px) 86vw, 28vw"
           style={{ objectFit: "cover" }}
         />
-        <div className="motion-media-shade" />
-        <span className="motion-editorial-index">{String(index + 1).padStart(2, "0")}</span>
-        <span className="motion-editorial-ratio">{project.aspectRatio}</span>
+        <span>{project.aspectRatio}</span>
       </div>
-      <div className="motion-editorial-copy">
-        <p className="motion-project-kicker">{project.category}</p>
+      <div className="motion-thumb-copy">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <button
@@ -72,14 +78,17 @@ function MotionProjectPanel({
 
 export default function MotionPage() {
   const [video, setVideo] = useState<MotionProject | null>(null);
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
 
-  const featuredProject = MOTION_VIDEOS.find(project => project.featured) ?? MOTION_VIDEOS[0];
   const groupedProjects = useMemo(() => (
     CATEGORIES.map(category => ({
       category,
       projects: MOTION_VIDEOS.filter(project => project.category === category),
     })).filter(group => group.projects.length > 0)
   ), []);
+
+  const activeGroup = groupedProjects.find(group => group.category === activeCategory) ?? groupedProjects[0];
+  const activeCopy = CATEGORY_COPY[activeGroup.category];
 
   return (
     <>
@@ -99,14 +108,14 @@ export default function MotionPage() {
               <div>
                 <p className="sec-eyebrow">AI Motion Studio</p>
                 <h1 className="sec-h2">
-                  AI Video &<br />
-                  <em>Motion Studio</em>
+                  AI video work for<br />
+                  <em>films, brands and motion</em>
                 </h1>
                 <p className="sec-desc">
-                  AI-led films, brand visuals, motion experiments, and short-form creative work built for campaigns, social content, and visual storytelling.
+                  A focused AI video portfolio for cinematic films, commercial concepts, motion graphics, and short-form social edits.
                 </p>
                 <div className="motion-hero-actions">
-                  <a href="#motion-projects">View Motion Projects</a>
+                  <a href="#motion-library">Browse AI Motion Work</a>
                 </div>
               </div>
             </div>
@@ -114,51 +123,55 @@ export default function MotionPage() {
         </div>
       </section>
 
-      <main id="motion-projects" className="motion-editorial-wrap">
+      <main id="motion-library" className="motion-library-wrap">
         <Reveal>
-          <section className="motion-featured-section" aria-label="Featured motion project">
-            <div className="motion-section-intro">
-              <p className="sec-eyebrow">Featured Motion Project</p>
-              <h2>Film work first, framed with intent.</h2>
+          <section className="motion-library-panel" aria-label="AI motion project library">
+            <div className="motion-library-intro">
+              <p className="sec-eyebrow">Choose the work you want to see</p>
+              <h2>One studio, four clear lanes.</h2>
+              <p>
+                Select a category, then open the project that matches the kind of AI video work you want to review.
+              </p>
             </div>
-            <MotionProjectPanel project={featuredProject} index={0} featured onWatch={setVideo} />
-          </section>
-        </Reveal>
 
-        <nav className="motion-category-nav" aria-label="Motion project categories">
-          {groupedProjects.map(group => (
-            <a key={group.category} href={`#${slugFor(group.category)}`}>
-              {group.category}
-            </a>
-          ))}
-        </nav>
-
-        {groupedProjects.map(group => (
-          <Reveal key={group.category}>
-            <section id={slugFor(group.category)} className="motion-editorial-section">
-              <div className="motion-section-intro">
-                <p className="sec-eyebrow">{group.category}</p>
-                <h2>{group.category}</h2>
-                <p>{CATEGORY_NOTES[group.category]}</p>
-              </div>
-              <div className="motion-editorial-list">
-                {group.projects.map((project, index) => (
-                  <MotionProjectPanel
-                    key={project.id}
-                    project={project}
-                    index={index}
-                    onWatch={setVideo}
-                  />
+            <div className="motion-selector">
+              <div className="motion-selector-tabs" role="tablist" aria-label="AI motion categories">
+                {groupedProjects.map((group, index) => (
+                  <button
+                    key={group.category}
+                    type="button"
+                    className={group.category === activeGroup.category ? "active" : ""}
+                    onClick={() => setActiveCategory(group.category)}
+                    role="tab"
+                    aria-selected={group.category === activeGroup.category}
+                    aria-controls="motion-category-panel"
+                  >
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    {group.category}
+                  </button>
                 ))}
               </div>
-            </section>
-          </Reveal>
-        ))}
+
+              <div id="motion-category-panel" className="motion-category-panel" role="tabpanel">
+                <div className="motion-category-copy">
+                  <p className="motion-project-kicker">{activeCopy.label}</p>
+                  <h3>{activeCopy.title}</h3>
+                  <p>{activeCopy.text}</p>
+                </div>
+                <div className="motion-thumb-grid">
+                  {activeGroup.projects.map(project => (
+                    <MotionThumb key={project.id} project={project} onWatch={setVideo} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        </Reveal>
       </main>
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle:"italic", color:"var(--ac)" }}>4</span>TIV</span>
-        <span>AI Video & Motion Studio</span>
+        <span>AI Video Portfolio</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

@@ -62,7 +62,7 @@ export default function ExplorationPage() {
   };
 
   const lbSrc   = lb ? lb.images[lb.index] : undefined;
-  const lbLabel = lb ? `${lb.projectName} — Visual ${lb.index + 1}` : undefined;
+  const lbLabel = lb ? `${lb.projectName} - Visual ${lb.index + 1}` : undefined;
 
   return (
     <>
@@ -179,7 +179,7 @@ export default function ExplorationPage() {
         <section id="concept-wall" className="exploration-wall-section">
           <div className="exploration-wall-intro">
             <p className="sec-eyebrow">Concept Frames & Visual Tests</p>
-            <h2>From individual worlds into one moving wall.</h2>
+            <h2>From individual projects into one moving wall.</h2>
             <p>
               A compact archive of AI-generated frames, campaign moods, product concepts, and visual tests from across the exploration work.
             </p>
@@ -197,15 +197,12 @@ export default function ExplorationPage() {
                       onClick={() => setLb({ projectName: "Concept Wall", images: OPTIMIZED_WALL_ITEMS, index: OPTIMIZED_WALL_ITEMS.indexOf(src) })}
                       aria-label={`Open concept wall frame ${i + 1}`}
                     >
-                      <Image
+                      <img
                         src={src}
                         alt={`KRI4TIV concept wall frame ${i + 1}`}
-                        fill
-                        loading="lazy"
+                        loading="eager"
                         decoding="async"
-                        fetchPriority="low"
-                        sizes="(max-width: 768px) 220px, 320px"
-                        style={{ objectFit: "cover" }}
+                        className="exploration-wall-img"
                       />
                     </button>
                   ))}
