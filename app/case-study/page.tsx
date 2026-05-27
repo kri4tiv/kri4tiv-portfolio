@@ -1,99 +1,82 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
+const STORIES = [
+  {
+    href: "/case-study/ai-workflow",
+    date: "March 2026",
+    tag: "Workflow",
+    title: "How I Build High-Quality First Drafts with AI",
+    desc: "A practical KRI4TIV workflow for turning early prompts, references, and creative direction into stronger first drafts faster.",
+    img: "/media/case-study/ai-workflow/9.png",
+    imgFit: "contain" as const,
+    imgPad: true,
+  },
+  {
+    href: "/case-study/sesko",
+    date: "August 2025",
+    tag: "Viral Video Edit",
+    title: "From Idea to Half a Million Views",
+    desc: "A closer look at the structure, editing choices, and storytelling behind a high-performing football video.",
+    img: "/media/case-study/hero.webp",
+    imgFit: "cover" as const,
+    imgPad: false,
+  },
+];
+
 export default function CaseStudiesListingPage() {
   return (
     <>
-      <section className="section" style={{ paddingTop: "clamp(6rem, 12vw, 10rem)", paddingBottom: "3rem" }}>
+      <section className="section" style={{ paddingTop: "clamp(7rem, 14vw, 11rem)", paddingBottom: "3rem" }}>
         <div className="sec-head stories-head">
-          <span className="sec-num" style={{ opacity: 0 }}>00</span>
           <div>
-            <p className="sec-eyebrow">Insights & Breakdowns</p>
-            <h1 className="sec-h2" style={{ fontFamily: "var(--fh)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-              Insights & Creative <em>Breakdowns</em>
+            <p className="sec-eyebrow">Insights and Breakdowns</p>
+            <h1 className="sec-h2">
+              Creative stories and <em>process breakdowns</em>
             </h1>
-            <p className="sec-desc" style={{ marginTop: "1rem" }}>
-              Stories on AI creative workflow, campaign strategy, video editing, portfolio process, and the thinking behind KRI4TIV work.
+            <p className="sec-desc">
+              Workflow notes, campaign thinking, video breakdowns, and the process behind KRI4TIV work.
             </p>
           </div>
         </div>
 
         <Reveal>
-          <div style={{ 
-            display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
-            gap: "2rem", 
-            marginTop: "4rem",
-            maxWidth: "1200px" 
-          }}>
-            
-            {/* AI Workflow Card */}
-            <Link href="/case-study/ai-workflow" style={{ 
-              display: "flex", 
-              flexDirection: "column",
-              background: "rgba(255, 255, 255, 0.02)", 
-              border: "1px solid rgba(255, 255, 255, 0.05)",
-              borderRadius: "16px", 
-              overflow: "hidden", 
-              textDecoration: "none", 
-              color: "inherit",
-              transition: "transform 0.3s ease, background 0.3s ease",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)"; }}
-            >
-              <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", backgroundColor: "#0a0a0a" }}>
-                <Image src="/media/case-study/ai-workflow/9.png" alt="AI Workflow first draft" fill style={{ objectFit: "contain", padding: "2rem" }} />
-              </div>
-              <div style={{ padding: "1.5rem 1.5rem 2rem 1.5rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem", fontSize: "0.85rem", color: "var(--ac)", fontWeight: 500 }}>
-                  <span>March 2026</span>
-                  <span>·</span>
-                  <span>Workflow</span>
+          <div className="stories-listing">
+            {STORIES.map((s) => (
+              <Link key={s.href} href={s.href} className="stories-card">
+                <div className="stories-card-img" style={{ background: s.imgPad ? "var(--b1)" : undefined }}>
+                  <Image
+                    src={s.img}
+                    alt={s.title}
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    style={{ objectFit: s.imgFit, padding: s.imgPad ? "2rem" : undefined }}
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
                 </div>
-                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>How I Use AI to Create High-Quality First Drafts Fast</h3>
-                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A practical KRI4TIV workflow for turning early prompts, references, and creative direction into stronger first drafts.</p>
-              </div>
-            </Link>
-
-            {/* Sesko Edit Card */}
-            <Link href="/case-study/sesko" style={{ 
-              display: "flex", 
-              flexDirection: "column",
-              background: "rgba(255, 255, 255, 0.02)", 
-              border: "1px solid rgba(255, 255, 255, 0.05)",
-              borderRadius: "16px", 
-              overflow: "hidden", 
-              textDecoration: "none", 
-              color: "inherit",
-              transition: "transform 0.3s ease, background 0.3s ease",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)"; }}
-            >
-              <div style={{ position: "relative", width: "100%", aspectRatio: "16/10" }}>
-                <Image src="/media/case-study/hero.webp" alt="Sesko Edit" fill style={{ objectFit: "cover", objectPosition: "center center" }} />
-              </div>
-              <div style={{ padding: "1.5rem 1.5rem 2rem 1.5rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem", fontSize: "0.85rem", color: "var(--ac)", fontWeight: 500 }}>
-                  <span>August 2025</span>
-                  <span>·</span>
-                  <span>Viral Video Edit</span>
+                <div className="stories-card-body">
+                  <div className="stories-card-meta">
+                    <time>{s.date}</time>
+                    <span>&#x2022;</span>
+                    <span style={{ color: "var(--ac)" }}>{s.tag}</span>
+                  </div>
+                  <h2 className="stories-card-title">{s.title}</h2>
+                  <p className="stories-card-desc">{s.desc}</p>
+                  <span className="stories-card-arrow">
+                    Read more &nbsp;&#x2192;
+                  </span>
                 </div>
-                <h3 style={{ fontSize: "1.4rem", marginBottom: "0.5rem", fontFamily: "var(--fd)", fontWeight: 500, lineHeight: 1.3 }}>From Idea to Half a Million Views</h3>
-                <p style={{ color: "var(--t1)", fontSize: "0.95rem", lineHeight: 1.5 }}>A closer look at the structure, editing choices, and storytelling behind a high-performing football video.</p>
-              </div>
-            </Link>
-
+              </Link>
+            ))}
           </div>
         </Reveal>
       </section>
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Insights & Creative Breakdowns</span>
+        <span>Insights and Creative Breakdowns</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

@@ -90,11 +90,11 @@ export default function WorkPage() {
               <div>
                 <p className="sec-eyebrow">Selected Work</p>
                 <h1 className="sec-h2">
-                  Work that speaks<br />
-                  <em>for itself</em>
+                  Work across brands,<br />
+                  <em>built to perform</em>
                 </h1>
                 <p className="sec-desc">
-                  <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>2+ years, 20+ brands, Dubai, London and global</span>
+                  <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>2 years, 20+ brands, Dubai, London and global</span>
                 </p>
               </div>
             </div>

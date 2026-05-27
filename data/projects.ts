@@ -202,7 +202,7 @@ export const EXPLORE_PROJECTS = [
 export type MotionVideoProject = {
   id: string;
   title: string;
-  category: "Cinematic" | "Brand & Commercial" | "Motion & Animation" | "Social & Reels";
+  category: "Cinematic" | "Brand & Commercial" | "Motion & Animation" | "Social & Reels" | "Non-AI";
   poster: string;
   youtubeId: string | null;
   description: string;
@@ -212,14 +212,13 @@ export type MotionVideoProject = {
 
 export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
-    id: "sesko-complete-striker",
-    title: "Sesko - Complete Striker",
+    id: "inception-top",
+    title: "Inception Top",
     category: "Cinematic",
-    poster: "/media/motion-optimized/sesko/thumb.webp",
+    poster: "/media/motion-optimized/inception-thumb.webp",
     youtubeId: null,
-    description: "A sports-led AI film concept built around rhythm, pressure, and striker energy.",
-    aspectRatio: "16:9",
-    featured: true,
+    description: "A film-style visual experiment exploring surreal framing and cinematic tension.",
+    aspectRatio: "4:3",
   },
   {
     id: "fyonlli-science-of-gifting",
@@ -249,6 +248,15 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "evision-legal",
+    title: "Evision Legal",
+    category: "Motion & Animation",
+    poster: "/media/motion-optimized/evision-legal-thumb.webp",
+    youtubeId: null,
+    description: "A composed legal-tech motion piece focused on clarity, trust, and interface-led storytelling.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "jubel",
     title: "Jubel",
     category: "Social & Reels",
@@ -258,22 +266,14 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
-    id: "inception-top",
-    title: "Inception Top",
-    category: "Cinematic",
-    poster: "/media/motion-optimized/inception-thumb.webp",
+    id: "sesko-complete-striker",
+    title: "Sesko - Complete Striker",
+    category: "Non-AI",
+    poster: "/media/motion-optimized/sesko/thumb.webp",
     youtubeId: null,
-    description: "A film-style visual experiment exploring surreal framing and cinematic tension.",
-    aspectRatio: "4:3",
-  },
-  {
-    id: "evision-legal",
-    title: "Evision Legal",
-    category: "Motion & Animation",
-    poster: "/media/motion-optimized/evision-legal-thumb.webp",
-    youtubeId: null,
-    description: "A composed legal-tech motion piece focused on clarity, trust, and interface-led storytelling.",
+    description: "A football edit built entirely in Premiere Pro. No AI, just structure, timing, and storytelling.",
     aspectRatio: "16:9",
+    featured: true,
   },
 ];
 
@@ -333,6 +333,6 @@ export const NAV_LINKS = [
   { label: "Home",        href: "/" },
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
-  { label: "Video Lab",   href: "/motion" },
-  { label: "Stories",     href: "/case-study" },
+  { label: "AI · Video Lab", href: "/video-lab" },
+  { label: "Stories",     href: "/stories" },
 ];

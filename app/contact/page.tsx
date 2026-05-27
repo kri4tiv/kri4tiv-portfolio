@@ -25,7 +25,7 @@ export default function ContactPage() {
               Let&apos;s Talk
             </a>
             <p className="contact-desc">
-              <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>Available for marketing, brand strategy, creative campaigns, AI integration, and other projects. Based in Dubai; working globally.</span>
+              Open to creative marketing, brand strategy, AI production, and video work. Based in Dubai, working with teams globally.
             </p>
             <div className="contact-links">
               {links.map(l => (

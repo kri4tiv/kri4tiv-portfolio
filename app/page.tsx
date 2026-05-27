@@ -40,7 +40,7 @@ export default function Home() {
         </div>
         <div className="hero-content">
           <p className="hero-eyebrow">
-            <span>Marketer &amp; Creative Designer</span>
+            <span>Creative Marketer, Dubai</span>
           </p>
           <h1 className="hero-h1">
             <span className="hero-line">
@@ -55,7 +55,7 @@ export default function Home() {
           </h1>
           <div className="hero-footer">
             <p className="hero-desc">
-              Brand strategy, creative production, and AI-powered marketing built to stop the scroll and drive results.
+              Brand strategy, AI-powered creative production, and motion work that stops the scroll and stays in the mind.
             </p>
             <div className="scroll-indicator">
               <span>Scroll</span>
@@ -96,13 +96,13 @@ export default function Home() {
             <div>
               <div className="about-bio">
                 <p>
-                  I&apos;m a creative marketer passionate about <strong>next-gen marketing</strong>; from Generative AI and autonomous AI Agents to motion, brand identity, and high-impact content that stops the scroll.
+                  I&apos;m a creative marketer who works at the edge of <strong>brand strategy and generative AI</strong>. My work covers motion, key visuals, campaign concepts, and AI-first production pipelines built for modern brands.
                 </p>
                 <p>
-                  With <strong>2 years of experience in London</strong> and an <strong>MSc in Marketing and Management</strong> from the University of Manchester, my work sits at the intersection of creativity and performance, blending traditional brand strategy with the tools reshaping how brands communicate.
+                  With <strong>2 years of experience in London</strong> and an <strong>MSc in Marketing and Management</strong> from the University of Manchester, I bring together creative direction, performance thinking, and the tools that are reshaping how brands communicate.
                 </p>
                 <p>
-                  Every project I take on is built to <strong>convert, resonate, and last</strong>.
+                  Based in Dubai, working globally. Every project is built to <strong>convert, resonate, and last</strong>.
                 </p>
               </div>
               <br />

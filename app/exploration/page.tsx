@@ -95,11 +95,11 @@ export default function ExplorationPage() {
               <div>
                 <p className="sec-eyebrow">Exploration</p>
                 <h1 className="sec-h2">
-                  Passion Projects and<br />
-                  <em>Creative Exploration</em>
+                  Unsolicited concepts<br />
+                  <em>for brands I admire</em>
                 </h1>
                 <p className="sec-desc">
-                  <span style={{ background: "rgba(210,243,77,0.15)", padding: "0.2rem 0.6rem", borderRadius: "3px", color: "var(--ac)", fontWeight: 500 }}>Unsolicited concepts for brands I admire</span>
+                  Speculative brand work, AI-generated visuals, and creative experiments made outside of client briefs.
                 </p>
                 <div className="exploration-hero-actions">
                   <a href="#concept-wall">View Concept Wall</a>
@@ -185,10 +185,10 @@ export default function ExplorationPage() {
       <Reveal>
         <section id="concept-wall" className="exploration-wall-section">
           <div className="exploration-wall-intro">
-            <p className="sec-eyebrow">Concept Frames & Visual Tests</p>
-            <h2>From individual projects into one moving wall.</h2>
+            <p className="sec-eyebrow">Concept Frames and Visual Tests</p>
+            <h2>Every project, collected<br />into one moving frame.</h2>
             <p>
-              A compact archive of AI-generated frames, campaign moods, product concepts, and visual tests from across the exploration work.
+              AI-generated frames, campaign moods, product concepts, and visual tests drawn from across the full exploration archive.
             </p>
           </div>
 
