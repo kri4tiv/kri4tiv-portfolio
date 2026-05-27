@@ -218,7 +218,7 @@ export const EXPLORE_PROJECTS = [
 export type MotionVideoProject = {
   id: string;
   title: string;
-  category: "Cinematic" | "Brand & Commercial" | "Motion & Animation" | "Social & Reels" | "Non-AI";
+  category: "AI FILMS" | "BRAND & COMMERCIAL ADS" | "REELS & SHORTS" | "MOTION & ANIMATION" | "NON AI STUFF";
   poster: string;
   youtubeId: string | null;
   description: string;
@@ -228,45 +228,27 @@ export type MotionVideoProject = {
 
 export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
-    id: "inception-top",
-    title: "Inception Top",
-    category: "Cinematic",
-    poster: "/media/motion-optimized/inception-thumb.webp",
-    youtubeId: null,
-    description: "A film-style visual experiment exploring surreal framing and cinematic tension.",
-    aspectRatio: "4:3",
-  },
-  {
     id: "fyonlli-science-of-gifting",
     title: "Fyonlli - The Science of Gifting",
-    category: "Brand & Commercial",
+    category: "BRAND & COMMERCIAL ADS",
     poster: "/media/motion-optimized/fyonlli-thumb.webp",
     youtubeId: null,
     description: "A lifestyle product film exploring gifting rituals, detail, and emotional recall.",
-    aspectRatio: "9:16",
+    aspectRatio: "16:9",
   },
   {
     id: "nike-spec-ad",
     title: "Nike Spec Ad",
-    category: "Brand & Commercial",
+    category: "BRAND & COMMERCIAL ADS",
     poster: "/media/motion-optimized/nike-ad-thumb.webp",
     youtubeId: null,
     description: "A performance-led campaign concept built around speed, impact, and product energy.",
-    aspectRatio: "21:9",
-  },
-  {
-    id: "bluewater",
-    title: "Bluewater",
-    category: "Motion & Animation",
-    poster: "/media/motion-optimized/bluewater-thumb.webp",
-    youtubeId: null,
-    description: "A clean corporate motion piece shaped for atmosphere, pace, and visual polish.",
     aspectRatio: "16:9",
   },
   {
     id: "evision-legal",
     title: "Evision Legal",
-    category: "Motion & Animation",
+    category: "MOTION & ANIMATION",
     poster: "/media/motion-optimized/evision-legal-thumb.webp",
     youtubeId: null,
     description: "A composed legal-tech motion piece focused on clarity, trust, and interface-led storytelling.",
@@ -275,16 +257,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
     id: "jubel",
     title: "Jubel",
-    category: "Social & Reels",
+    category: "REELS & SHORTS",
     poster: "/media/motion-optimized/jubel-thumb.webp",
     youtubeId: null,
     description: "A compact brand edit designed for quick recognition and social-first motion.",
-    aspectRatio: "16:9",
+    aspectRatio: "9:16",
   },
   {
     id: "sesko-complete-striker",
     title: "Sesko - Complete Striker",
-    category: "Non-AI",
+    category: "NON AI STUFF",
     poster: "/media/motion-optimized/sesko/thumb.webp",
     youtubeId: null,
     description: "A football edit built entirely in Premiere Pro. No AI, just structure, timing, and storytelling.",

@@ -6,32 +6,32 @@ import VideoLightbox from "@/components/VideoLightbox";
 import { MOTION_VIDEOS } from "@/data/projects";
 import { useHoverSound } from "@/components/HoverSound";
 
-const CATEGORIES = ["Cinematic", "Brand & Commercial", "Motion & Animation", "Social & Reels", "Non-AI"];
+const CATEGORIES = ["AI FILMS", "BRAND & COMMERCIAL ADS", "REELS & SHORTS", "MOTION & ANIMATION", "NON AI STUFF"];
 
 const CATEGORY_COPY: Record<string, { label: string; title: string; text: string }> = {
-  "Cinematic": {
+  "AI FILMS": {
     label: "Film Direction",
-    title: "Cinematic films",
-    text: "Atmospheric films and story-led visual experiments built around pace, mood, and cinematic impact.",
+    title: "AI FILMS",
+    text: "Story-led AI film experiments built around pace, mood, and cinematic impact.",
   },
-  "Brand & Commercial": {
+  "BRAND & COMMERCIAL ADS": {
     label: "Campaign Work",
-    title: "Brand and commercial motion",
+    title: "BRAND & COMMERCIAL ADS",
     text: "Spec ads, product films, campaign ideas, and video concepts made for brands, launches, and social campaigns.",
   },
-  "Motion & Animation": {
+  "REELS & SHORTS": {
+    label: "Short Form",
+    title: "REELS & SHORTS",
+    text: "Vertical short-form edits for Instagram, TikTok, Reels, and fast campaign storytelling.",
+  },
+  "MOTION & ANIMATION": {
     label: "Design in Motion",
-    title: "Motion graphics and animation",
+    title: "MOTION & ANIMATION",
     text: "Animated visual systems, brand movement, product loops, and motion-led design experiments.",
   },
-  "Social & Reels": {
-    label: "Short Form",
-    title: "Social video and reels",
-    text: "Short-form edits for Instagram, TikTok, Reels, and fast campaign storytelling.",
-  },
-  "Non-AI": {
+  "NON AI STUFF": {
     label: "Pure Craft",
-    title: "Non-AI work",
+    title: "NON AI STUFF",
     text: "No AI. Just Premiere Pro, structure, timing, and storytelling. Work built entirely by hand.",
   },
 };
@@ -49,7 +49,7 @@ function MotionThumb({
   const canWatch = Boolean(project.youtubeId);
 
   return (
-    <article className="motion-thumb-card">
+    <article className={project.category === "REELS & SHORTS" ? "motion-thumb-card is-reel" : "motion-thumb-card"}>
       <div className="motion-thumb-media">
         <Image
           src={project.poster}
@@ -88,7 +88,7 @@ export default function MotionPage() {
     CATEGORIES.map(category => ({
       category,
       projects: MOTION_VIDEOS.filter(project => project.category === category),
-    })).filter(group => group.projects.length > 0)
+    }))
   ), []);
 
   const activeGroup = groupedProjects.find(group => group.category === activeCategory) ?? groupedProjects[0];
@@ -163,9 +163,15 @@ export default function MotionPage() {
                   <p>{activeCopy.text}</p>
                 </div>
                 <div className="motion-thumb-grid">
-                  {activeGroup.projects.map(project => (
-                    <MotionThumb key={project.id} project={project} onWatch={setVideo} />
-                  ))}
+                  {activeGroup.projects.length > 0 ? (
+                    activeGroup.projects.map(project => (
+                      <MotionThumb key={project.id} project={project} onWatch={setVideo} />
+                    ))
+                  ) : (
+                    <div className="motion-empty-state" aria-live="polite">
+                      <span>Coming soon</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
