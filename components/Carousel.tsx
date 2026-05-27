@@ -22,6 +22,7 @@ export default function Carousel({ title, tag, slides, note, onClose }: Carousel
   const [lbIndex, setLbIndex] = useState<number | null>(null);
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
   const srcs = slides.map(s => s.src ?? "");
+  const backgroundSrc = slides.find(slide => slide.src)?.src;
 
   return (
     <>
@@ -37,6 +38,9 @@ export default function Carousel({ title, tag, slides, note, onClose }: Carousel
       />
 
       <div className="carousel-overlay" role="dialog" aria-modal="true">
+        {backgroundSrc && (
+          <img className="carousel-backdrop-img" src={backgroundSrc} alt="" aria-hidden="true" />
+        )}
         <div className="carousel-header">
           <div>
             <span className="carousel-title">{title}</span>
