@@ -13,6 +13,7 @@ const MARQUEE_ITEMS = [
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
+  const [playHeroVideo, setPlayHeroVideo] = useState(false);
   // Skip preloader on repeat visits within the same session
   useLayoutEffect(() => {
     if (sessionStorage.getItem("pre_shown") === "1") setLoaded(true);
@@ -23,7 +24,27 @@ export default function Home() {
   }, []);
   const playTick = useHoverSound();
   const heroVideoRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => { if (heroVideoRef.current) heroVideoRef.current.playbackRate = 1.05; }, []);
+  useEffect(() => {
+    if (!loaded) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const loadVideo = () => setPlayHeroVideo(true);
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(loadVideo, { timeout: 1200 });
+    } else {
+      timeoutId = setTimeout(loadVideo, 700);
+    }
+
+    return () => {
+      if (idleId !== undefined) window.cancelIdleCallback(idleId);
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
+    };
+  }, [loaded]);
+
+  useEffect(() => { if (heroVideoRef.current) heroVideoRef.current.playbackRate = 1.05; }, [playHeroVideo]);
 
   return (
     <>
@@ -34,7 +55,9 @@ export default function Home() {
         {/* Video background */}
         <div className="hero-bg">
           <div className="hero-placeholder">
-            <video ref={heroVideoRef} className="hero-video" autoPlay muted loop playsInline preload="metadata" src="/media/hero/showreel.mp4" />
+            {playHeroVideo && (
+              <video ref={heroVideoRef} className="hero-video" autoPlay muted loop playsInline preload="none" src="/media/hero/showreel.mp4" />
+            )}
           </div>
           <div className="hero-video-overlay" />
         </div>

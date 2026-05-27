@@ -29,18 +29,9 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 /* GRAIN — no mix-blend-mode (expensive in Chrome; causes compositor lag) */
 .grain {
   position: fixed; inset: 0; z-index: 9998;
-  pointer-events: none; opacity: .055;
+  pointer-events: none; opacity: .045;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px 160px;
-  animation: gr 1.2s steps(1) infinite;
-  will-change: background-position;
-}
-@keyframes gr {
-  0%   { background-position: 0 0; }
-  25%  { background-position: 40px -20px; }
-  50%  { background-position: -30px 40px; }
-  75%  { background-position: 20px -40px; }
-  100% { background-position: 0 0; }
 }
 
 /* PRELOADER */
@@ -94,7 +85,6 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .nav.scrolled {
   background: rgba(5,5,5,.92);
-  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--br);
 }
 .nav-logo {
@@ -221,14 +211,17 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 
 /* SECTION HEADER BACKGROUND */
 .sec-header-wrap { position: relative; overflow: hidden; }
+.sec-header-wrap::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: rgba(5,5,5,.3);
+}
 .sec-bg-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   background-size: cover; background-position: center; background-repeat: no-repeat;
   background-color: var(--b0);
   z-index: 0;
-  filter: brightness(0.70);
-  transition: filter 0.5s ease;
+  opacity: .72;
 }
 .sec-header-wrap > .section { position: relative; z-index: 1; }
 
@@ -459,20 +452,25 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: background .35s;
   position: relative; overflow: hidden;
 }
+.work-row::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(5,5,5,.82), rgba(5,5,5,.48) 45%, rgba(5,5,5,.78));
+  opacity: .92;
+  transition: opacity .35s ease;
+}
 .work-row-bg {
   position: absolute; inset: -4px; z-index: 0;
   width: calc(100% + 8px); height: calc(100% + 8px);
   object-fit: cover; pointer-events: none;
-  opacity: 0.38;
-  filter: blur(4px) brightness(0.45);
-  transform: translateZ(0);
-  will-change: filter, opacity;
-  transition: filter 0.55s ease, opacity 0.55s ease;
+  opacity: 0.18;
+  transform: translate3d(0,0,0) scale(1.035);
+  transition: transform 0.65s var(--ease2), opacity 0.45s ease;
 }
 .work-row:hover .work-row-bg {
-  opacity: 0.72;
-  filter: blur(0px) brightness(0.62);
+  opacity: 0.42;
+  transform: translate3d(0,0,0) scale(1.01);
 }
+.work-row:hover::after { opacity: .78; }
 .work-row:first-child { border-top: 1px solid var(--br); }
 .work-row:hover { background: rgba(255,255,255,0.02); }
 .work-num { font-family: var(--fm); font-size: .52rem; color: var(--t4); position: relative; z-index: 1; }
@@ -584,24 +582,30 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: background 0.4s ease, height 0.5s cubic-bezier(0.65,0,0.35,1);
   border-bottom: 1px solid var(--br); position: relative;
 }
+.explore-strip::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(5,5,5,.8), rgba(5,5,5,.42) 45%, rgba(5,5,5,.76));
+  opacity: .94;
+  transition: opacity .35s ease;
+}
 .explore-strip-bg {
   position: absolute; inset: -4px; z-index: 0;
   width: calc(100% + 8px); height: calc(100% + 8px);
   object-fit: cover; pointer-events: none;
-  opacity: 0.32;
-  filter: blur(4px) brightness(0.38);
-  transform: translateZ(0);
-  will-change: filter, opacity;
-  transition: filter 0.55s ease, opacity 0.55s ease;
+  opacity: 0.16;
+  transform: translate3d(0,0,0) scale(1.035);
+  transition: transform 0.65s var(--ease2), opacity 0.45s ease;
 }
 .explore-strip:hover .explore-strip-bg {
-  opacity: 0.68;
-  filter: blur(0px) brightness(0.58);
+  opacity: 0.4;
+  transform: translate3d(0,0,0) scale(1.01);
 }
 .explore-strip.open .explore-strip-bg {
-  opacity: 0.72;
-  filter: blur(0px) brightness(0.62);
+  opacity: 0.42;
+  transform: translate3d(0,0,0) scale(1.01);
 }
+.explore-strip:hover::after,
+.explore-strip.open::after { opacity: .78; }
 .explore-strip:first-child { border-top: 1px solid var(--br); }
 /* open: column layout, no gap forcing; height auto-expands to content */
 .explore-strip.open {
@@ -707,7 +711,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   flex: 0 0 auto; width: clamp(280px,28vw,410px); height: 100%;
   border: 0; padding: 0; background: var(--b2); border-radius: 5px;
   overflow: hidden; position: relative; cursor: pointer; line-height: 0;
-  transform: translateY(0); transition: transform .45s var(--ease), filter .4s ease;
+  transform: translateY(0); transition: transform .45s var(--ease);
 }
 .exploration-wall-item::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
@@ -715,7 +719,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: opacity .35s ease;
 }
 .exploration-wall-item:hover {
-  transform: translateY(-4px) scale(1.015); filter: brightness(1.08);
+  transform: translateY(-4px) scale(1.015);
 }
 .exploration-wall-item:hover::after { opacity: .25; }
 .exploration-wall-img {
@@ -811,10 +815,10 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   position: relative; min-height: 100%; overflow: hidden; background: var(--b2);
 }
 .motion-editorial-media img {
-  transition: transform .7s var(--ease), filter .5s ease;
+  transition: transform .7s var(--ease);
 }
 .motion-editorial-card:hover .motion-editorial-media img {
-  transform: scale(1.035); filter: brightness(1.08);
+  transform: scale(1.035);
 }
 .motion-media-shade {
   position: absolute; inset: 0;
@@ -1275,11 +1279,45 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .mm-cta:hover { background: var(--t0); transform: scale(1.04); }
 
+/* PREMIUM BRUSH CURSOR */
+.custom-cursor,
+.cursor-trail span {
+  position: fixed; left: 0; top: 0; pointer-events: none;
+  z-index: 99999; will-change: transform;
+}
+.custom-cursor {
+  opacity: 0; transition: opacity .18s ease;
+  mix-blend-mode: normal;
+}
+.custom-cursor.visible { opacity: 1; }
+.cursor-mark {
+  display: block; width: 26px; height: 12px;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  border-radius: 64% 36% 58% 42%;
+  background: linear-gradient(90deg, rgba(244,241,232,.9), rgba(210,243,77,.92));
+  box-shadow: 0 0 0 1px rgba(5,5,5,.3), 0 0 18px rgba(210,243,77,.18);
+  transition: width .22s var(--ease2), height .22s var(--ease2), background .22s ease;
+}
+.custom-cursor.is-hovering .cursor-mark {
+  width: 42px; height: 14px;
+  background: linear-gradient(90deg, rgba(210,243,77,.95), rgba(244,241,232,.86));
+}
+.cursor-trail {
+  position: fixed; inset: 0; pointer-events: none; z-index: 99998;
+}
+.cursor-trail span {
+  height: 7px;
+  transform: translate3d(-120px,-120px,0) rotate(-18deg);
+  border-radius: 70% 30% 55% 45%;
+  background: rgba(210,243,77,.55);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   /* Hide custom cursor entirely on mobile; pointer-events:none is already set
      but display:none ensures it never blocks anything */
-  .custom-cursor { display: none !important; pointer-events: none !important; }
+  .custom-cursor,
+  .cursor-trail { display: none !important; pointer-events: none !important; }
 
   /* Restore default cursor on touch; desktop sets cursor:none globally */
   *, *::before, *::after { cursor: auto !important; }

@@ -179,7 +179,7 @@ export default function WorkPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Selected Work, 2022 to 2024</span>
+        <span />
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

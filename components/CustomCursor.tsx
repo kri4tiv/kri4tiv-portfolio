@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+
+const TRAIL_COUNT = 7;
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const trailRefs = useRef<Array<HTMLSpanElement | null>>([]);
 
   useEffect(() => {
     // Hide on touch devices
@@ -14,22 +16,32 @@ export default function CustomCursor() {
 
     let cursorX = 0, cursorY = 0;
     let targetX = 0, targetY = 0;
+    const trail = Array.from({ length: TRAIL_COUNT }, () => ({ x: 0, y: 0 }));
     let rafId = 0;
 
     const onMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
-      if (!visible) setVisible(true);
+      cursor.classList.add("visible");
     };
 
-    const onLeave = () => setVisible(false);
-    const onEnter = () => setVisible(true);
+    const onLeave = () => cursor.classList.remove("visible");
+    const onEnter = () => cursor.classList.add("visible");
 
     const animate = () => {
-      cursorX += (targetX - cursorX) * 0.15;
-      cursorY += (targetY - cursorY) * 0.15;
-      cursor.style.left = cursorX + "px";
-      cursor.style.top  = cursorY + "px";
+      cursorX += (targetX - cursorX) * 0.28;
+      cursorY += (targetY - cursorY) * 0.28;
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+
+      trail.forEach((point, index) => {
+        const lead = index === 0 ? { x: cursorX, y: cursorY } : trail[index - 1];
+        const follow = 0.22 - index * 0.018;
+        point.x += (lead.x - point.x) * follow;
+        point.y += (lead.y - point.y) * follow;
+        const el = trailRefs.current[index];
+        if (el) el.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) rotate(${-18 + index * 5}deg)`;
+      });
+
       rafId = requestAnimationFrame(animate);
     };
     rafId = requestAnimationFrame(animate);
@@ -39,17 +51,7 @@ export default function CustomCursor() {
       const isClickable = target.closest(
         "a, button, [role='button'], input, textarea, select, .exploration-wall-item, .work-row, .explore-strip, .explore-visual, .carousel-slide, .work-film-thumb"
       );
-      if (isClickable) {
-        cursor.style.width  = "40px";
-        cursor.style.height = "40px";
-        cursor.style.borderColor = "rgba(210,243,77,0.8)";
-        cursor.style.background  = "rgba(210,243,77,0.05)";
-      } else {
-        cursor.style.width  = "20px";
-        cursor.style.height = "20px";
-        cursor.style.borderColor = "rgba(255,255,255,0.6)";
-        cursor.style.background  = "transparent";
-      }
+      cursor.classList.toggle("is-hovering", Boolean(isClickable));
     };
 
     document.addEventListener("mousemove", onMove);
@@ -70,24 +72,19 @@ export default function CustomCursor() {
   if (typeof window !== "undefined" && "ontouchstart" in window) return null;
 
   return (
-    <div
-      ref={cursorRef}
-      className="custom-cursor"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "20px",
-        height: "20px",
-        border: "1.5px solid rgba(255,255,255,0.6)",
-        borderRadius: "50%",
-        background: "transparent",
-        transform: "translate(-50%, -50%)",
-        zIndex: 99999,
-        pointerEvents: "none",
-        opacity: visible ? 1 : 0,
-        transition: "width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.3s ease",
-      }}
-    />
+    <>
+      <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
+        <span className="cursor-mark" />
+      </div>
+      <div className="cursor-trail" aria-hidden="true">
+        {Array.from({ length: TRAIL_COUNT }).map((_, index) => (
+          <span
+            key={index}
+            ref={(el) => { trailRefs.current[index] = el; }}
+            style={{ opacity: 0.18 - index * 0.018, width: `${24 - index * 2}px` }}
+          />
+        ))}
+      </div>
+    </>
   );
 }
