@@ -55,7 +55,6 @@ export default function Carousel({ title, tag, slides, note, onClose }: Carousel
             <div
               key={i}
               className="carousel-slide"
-              style={slide.bg ? { background: slide.bg } : undefined}
               onClick={() => setLbIndex(i)}
               title="Click to expand"
             >

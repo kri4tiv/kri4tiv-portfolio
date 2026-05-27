@@ -587,7 +587,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   display: block;
 }
 .carousel-slide-bg {
-  object-fit: cover; opacity: .28; transform: scale(1.12);
+  object-fit: cover; opacity: .3; transform: scale(1.12);
   filter: blur(7px) saturate(1.28) brightness(1.05);
 }
 .carousel-slide-img {
