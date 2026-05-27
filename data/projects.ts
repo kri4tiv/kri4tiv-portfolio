@@ -221,6 +221,7 @@ export type MotionVideoProject = {
   category: "AI FILMS" | "BRAND & COMMERCIAL ADS" | "REELS & SHORTS" | "MOTION & ANIMATION" | "NON AI STUFF";
   poster: string;
   youtubeId: string | null;
+  youtubeUrl?: string;
   description: string;
   aspectRatio: string;
   featured?: boolean;
@@ -251,6 +252,7 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     category: "BRAND & COMMERCIAL ADS",
     poster: "/media/motion-optimized/fyonlli-thumb.webp",
     youtubeId: "-uwYQDg1eXI",
+    youtubeUrl: "https://youtu.be/-uwYQDg1eXI",
     description: "A lifestyle product film exploring gifting rituals, detail, and emotional recall.",
     aspectRatio: "16:9",
   },

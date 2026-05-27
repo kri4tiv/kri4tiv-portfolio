@@ -38,6 +38,14 @@ const CATEGORY_COPY: Record<string, { label: string; title: string; text: string
 
 type MotionProject = (typeof MOTION_VIDEOS)[number];
 
+function getYouTubeId(project: MotionProject) {
+  if (project.youtubeId) return project.youtubeId;
+  if (!project.youtubeUrl) return null;
+
+  const match = project.youtubeUrl.match(/(?:youtu\.be\/|v=)([^?&]+)/);
+  return match?.[1] ?? null;
+}
+
 function MotionThumb({
   project,
   onWatch,
@@ -46,7 +54,7 @@ function MotionThumb({
   onWatch: (project: MotionProject) => void;
 }) {
   const playTick = useHoverSound();
-  const canWatch = Boolean(project.youtubeId);
+  const canWatch = Boolean(getYouTubeId(project));
 
   return (
     <article className={project.category === "REELS & SHORTS" ? "motion-thumb-card is-reel" : "motion-thumb-card"}>
@@ -99,7 +107,7 @@ export default function MotionPage() {
       <VideoLightbox
         isOpen={video !== null}
         onClose={() => setVideo(null)}
-        youtubeId={video?.youtubeId}
+        youtubeId={video ? getYouTubeId(video) : null}
         title={video?.title}
       />
 
