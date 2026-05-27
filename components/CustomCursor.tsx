@@ -74,7 +74,7 @@ export default function CustomCursor() {
   return (
     <>
       <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
-        <span className="cursor-mark" />
+        <img src="/media/cursor/kri4tiv-cursor.png" alt="" className="cursor-image" />
       </div>
       <div className="cursor-trail" aria-hidden="true">
         {Array.from({ length: TRAIL_COUNT }).map((_, index) => (

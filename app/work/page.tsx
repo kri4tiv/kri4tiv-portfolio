@@ -152,10 +152,18 @@ export default function WorkPage() {
                                 src={src}
                                 alt=""
                                 fill
+                                aria-hidden="true"
+                                className="work-film-thumb-bg"
+                                sizes="120px"
+                              />
+                              <Image
+                                src={src}
+                                alt=""
+                                fill
                                 loading="lazy"
                                 decoding="async"
                                 quality={40}
-                                style={{ objectFit: "cover" }}
+                                className="work-film-thumb-img"
                                 sizes="120px"
                               />
                             </div>

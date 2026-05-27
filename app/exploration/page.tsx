@@ -164,11 +164,19 @@ export default function ExplorationPage() {
                         >
                           <Image
                             src={src}
+                            alt=""
+                            fill
+                            aria-hidden="true"
+                            className="explore-visual-bg"
+                            sizes="(max-width: 768px) 50vw, 33vw"
+                          />
+                          <Image
+                            src={src}
                             alt={`${p.name} visual ${i + 1}`}
                             fill
                             loading="lazy"
                             decoding="async"
-                            style={{ objectFit: "cover" }}
+                            className="explore-visual-img"
                             sizes="(max-width: 768px) 50vw, 33vw"
                           />
                         </div>
