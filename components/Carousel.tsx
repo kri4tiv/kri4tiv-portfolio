@@ -59,14 +59,24 @@ export default function Carousel({ title, tag, slides, note, onClose }: Carousel
               title="Click to expand"
             >
               {slide.src ? (
-                <Image
-                  src={slide.src}
-                  alt={slide.label}
-                  fill
-                  className="carousel-slide-img"
-                  sizes="(max-width: 768px) 90vw, 620px"
-                  onLoad={() => setLoaded(p => ({ ...p, [i]: true }))}
-                />
+                <>
+                  <Image
+                    src={slide.src}
+                    alt=""
+                    fill
+                    aria-hidden="true"
+                    className="carousel-slide-bg"
+                    sizes="(max-width: 768px) 90vw, 620px"
+                  />
+                  <Image
+                    src={slide.src}
+                    alt={slide.label}
+                    fill
+                    className="carousel-slide-img"
+                    sizes="(max-width: 768px) 90vw, 620px"
+                    onLoad={() => setLoaded(p => ({ ...p, [i]: true }))}
+                  />
+                </>
               ) : null}
               {!loaded[i] && (
                 <>
