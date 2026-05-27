@@ -14,10 +14,11 @@ interface CarouselProps {
   title: string;
   tag: string;
   slides: Slide[];
+  note?: string;
   onClose: () => void;
 }
 
-export default function Carousel({ title, tag, slides, onClose }: CarouselProps) {
+export default function Carousel({ title, tag, slides, note, onClose }: CarouselProps) {
   const [lbIndex, setLbIndex] = useState<number | null>(null);
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
   const srcs = slides.map(s => s.src ?? "");
@@ -83,6 +84,12 @@ export default function Carousel({ title, tag, slides, onClose }: CarouselProps)
             </div>
           ))}
         </div>
+        {note && (
+          <aside className="project-note" aria-label={`${title} creative direction`}>
+            <span className="project-note-kicker">Creative direction</span>
+            <p>{note}</p>
+          </aside>
+        )}
         <div className="carousel-footer">
           <span className="carousel-count">{slides.length} frames</span>
           <span className="carousel-hint">click image to expand</span>

@@ -183,6 +183,13 @@ export default function ExplorationPage() {
                       ))}
                     </div>
                   )}
+
+                  {isOpen && p.note && (
+                    <aside className="project-note explore-project-note" aria-label={`${p.name} creative direction`}>
+                      <span className="project-note-kicker">Creative direction</span>
+                      <p>{p.note}</p>
+                    </aside>
+                  )}
                 </div>
               );
             })}

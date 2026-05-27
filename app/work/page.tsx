@@ -66,6 +66,7 @@ export default function WorkPage() {
             bg: active.bg,
             src: optimizeWorkSrc(src),
           }))}
+          note={active.note}
           onClose={() => setActive(null)}
         />
       )}
