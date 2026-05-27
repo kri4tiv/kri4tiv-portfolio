@@ -581,14 +581,9 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   background: #050505;
 }
 .carousel-slide:hover { border-color: var(--br3); }
-.carousel-slide-bg,
 .carousel-slide-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   display: block;
-}
-.carousel-slide-bg {
-  object-fit: cover; opacity: .3; transform: scale(1.12);
-  filter: blur(7px) saturate(1.28) brightness(1.05);
 }
 .carousel-slide-img {
   object-fit: contain; padding: clamp(.5rem,1.4vw,1rem);
