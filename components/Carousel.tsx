@@ -39,7 +39,14 @@ export default function Carousel({ title, tag, slides, note, onClose }: Carousel
 
       <div className="carousel-overlay" role="dialog" aria-modal="true">
         {backgroundSrc && (
-          <img className="carousel-backdrop-img" src={backgroundSrc} alt="" aria-hidden="true" />
+          <Image
+            className="carousel-backdrop-img"
+            src={backgroundSrc}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="100vw"
+          />
         )}
         <div className="carousel-header">
           <div>

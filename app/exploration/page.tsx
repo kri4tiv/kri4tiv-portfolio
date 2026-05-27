@@ -127,13 +127,15 @@ export default function ExplorationPage() {
                   onKeyDown={e => e.key === "Enter" && toggle(p.id)}
                   onMouseEnter={playTick}
                 >
-                  {/* Wallpaper: inject src only once in viewport; first 2 get fetchPriority high */}
+                  {/* Wallpaper: inject src only once in viewport; first 2 load with priority */}
                   {p.images[0] && visibleStrips.has(i) && (
-                    <img
+                    <Image
                       src={optimizedImages[0]}
                       alt=""
+                      fill
                       className="explore-strip-bg"
-                      fetchPriority={i < 2 ? "high" : "low"}
+                      priority={i < 2}
+                      sizes="100vw"
                     />
                   )}
                   <div className="explore-strip-header">
@@ -219,12 +221,14 @@ export default function ExplorationPage() {
                       onClick={() => setLb({ projectName: "Concept Wall", images: OPTIMIZED_WALL_ITEMS, index: OPTIMIZED_WALL_ITEMS.indexOf(src) })}
                       aria-label={`Open concept wall frame ${i + 1}`}
                     >
-                      <img
+                      <Image
                         src={src}
                         alt={`KRI4TIV concept wall frame ${i + 1}`}
+                        fill
                         loading="lazy"
                         decoding="async"
                         className="exploration-wall-img"
+                        sizes="(max-width: 768px) 220px, 340px"
                       />
                     </button>
                   ))}

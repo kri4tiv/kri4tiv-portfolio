@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback, useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import Preloader from "@/components/Preloader";
 import Reveal from "@/components/Reveal";
@@ -15,8 +15,10 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [playHeroVideo, setPlayHeroVideo] = useState(false);
   // Skip preloader on repeat visits within the same session
-  useLayoutEffect(() => {
-    if (sessionStorage.getItem("pre_shown") === "1") setLoaded(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("pre_shown") !== "1") return;
+    const frame = requestAnimationFrame(() => setLoaded(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
   const handleDone = useCallback(() => {
     sessionStorage.setItem("pre_shown", "1");

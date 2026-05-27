@@ -123,13 +123,15 @@ export default function WorkPage() {
                     setExpandedRows(prev => new Set([...prev, p.id]));
                   }}
                 >
-                  {/* Wallpaper: only inject src once in viewport; first 2 get fetchPriority high */}
+                  {/* Wallpaper: only inject src once in viewport; first 2 load with priority */}
                   {p.images[0] && visibleRows.has(i) && (
-                    <img
+                    <Image
                       src={optimizedProjectImages[0]}
                       alt=""
+                      fill
                       className="work-row-bg"
-                      fetchPriority={i < 2 ? "high" : "low"}
+                      priority={i < 2}
+                      sizes="100vw"
                     />
                   )}
                   <span className="work-num">{String(i + 1).padStart(2, "0")}</span>

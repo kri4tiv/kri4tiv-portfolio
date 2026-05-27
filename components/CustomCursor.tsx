@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ export default function CustomCursor() {
 
   return (
     <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
-      <img src="/media/cursor/kri4tiv-cursor.png" alt="" className="cursor-image" />
+      <Image src="/media/cursor/kri4tiv-cursor.png" alt="" width={32} height={32} className="cursor-image" priority />
     </div>
   );
 }

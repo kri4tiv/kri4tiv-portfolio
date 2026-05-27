@@ -1147,9 +1147,9 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .lightbox-close:hover { background: var(--rd); border-color: var(--rd); transform: rotate(90deg); }
 .lightbox-content {
-  max-width: 90vw; max-height: 90vh;
+  width: 90vw; height: 88vh; max-width: 90vw; max-height: 90vh;
   display: flex; align-items: center; justify-content: center;
-  cursor: default;
+  cursor: default; position: relative;
 }
 .lightbox-placeholder {
   width: min(80vw, 900px); height: min(70vh, 600px);
@@ -1162,7 +1162,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   letter-spacing: 0.2em; text-transform: uppercase;
 }
 .lightbox-img {
-  max-width: 90vw; max-height: 88vh; object-fit: contain;
+  object-fit: contain;
   border-radius: 4px; display: block;
 }
 .lb-nav-btn {

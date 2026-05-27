@@ -260,7 +260,7 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     id: "sesko-complete-striker",
     title: "Sesko - Complete Striker",
     category: "NON AI STUFF",
-    poster: "/media/motion-optimized/sesko/sesko-thumbnail.png",
+    poster: "/media/motion-optimized/sesko/sesko-thumbnail.webp",
     youtubeId: "nJ1xwSuZdO8",
     youtubeUrl: "https://youtu.be/nJ1xwSuZdO8",
     description: "A football edit built entirely in Premiere Pro. No AI, just structure, timing, and storytelling.",

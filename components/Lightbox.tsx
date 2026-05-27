@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface LightboxProps {
   isOpen: boolean;
@@ -13,9 +14,8 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ isOpen, onClose, label, src, images, imageIndex, onPrev, onNext }: LightboxProps) {
-  const [imgFailed, setImgFailed] = useState(false);
-
-  useEffect(() => { setImgFailed(false); }, [src]);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const imgFailed = Boolean(src && failedSrc === src);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -53,7 +53,15 @@ export default function Lightbox({ isOpen, onClose, label, src, images, imageInd
       )}
       <div className="lightbox-content" onClick={e => e.stopPropagation()}>
         {src && !imgFailed ? (
-          <img key={src} src={src} alt={label || ""} className="lightbox-img" onError={() => setImgFailed(true)} />
+          <Image
+            key={src}
+            src={src}
+            alt={label || ""}
+            fill
+            className="lightbox-img"
+            sizes="90vw"
+            onError={() => setFailedSrc(src)}
+          />
         ) : (
           <div className="lightbox-placeholder">
             {label && <span className="lightbox-label">{label}</span>}

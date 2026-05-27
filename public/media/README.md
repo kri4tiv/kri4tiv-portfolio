@@ -28,18 +28,14 @@ Place your image and video files in the folders below. The site will automatical
 | `exploration/venum/` | Venum | `01.jpg` – `04.jpg` |
 | `exploration/vogue/` | Vogue | `01.jpg` – `04.jpg` |
 
-## Motion Videos
+## Video Lab
 
-Place `.mp4` files directly in `motion/`:
+Video Lab projects use YouTube embeds for playback. Keep local files to lightweight poster images only:
 
-| File | Project |
-|------|---------|
-| `motion/sesko.mp4` | Sesko – Complete Striker |
-| `motion/fyonlli.mp4` | Fyonlli – The Science of Gifting |
-| `motion/nike-ad.mp4` | Nike Ad |
-| `motion/bluewater.mp4` | Bluewater |
-| `motion/jubel.mp4` | Jubel |
-| `motion/inception.mp4` | Inception Top |
+| Folder | Purpose |
+|--------|---------|
+| `motion-optimized/` | WebP poster images used by Video Lab cards |
+| YouTube links in `data/projects.ts` | Actual video playback source |
 
 ## Notes
 
