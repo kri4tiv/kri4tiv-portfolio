@@ -228,6 +228,24 @@ export type MotionVideoProject = {
 
 export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
+    id: "hold-your-gaze",
+    title: "Hold Your Gaze",
+    category: "AI FILMS",
+    poster: "https://i.ytimg.com/vi/pXCRzxZXyF8/maxresdefault.jpg",
+    youtubeId: "pXCRzxZXyF8",
+    description: "An AI film built around gaze, atmosphere, and controlled cinematic tension.",
+    aspectRatio: "16:9",
+  },
+  {
+    id: "recall",
+    title: "Recall",
+    category: "AI FILMS",
+    poster: "https://i.ytimg.com/vi/4hipSKDTXoQ/maxresdefault.jpg",
+    youtubeId: "4hipSKDTXoQ",
+    description: "An AI film exploring memory, mood, and a cinematic sense of return.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "fyonlli-science-of-gifting",
     title: "Fyonlli - The Science of Gifting",
     category: "BRAND & COMMERCIAL ADS",
