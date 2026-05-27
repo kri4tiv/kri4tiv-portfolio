@@ -1473,18 +1473,19 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .motion-library-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-selector { grid-template-columns: 1fr; }
   .motion-selector-tabs {
-    flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--br);
+    flex-direction: column; overflow: visible; border-right: 0; border-bottom: 1px solid var(--br);
   }
   .motion-selector-tabs button {
-    flex: 0 0 72%; min-height: 74px; border-bottom: 0; border-right: 1px solid var(--br);
+    width: 100%; flex: 0 0 auto; min-height: 74px; border-bottom: 1px solid var(--br); border-right: 0;
   }
+  .motion-selector-tabs button:last-child { border-bottom: 0; }
   .motion-selector-tabs button.active::after {
-    top: auto; left: 0; right: 0; bottom: 0; width: auto; height: 2px;
+    top: 0; left: auto; right: 0; bottom: 0; width: 3px; height: auto;
   }
   .motion-category-panel { min-height: 0; }
-  .motion-thumb-grid { overflow-x: auto; }
-  .motion-thumb-card { flex-basis: 86vw; min-height: 0; }
-  .motion-thumb-card.is-reel { flex-basis: min(86vw, 390px); }
+  .motion-thumb-grid { flex-direction: column; overflow-x: visible; }
+  .motion-thumb-card { width: 100%; flex-basis: auto; min-height: 0; border-left: 0; border-top: 1px solid var(--br); }
+  .motion-thumb-card.is-reel { width: 100%; flex-basis: auto; }
   .motion-editorial-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-editorial-card,
   .motion-editorial-card.alternate,

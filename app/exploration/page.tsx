@@ -4,7 +4,6 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Lightbox from "@/components/Lightbox";
 import { EXPLORE_PROJECTS, OPTIMIZED_WALL_ITEMS } from "@/data/projects";
-import { useHoverSound } from "@/components/HoverSound";
 
 const STRIP_COLORS: Record<string, string> = {
   "DMCC":                     "rgba(60,80,140,0.06)",
@@ -40,7 +39,6 @@ export default function ExplorationPage() {
   // First 2 strips visible immediately; rest revealed by IntersectionObserver
   const [visibleStrips, setVisibleStrips] = useState<Set<number>>(new Set([0, 1]));
   const stripRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const playTick = useHoverSound();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -125,7 +123,6 @@ export default function ExplorationPage() {
                   role="button"
                   tabIndex={0}
                   onKeyDown={e => e.key === "Enter" && toggle(p.id)}
-                  onMouseEnter={playTick}
                 >
                   {/* Wallpaper: inject src only once in viewport; first 2 load with priority */}
                   {p.images[0] && visibleStrips.has(i) && (

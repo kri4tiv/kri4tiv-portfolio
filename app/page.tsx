@@ -4,7 +4,6 @@ import Link from "next/link";
 import Preloader from "@/components/Preloader";
 import Reveal from "@/components/Reveal";
 import { SERVICES, TOOLS } from "@/data/projects";
-import { useHoverSound } from "@/components/HoverSound";
 
 const MARQUEE_ITEMS = [
   "Creative Production","Brand Strategy","Generative AI","Motion and Editing",
@@ -24,7 +23,6 @@ export default function Home() {
     sessionStorage.setItem("pre_shown", "1");
     setLoaded(true);
   }, []);
-  const playTick = useHoverSound();
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     if (!loaded) return;
@@ -134,7 +132,7 @@ export default function Home() {
               <p className="about-sub">Stack and Tools</p>
               <div className="tools-list">
                 {TOOLS.map(t => (
-                  <span key={t} className="tool-pill" onMouseEnter={playTick}>{t}</span>
+                  <span key={t} className="tool-pill">{t}</span>
                 ))}
               </div>
             </div>

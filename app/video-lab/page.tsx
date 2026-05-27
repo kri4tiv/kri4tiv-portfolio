@@ -4,7 +4,6 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import VideoLightbox from "@/components/VideoLightbox";
 import { MOTION_VIDEOS } from "@/data/projects";
-import { useHoverSound } from "@/components/HoverSound";
 
 const CATEGORIES = ["AI FILMS", "BRAND & COMMERCIAL ADS", "REELS & SHORTS", "MOTION & ANIMATION", "NON AI STUFF"];
 
@@ -53,7 +52,6 @@ function MotionThumb({
   project: MotionProject;
   onWatch: (project: MotionProject) => void;
 }) {
-  const playTick = useHoverSound();
   const canWatch = Boolean(getYouTubeId(project));
 
   return (
@@ -76,7 +74,6 @@ function MotionThumb({
           className="motion-watch-btn"
           type="button"
           disabled={!canWatch}
-          onMouseEnter={playTick}
           onClick={() => canWatch && onWatch(project)}
           aria-label={canWatch ? `Watch ${project.title}` : `${project.title} YouTube ID needed`}
         >

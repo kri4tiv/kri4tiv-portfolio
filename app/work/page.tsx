@@ -5,7 +5,6 @@ import Reveal from "@/components/Reveal";
 import Carousel from "@/components/Carousel";
 import Lightbox from "@/components/Lightbox";
 import { WORK_PROJECTS } from "@/data/projects";
-import { useHoverSound } from "@/components/HoverSound";
 
 type LbState = { projectName: string; images: string[]; index: number };
 
@@ -23,7 +22,6 @@ export default function WorkPage() {
   // Filmstrip expands from 3 to all on hover
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const playTick = useHoverSound();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -119,7 +117,6 @@ export default function WorkPage() {
                   onClick={() => setActive(p)}
                   onKeyDown={e => e.key === "Enter" && setActive(p)}
                   onMouseEnter={() => {
-                    playTick();
                     setExpandedRows(prev => new Set([...prev, p.id]));
                   }}
                 >
