@@ -250,7 +250,7 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     title: "Fyonlli - The Science of Gifting",
     category: "BRAND & COMMERCIAL ADS",
     poster: "/media/motion-optimized/fyonlli-thumb.webp",
-    youtubeId: null,
+    youtubeId: "-uwYQDg1eXI",
     description: "A lifestyle product film exploring gifting rituals, detail, and emotional recall.",
     aspectRatio: "16:9",
   },
