@@ -1,11 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const TRAIL_COUNT = 7;
-
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const trailRefs = useRef<Array<HTMLSpanElement | null>>([]);
 
   useEffect(() => {
     // Hide on touch devices
@@ -16,7 +13,6 @@ export default function CustomCursor() {
 
     let cursorX = 0, cursorY = 0;
     let targetX = 0, targetY = 0;
-    const trail = Array.from({ length: TRAIL_COUNT }, () => ({ x: 0, y: 0 }));
     let rafId = 0;
 
     const onMove = (e: MouseEvent) => {
@@ -32,15 +28,6 @@ export default function CustomCursor() {
       cursorX += (targetX - cursorX) * 0.28;
       cursorY += (targetY - cursorY) * 0.28;
       cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-
-      trail.forEach((point, index) => {
-        const lead = index === 0 ? { x: cursorX, y: cursorY } : trail[index - 1];
-        const follow = 0.22 - index * 0.018;
-        point.x += (lead.x - point.x) * follow;
-        point.y += (lead.y - point.y) * follow;
-        const el = trailRefs.current[index];
-        if (el) el.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) rotate(${-18 + index * 5}deg)`;
-      });
 
       rafId = requestAnimationFrame(animate);
     };
@@ -72,19 +59,8 @@ export default function CustomCursor() {
   if (typeof window !== "undefined" && "ontouchstart" in window) return null;
 
   return (
-    <>
-      <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
-        <img src="/media/cursor/kri4tiv-cursor.png" alt="" className="cursor-image" />
-      </div>
-      <div className="cursor-trail" aria-hidden="true">
-        {Array.from({ length: TRAIL_COUNT }).map((_, index) => (
-          <span
-            key={index}
-            ref={(el) => { trailRefs.current[index] = el; }}
-            style={{ opacity: 0.18 - index * 0.018, width: `${24 - index * 2}px` }}
-          />
-        ))}
-      </div>
-    </>
+    <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
+      <img src="/media/cursor/kri4tiv-cursor.png" alt="" className="cursor-image" />
+    </div>
   );
 }

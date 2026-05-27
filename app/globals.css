@@ -517,7 +517,8 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   pointer-events: none; display: block;
 }
 .work-film-thumb-bg {
-  object-fit: cover; opacity: .2; transform: scale(1.08);
+  object-fit: cover; opacity: .38; transform: scale(1.12);
+  filter: blur(8px) saturate(1.35) brightness(1.06);
 }
 .work-film-thumb-img {
   object-fit: contain; padding: 3px;
@@ -573,7 +574,8 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   display: block;
 }
 .carousel-slide-bg {
-  object-fit: cover; opacity: .16; transform: scale(1.08);
+  object-fit: cover; opacity: .28; transform: scale(1.12);
+  filter: blur(18px) saturate(1.4) brightness(1.08);
 }
 .carousel-slide-img {
   object-fit: contain; padding: clamp(.5rem,1.4vw,1rem);
@@ -676,7 +678,8 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   display: block; pointer-events: none;
 }
 .explore-visual-bg {
-  object-fit: cover; opacity: .16; transform: scale(1.08);
+  object-fit: cover; opacity: .3; transform: scale(1.12);
+  filter: blur(16px) saturate(1.4) brightness(1.08);
 }
 .explore-visual-img {
   object-fit: contain; padding: clamp(.45rem,1vw,.85rem);
@@ -1301,41 +1304,28 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .mm-cta:hover { background: var(--t0); transform: scale(1.04); }
 
-/* PREMIUM BRUSH CURSOR */
-.custom-cursor,
-.cursor-trail span {
+/* BRANDED CURSOR */
+.custom-cursor {
   position: fixed; left: 0; top: 0; pointer-events: none;
   z-index: 99999; will-change: transform;
-}
-.custom-cursor {
   opacity: 0; transition: opacity .18s ease;
   mix-blend-mode: normal;
 }
 .custom-cursor.visible { opacity: 1; }
 .cursor-image {
-  display: block; width: 30px; height: auto;
+  display: block; width: 21px; height: auto;
   transform: translate(-16%, -14%);
   transition: width .22s var(--ease2);
 }
 .custom-cursor.is-hovering .cursor-image {
-  width: 36px;
-}
-.cursor-trail {
-  position: fixed; inset: 0; pointer-events: none; z-index: 99998;
-}
-.cursor-trail span {
-  height: 5px;
-  transform: translate3d(-120px,-120px,0) rotate(-18deg);
-  border-radius: 70% 30% 55% 45%;
-  background: linear-gradient(90deg, rgba(42,238,72,.42), rgba(20,204,255,.34));
+  width: 25px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   /* Hide custom cursor entirely on mobile; pointer-events:none is already set
      but display:none ensures it never blocks anything */
-  .custom-cursor,
-  .cursor-trail { display: none !important; pointer-events: none !important; }
+  .custom-cursor { display: none !important; pointer-events: none !important; }
 
   /* Restore default cursor on touch; desktop sets cursor:none globally */
   *, *::before, *::after { cursor: auto !important; }
