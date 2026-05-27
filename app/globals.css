@@ -1029,14 +1029,14 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: box-shadow .45s var(--ease);
 }
 .motion-thumb-card.is-reel {
-  flex-basis: clamp(250px, 14vw, 285px);
+  flex-basis: clamp(310px, 24vw, 390px);
 }
 .motion-thumb-card:hover { box-shadow: inset 0 0 0 1px var(--br2); }
 .motion-thumb-media {
   position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--b2);
 }
 .motion-thumb-card.is-reel .motion-thumb-media {
-  aspect-ratio: 9/16;
+  aspect-ratio: 4/5;
 }
 .motion-thumb-media img {
   transition: transform .65s var(--ease2);
