@@ -601,8 +601,14 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
   position: relative; z-index: 1;
 }
-.carousel-count { font-family: var(--fm); font-size: .58rem; color: var(--t4); letter-spacing: .08em; }
-.carousel-hint { font-family: var(--fm); font-size: .48rem; color: var(--t4); letter-spacing: .18em; text-transform: uppercase; }
+.carousel-count {
+  font-family: var(--fm); font-size: .68rem; color: rgba(255,255,255,.9);
+  letter-spacing: .08em;
+}
+.carousel-hint {
+  font-family: var(--fm); font-size: .58rem; color: rgba(255,255,255,.9);
+  letter-spacing: .18em; text-transform: uppercase;
+}
 .project-note {
   width: calc(100% - clamp(2.8rem,6.5vw,8rem));
   margin: 0 auto clamp(.75rem,1.4vw,1.1rem);
