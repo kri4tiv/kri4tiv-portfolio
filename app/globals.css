@@ -518,7 +518,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .work-film-thumb-bg {
   object-fit: cover; opacity: .38; transform: scale(1.12);
-  filter: blur(8px) saturate(1.35) brightness(1.06);
+  filter: blur(4px) saturate(1.25) brightness(1.04);
 }
 .work-film-thumb-img {
   object-fit: contain; padding: 3px;
@@ -575,7 +575,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .carousel-slide-bg {
   object-fit: cover; opacity: .28; transform: scale(1.12);
-  filter: blur(18px) saturate(1.4) brightness(1.08);
+  filter: blur(7px) saturate(1.28) brightness(1.05);
 }
 .carousel-slide-img {
   object-fit: contain; padding: clamp(.5rem,1.4vw,1rem);
@@ -679,7 +679,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .explore-visual-bg {
   object-fit: cover; opacity: .3; transform: scale(1.12);
-  filter: blur(16px) saturate(1.4) brightness(1.08);
+  filter: blur(7px) saturate(1.28) brightness(1.05);
 }
 .explore-visual-img {
   object-fit: contain; padding: clamp(.45rem,1vw,.85rem);
