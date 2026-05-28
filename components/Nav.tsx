@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "Home",        href: "/" },
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
-  { label: "AI · Video Lab", href: "/video-lab" },
+  { label: "Video Lab",   href: "/video-lab" },
   { label: "Stories",     href: "/stories" },
 ];
 

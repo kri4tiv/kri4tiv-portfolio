@@ -257,6 +257,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "birkin-mississippi-20-alligator-sands-uae",
+    title: "Birkin Mississippi 20 Alligator | SANDS UAE",
+    category: "REELS & SHORTS",
+    poster: "/media/motion-optimized/sands-birkin-thumbnail.webp",
+    youtubeId: "robzQeR3fyc",
+    youtubeUrl: "https://youtube.com/shorts/robzQeR3fyc?feature=share",
+    description: "A luxury short-form product reel for SANDS UAE, built around premium detail and direct availability messaging.",
+    aspectRatio: "9:16",
+  },
+  {
     id: "sesko-complete-striker",
     title: "Sesko - Complete Striker",
     category: "NON AI STUFF",
@@ -325,6 +335,6 @@ export const NAV_LINKS = [
   { label: "Home",        href: "/" },
   { label: "Work",        href: "/work" },
   { label: "Exploration", href: "/exploration" },
-  { label: "AI · Video Lab", href: "/video-lab" },
+  { label: "Video Lab",   href: "/video-lab" },
   { label: "Stories",     href: "/stories" },
 ];

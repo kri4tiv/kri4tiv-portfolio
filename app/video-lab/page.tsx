@@ -115,7 +115,7 @@ export default function MotionPage() {
             <div className="sec-head">
               <span className="sec-num">04</span>
               <div>
-                <p className="sec-eyebrow">AI · Video Lab</p>
+                <p className="sec-eyebrow">Video Lab</p>
                 <h1 className="sec-h2">
                   Films, brand work,<br />
                   <em>motion and reels</em>
@@ -186,7 +186,7 @@ export default function MotionPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle:"italic", color:"var(--ac)" }}>4</span>TIV</span>
-        <span>AI · Video Lab</span>
+        <span>Video Lab</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>
