@@ -257,6 +257,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "go-pro-ad-proof-you-were-there",
+    title: "Go Pro AD - Proof You Were There",
+    category: "REELS & SHORTS",
+    poster: "/media/motion-optimized/gopro-proof-thumbnail.webp",
+    youtubeId: "nX-BQ_d-FvA",
+    youtubeUrl: "https://youtube.com/shorts/nX-BQ_d-FvA?feature=share",
+    description: "A short-form GoPro ad concept built around memory, proof, and the feeling of being there.",
+    aspectRatio: "9:16",
+  },
+  {
     id: "birkin-mississippi-20-alligator-sands-uae",
     title: "Birkin Mississippi 20 Alligator | SANDS UAE",
     category: "REELS & SHORTS",
