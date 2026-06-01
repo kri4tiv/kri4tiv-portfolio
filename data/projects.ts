@@ -277,6 +277,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "9:16",
   },
   {
+    id: "tabby-card-motion-concept",
+    title: "Tabby Card - Motion Concept",
+    category: "MOTION & ANIMATION",
+    poster: "/media/motion-optimized/tabby-card-motion-concept.webp",
+    youtubeId: "r0gRPdplcAM",
+    youtubeUrl: "https://youtube.com/shorts/r0gRPdplcAM?feature=share",
+    description: "A clean motion concept for Tabby Card, focused on product movement, soft lighting, and a simple finance-tech feel.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "sesko-complete-striker",
     title: "Sesko - Complete Striker",
     category: "NON AI STUFF",
