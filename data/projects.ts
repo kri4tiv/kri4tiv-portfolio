@@ -247,6 +247,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "sony-bravia",
+    title: "Sony Bravia",
+    category: "BRAND & COMMERCIAL ADS",
+    poster: "/media/motion-optimized/sony-bravia-thumbnail.webp",
+    youtubeId: "CTr7Zo3YDB0",
+    youtubeUrl: "https://youtu.be/CTr7Zo3YDB0",
+    description: "A brand film concept for Sony Bravia, built around cinematic colour, landscape detail, and immersive display quality.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "fyonlli-science-of-gifting",
     title: "Fyonlli - The Science of Gifting",
     category: "BRAND & COMMERCIAL ADS",

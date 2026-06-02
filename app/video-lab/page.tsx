@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import VideoLightbox from "@/components/VideoLightbox";
 import { MOTION_VIDEOS } from "@/data/projects";
 
-const CATEGORIES = ["AI FILMS", "BRAND & COMMERCIAL ADS", "REELS & SHORTS", "MOTION & ANIMATION", "NON AI STUFF"];
+const CATEGORIES = ["BRAND & COMMERCIAL ADS", "REELS & SHORTS", "MOTION & ANIMATION", "AI FILMS", "NON AI STUFF"];
 
 const CATEGORY_COPY: Record<string, { label: string; title: string; text: string }> = {
   "AI FILMS": {
