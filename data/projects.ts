@@ -257,6 +257,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "commercial-video-42kzzfhs9zc",
+    title: "Commercial Video",
+    category: "BRAND & COMMERCIAL ADS",
+    poster: "https://i.ytimg.com/vi/42KZZfhs9Zc/maxresdefault.jpg",
+    youtubeId: "42KZZfhs9Zc",
+    youtubeUrl: "https://youtu.be/42KZZfhs9Zc",
+    description: "A brand and commercial video piece connected directly from YouTube with the original upload thumbnail.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "fyonlli-science-of-gifting",
     title: "Fyonlli - The Science of Gifting",
     category: "BRAND & COMMERCIAL ADS",
