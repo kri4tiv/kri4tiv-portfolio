@@ -1017,19 +1017,17 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   font-size: clamp(.92rem,1.1vw,1.02rem);
 }
 .motion-thumb-grid {
-  display: flex; gap: 0; background: transparent; overflow-x: auto;
-  scroll-snap-type: x mandatory; scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px; background: var(--br); overflow: visible;
 }
 .motion-thumb-grid::-webkit-scrollbar { display: none; }
 .motion-thumb-card {
   background: #080808; min-height: 100%; display: grid; grid-template-rows: auto 1fr;
-  flex: 0 0 clamp(340px, 34vw, 520px); scroll-snap-align: start;
-  border-left: 1px solid var(--br);
+  min-width: 0;
   transition: box-shadow .45s var(--ease);
 }
 .motion-thumb-card.is-reel {
-  flex-basis: clamp(310px, 24vw, 390px);
+  width: 100%;
 }
 .motion-thumb-card:hover { box-shadow: inset 0 0 0 1px var(--br2); }
 .motion-thumb-media {
@@ -1085,9 +1083,8 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   font-size: .82rem; line-height: 1.45; margin: .55rem 0 .8rem;
 }
 .motion-empty-state {
-  min-height: 100%; flex: 1 0 100%;
+  min-height: 320px; grid-column: 1 / -1;
   display: flex; align-items: center; justify-content: center;
-  border-left: 1px solid var(--br);
   background: rgba(255,255,255,.018);
 }
 .motion-empty-state span {
@@ -1483,9 +1480,9 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     top: 0; left: auto; right: 0; bottom: 0; width: 3px; height: auto;
   }
   .motion-category-panel { min-height: 0; }
-  .motion-thumb-grid { flex-direction: column; overflow-x: visible; }
-  .motion-thumb-card { width: 100%; flex-basis: auto; min-height: 0; border-left: 0; border-top: 1px solid var(--br); }
-  .motion-thumb-card.is-reel { width: 100%; flex-basis: auto; }
+  .motion-thumb-grid { grid-template-columns: 1fr; overflow: visible; }
+  .motion-thumb-card { width: 100%; min-height: 0; }
+  .motion-thumb-card.is-reel { width: 100%; }
   .motion-editorial-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-editorial-card,
   .motion-editorial-card.alternate,
