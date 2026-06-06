@@ -771,7 +771,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .exploration-wall-track {
   display: flex; align-items: stretch; gap: 8px; width: max-content; height: 100%;
-  animation: wallSweep 72s linear infinite;
+  animation: wallSweep 30s linear infinite;
   will-change: transform;
 }
 .exploration-wall-track.reverse { animation-name: wallSweepReverse; }
@@ -1033,14 +1033,15 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: box-shadow .45s var(--ease);
 }
 .motion-thumb-card.is-reel {
-  width: 100%;
+  width: min(100%, clamp(240px,22vw,320px));
+  justify-self: center;
 }
 .motion-thumb-card:hover { box-shadow: inset 0 0 0 1px var(--br2); }
 .motion-thumb-media {
   position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--b2);
 }
 .motion-thumb-card.is-reel .motion-thumb-media {
-  aspect-ratio: 4/5;
+  aspect-ratio: 9/13;
 }
 .motion-thumb-media img {
   transition: transform .65s var(--ease2);
@@ -1495,6 +1496,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .motion-thumb-grid { grid-template-columns: 1fr; overflow: visible; }
   .motion-thumb-card { width: 100%; min-height: 0; }
   .motion-thumb-card.is-reel { width: 100%; }
+  .motion-thumb-card.is-reel .motion-thumb-media { aspect-ratio: 4/5; }
   .motion-editorial-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-editorial-card,
   .motion-editorial-card.alternate,
