@@ -85,6 +85,41 @@ function MotionThumb({
   );
 }
 
+function CategoryPanel({
+  id,
+  className = "",
+  projects,
+  copy,
+  onWatch,
+}: {
+  id: string;
+  className?: string;
+  projects: MotionProject[];
+  copy: { label: string; title: string; text: string };
+  onWatch: (project: MotionProject) => void;
+}) {
+  return (
+    <div id={id} className={`motion-category-panel ${className}`} role="tabpanel">
+      <div className="motion-category-copy">
+        <p className="motion-project-kicker">{copy.label}</p>
+        <h3>{copy.title}</h3>
+        <p>{copy.text}</p>
+      </div>
+      <div className="motion-thumb-grid">
+        {projects.length > 0 ? (
+          projects.map(project => (
+            <MotionThumb key={project.id} project={project} onWatch={onWatch} />
+          ))
+        ) : (
+          <div className="motion-empty-state" aria-live="polite">
+            <span>Coming soon</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function MotionPage() {
   const [video, setVideo] = useState<MotionProject | null>(null);
   const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
@@ -145,40 +180,45 @@ export default function MotionPage() {
 
             <div className="motion-selector">
               <div className="motion-selector-tabs" role="tablist" aria-label="Video work categories">
-                {groupedProjects.map((group, index) => (
-                  <button
-                    key={group.category}
-                    type="button"
-                    className={group.category === activeGroup.category ? "active" : ""}
-                    onClick={() => setActiveCategory(group.category)}
-                    role="tab"
-                    aria-selected={group.category === activeGroup.category}
-                    aria-controls="motion-category-panel"
-                  >
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    {group.category}
-                  </button>
-                ))}
+                {groupedProjects.map((group, index) => {
+                  const isActive = group.category === activeGroup.category;
+                  const panelCopy = CATEGORY_COPY[group.category];
+
+                  return (
+                    <div key={group.category} className="motion-selector-item">
+                      <button
+                        type="button"
+                        className={isActive ? "active" : ""}
+                        onClick={() => setActiveCategory(group.category)}
+                        role="tab"
+                        aria-selected={isActive}
+                        aria-controls={isActive ? "motion-category-panel" : undefined}
+                      >
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        {group.category}
+                      </button>
+                      {isActive && (
+                        <CategoryPanel
+                          id={`motion-mobile-panel-${index}`}
+                          className="motion-category-panel-mobile"
+                          projects={group.projects}
+                          copy={panelCopy}
+                          onWatch={setVideo}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
-              <div key={activeGroup.category} id="motion-category-panel" className="motion-category-panel" role="tabpanel">
-                <div className="motion-category-copy">
-                  <p className="motion-project-kicker">{activeCopy.label}</p>
-                  <h3>{activeCopy.title}</h3>
-                  <p>{activeCopy.text}</p>
-                </div>
-                <div className="motion-thumb-grid">
-                  {activeGroup.projects.length > 0 ? (
-                    activeGroup.projects.map(project => (
-                      <MotionThumb key={project.id} project={project} onWatch={setVideo} />
-                    ))
-                  ) : (
-                    <div className="motion-empty-state" aria-live="polite">
-                      <span>Coming soon</span>
-                    </div>
-                  )}
-                </div>
-              </div>
+              <CategoryPanel
+                key={activeGroup.category}
+                id="motion-category-panel"
+                className="motion-category-panel-desktop"
+                projects={activeGroup.projects}
+                copy={activeCopy}
+                onWatch={setVideo}
+              />
             </div>
           </section>
         </Reveal>
