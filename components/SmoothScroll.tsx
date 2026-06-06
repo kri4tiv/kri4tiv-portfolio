@@ -6,6 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+type WindowWithLenis = Window & {
+  __kriLenis?: Pick<Lenis, "scrollTo">;
+};
+
 export default function SmoothScroll() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -21,6 +25,7 @@ export default function SmoothScroll() {
     });
 
     document.documentElement.classList.add("has-smooth-scroll");
+    (window as WindowWithLenis).__kriLenis = lenis;
 
     const onTick = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(onTick);
@@ -30,6 +35,7 @@ export default function SmoothScroll() {
     return () => {
       gsap.ticker.remove(onTick);
       document.documentElement.classList.remove("has-smooth-scroll");
+      delete (window as WindowWithLenis).__kriLenis;
       lenis.destroy();
     };
   }, []);

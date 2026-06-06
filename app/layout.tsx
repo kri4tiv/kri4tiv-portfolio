@@ -5,6 +5,7 @@ import Grain from "@/components/Grain";
 import MusicToggle from "@/components/MusicToggle";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import RouteScrollReset from "@/components/RouteScrollReset";
 import ScrollChoreography from "@/components/ScrollChoreography";
 import ScrollProgress from "@/components/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <MusicToggle />
         <SmoothScroll />
+        <RouteScrollReset />
         <ScrollChoreography />
         <ScrollProgress />
         <SpeedInsights />
