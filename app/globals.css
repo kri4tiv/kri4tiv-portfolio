@@ -1027,7 +1027,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   gap: 1px; background: var(--br); overflow: visible;
 }
 .motion-thumb-grid.is-reels-grid {
-  grid-template-columns: repeat(2, minmax(230px, 285px));
+  grid-template-columns: repeat(3, minmax(190px, 245px));
   justify-content: start;
   align-items: start;
   gap: 1px;
