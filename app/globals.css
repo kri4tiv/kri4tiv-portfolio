@@ -1028,7 +1028,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
 }
 .motion-thumb-grid.is-reels-grid {
   grid-template-columns: repeat(2, minmax(230px, 285px));
-  justify-content: center;
+  justify-content: start;
   align-items: start;
   gap: 1px;
   padding: 0;
@@ -1512,7 +1512,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     border-bottom: 1px solid var(--br);
   }
   .motion-thumb-grid { grid-template-columns: 1fr; overflow: visible; }
-  .motion-thumb-grid.is-reels-grid { grid-template-columns: 1fr; }
+  .motion-thumb-grid.is-reels-grid { grid-template-columns: 1fr; justify-content: stretch; }
   .motion-thumb-card { width: 100%; min-height: 0; }
   .motion-thumb-card.is-reel { width: 100%; }
   .motion-thumb-card.is-reel .motion-thumb-media { aspect-ratio: 4/5; }
