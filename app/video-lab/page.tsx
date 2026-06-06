@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import VideoLightbox from "@/components/VideoLightbox";
 import { MOTION_VIDEOS } from "@/data/projects";
 
-const CATEGORIES = ["BRAND & COMMERCIAL ADS", "REELS & SHORTS", "MOTION & ANIMATION", "AI FILMS", "NON AI STUFF"];
+const CATEGORIES = ["BRAND & COMMERCIAL ADS", "REELS / SHORTS / UGC", "MOTION & ANIMATION", "AI FILMS", "NON AI STUFF"];
 
 const CATEGORY_COPY: Record<string, { label: string; title: string; text: string }> = {
   "AI FILMS": {
@@ -18,10 +18,10 @@ const CATEGORY_COPY: Record<string, { label: string; title: string; text: string
     title: "BRAND & COMMERCIAL ADS",
     text: "Spec ads, product films, campaign ideas, and video concepts made for brands, launches, and social campaigns.",
   },
-  "REELS & SHORTS": {
+  "REELS / SHORTS / UGC": {
     label: "Short Form",
-    title: "REELS & SHORTS",
-    text: "Vertical short-form edits for Instagram, TikTok, Reels, and fast campaign storytelling.",
+    title: "REELS / SHORTS / UGC",
+    text: "Vertical short-form edits for Instagram, TikTok, Reels, UGC, and fast campaign storytelling.",
   },
   "MOTION & ANIMATION": {
     label: "Design in Motion",
@@ -55,7 +55,7 @@ function MotionThumb({
   const canWatch = Boolean(getYouTubeId(project));
 
   return (
-    <article className={project.category === "REELS & SHORTS" ? "motion-thumb-card is-reel" : "motion-thumb-card"}>
+    <article className={project.category === "REELS / SHORTS / UGC" ? "motion-thumb-card is-reel" : "motion-thumb-card"}>
       <div className="motion-thumb-media">
         <Image
           src={project.poster}

@@ -218,7 +218,7 @@ export const EXPLORE_PROJECTS = [
 export type MotionVideoProject = {
   id: string;
   title: string;
-  category: "AI FILMS" | "BRAND & COMMERCIAL ADS" | "REELS & SHORTS" | "MOTION & ANIMATION" | "NON AI STUFF";
+  category: "AI FILMS" | "BRAND & COMMERCIAL ADS" | "REELS / SHORTS / UGC" | "MOTION & ANIMATION" | "NON AI STUFF";
   poster: string;
   youtubeId: string | null;
   youtubeUrl?: string;
@@ -257,13 +257,13 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
-    id: "commercial-video-42kzzfhs9zc",
-    title: "Commercial Video",
+    id: "sands-chanel-coco-beach-2026",
+    title: "SANDS | Chanel Coco Beach 2026",
     category: "BRAND & COMMERCIAL ADS",
     poster: "https://i.ytimg.com/vi/42KZZfhs9Zc/maxresdefault.jpg",
     youtubeId: "42KZZfhs9Zc",
     youtubeUrl: "https://youtu.be/42KZZfhs9Zc",
-    description: "A brand and commercial video piece connected directly from YouTube with the original upload thumbnail.",
+    description: "A luxury commercial piece for SANDS, built around Chanel Coco Beach 2026 and clean product-led storytelling.",
     aspectRatio: "16:9",
   },
   {
@@ -279,7 +279,7 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
     id: "go-pro-ad-proof-you-were-there",
     title: "Go Pro AD - Proof You Were There",
-    category: "REELS & SHORTS",
+    category: "REELS / SHORTS / UGC",
     poster: "/media/motion-optimized/gopro-proof-thumbnail.webp",
     youtubeId: "nX-BQ_d-FvA",
     youtubeUrl: "https://youtube.com/shorts/nX-BQ_d-FvA?feature=share",
@@ -287,9 +287,39 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "9:16",
   },
   {
+    id: "cleaneats-to-the-girl-on-tiktok",
+    title: "CleanEats | To The Girl On TikTok.",
+    category: "REELS / SHORTS / UGC",
+    poster: "/media/motion-optimized/cleaneats-to-the-girl-thumbnail.webp",
+    youtubeId: "LeVpnRndnr0",
+    youtubeUrl: "https://youtube.com/shorts/LeVpnRndnr0?feature=share",
+    description: "A short-form CleanEats UGC concept built around direct TikTok-style storytelling and app-led nutrition.",
+    aspectRatio: "9:16",
+  },
+  {
+    id: "cleaneats-everyone-thinks-i-hired-a-nutritionist",
+    title: "CleanEats | Everyone Thinks I Hired a Nutritionist.",
+    category: "REELS / SHORTS / UGC",
+    poster: "https://i.ytimg.com/vi/fyIrueq5d-I/maxresdefault.jpg",
+    youtubeId: "fyIrueq5d-I",
+    youtubeUrl: "https://youtube.com/shorts/fyIrueq5d-I?feature=share",
+    description: "A CleanEats short built around the feeling of having simple nutrition guidance without hiring a nutritionist.",
+    aspectRatio: "9:16",
+  },
+  {
+    id: "cleaneats-the-healthy-snack-trap",
+    title: "CleanEats | The Healthy Snack Trap.",
+    category: "REELS / SHORTS / UGC",
+    poster: "https://i.ytimg.com/vi/VUF2eP---o0/maxresdefault.jpg",
+    youtubeId: "VUF2eP---o0",
+    youtubeUrl: "https://youtube.com/shorts/VUF2eP---o0?feature=share",
+    description: "A short-form CleanEats concept about confusing healthy snack choices and making better daily food decisions.",
+    aspectRatio: "9:16",
+  },
+  {
     id: "birkin-mississippi-20-alligator-sands-uae",
     title: "Birkin Mississippi 20 Alligator | SANDS UAE",
-    category: "REELS & SHORTS",
+    category: "REELS / SHORTS / UGC",
     poster: "/media/motion-optimized/sands-birkin-thumbnail.webp",
     youtubeId: "robzQeR3fyc",
     youtubeUrl: "https://youtube.com/shorts/robzQeR3fyc?feature=share",
@@ -304,6 +334,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     youtubeId: "RrtLTQcX4Aw",
     youtubeUrl: "https://youtube.com/shorts/RrtLTQcX4Aw?feature=share",
     description: "A clean motion concept for Tabby Card, focused on product movement, soft lighting, and a simple finance-tech feel.",
+    aspectRatio: "16:9",
+  },
+  {
+    id: "cleaneats-detective-avocado",
+    title: "CleanEats | Detective Avocado.",
+    category: "MOTION & ANIMATION",
+    poster: "/media/motion-optimized/cleaneats-detective-avocado-thumbnail.webp",
+    youtubeId: "AjzF-138nUY",
+    youtubeUrl: "https://youtube.com/shorts/AjzF-138nUY?feature=share",
+    description: "A CleanEats motion concept with a playful detective character and a sharp animated campaign feel.",
     aspectRatio: "16:9",
   },
   {
