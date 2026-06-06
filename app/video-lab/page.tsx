@@ -98,6 +98,8 @@ function CategoryPanel({
   copy: { label: string; title: string; text: string };
   onWatch: (project: MotionProject) => void;
 }) {
+  const isReelsPanel = projects.some(project => project.category === "REELS / SHORTS / UGC");
+
   return (
     <div id={id} className={`motion-category-panel ${className}`} role="tabpanel">
       <div className="motion-category-copy">
@@ -105,7 +107,7 @@ function CategoryPanel({
         <h3>{copy.title}</h3>
         <p>{copy.text}</p>
       </div>
-      <div className="motion-thumb-grid">
+      <div className={`motion-thumb-grid${isReelsPanel ? " is-reels-grid" : ""}`}>
         {projects.length > 0 ? (
           projects.map(project => (
             <MotionThumb key={project.id} project={project} onWatch={onWatch} />

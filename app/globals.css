@@ -1026,6 +1026,14 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px; background: var(--br); overflow: visible;
 }
+.motion-thumb-grid.is-reels-grid {
+  grid-template-columns: repeat(2, minmax(230px, 285px));
+  justify-content: center;
+  align-items: start;
+  gap: 1px;
+  padding: 0;
+  background: transparent;
+}
 .motion-thumb-grid::-webkit-scrollbar { display: none; }
 .motion-thumb-card {
   background: #080808; min-height: 100%; display: grid; grid-template-rows: auto 1fr;
@@ -1033,15 +1041,15 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: box-shadow .45s var(--ease);
 }
 .motion-thumb-card.is-reel {
-  width: min(100%, clamp(240px,22vw,320px));
-  justify-self: center;
+  width: 100%;
+  justify-self: stretch;
 }
 .motion-thumb-card:hover { box-shadow: inset 0 0 0 1px var(--br2); }
 .motion-thumb-media {
   position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--b2);
 }
 .motion-thumb-card.is-reel .motion-thumb-media {
-  aspect-ratio: 9/13;
+  aspect-ratio: 9/11.5;
 }
 .motion-thumb-media img {
   transition: transform .65s var(--ease2);
@@ -1081,13 +1089,23 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   color: var(--t2); line-height: 1.6; font-size: .9rem; margin: .7rem 0 1rem;
 }
 .motion-thumb-card.is-reel .motion-thumb-copy {
-  padding: clamp(.85rem,1.2vw,1.05rem);
+  padding: .8rem .85rem .9rem;
 }
 .motion-thumb-card.is-reel .motion-thumb-copy h3 {
-  font-size: clamp(1.1rem,1.6vw,1.45rem);
+  font-size: clamp(.98rem,1.25vw,1.18rem);
+  line-height: 1.02;
 }
 .motion-thumb-card.is-reel .motion-thumb-copy p {
-  font-size: .82rem; line-height: 1.45; margin: .55rem 0 .8rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: .74rem; line-height: 1.38; margin: .48rem 0 .7rem;
+}
+.motion-thumb-card.is-reel .motion-watch-btn {
+  min-height: 38px;
+  padding: .58rem .8rem;
+  font-size: .64rem;
 }
 .motion-empty-state {
   min-height: 320px; grid-column: 1 / -1;
@@ -1494,6 +1512,7 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     border-bottom: 1px solid var(--br);
   }
   .motion-thumb-grid { grid-template-columns: 1fr; overflow: visible; }
+  .motion-thumb-grid.is-reels-grid { grid-template-columns: 1fr; }
   .motion-thumb-card { width: 100%; min-height: 0; }
   .motion-thumb-card.is-reel { width: 100%; }
   .motion-thumb-card.is-reel .motion-thumb-media { aspect-ratio: 4/5; }
