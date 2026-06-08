@@ -96,8 +96,30 @@ const BRANDING_PROJECTS: BrandingProject[] = [
 
 type LbState = { projectTitle: string; images: string[]; index: number };
 
+type WindowWithLenis = Window & {
+  __kriLenis?: {
+    scrollTo: (target: HTMLElement | number, options?: { offset?: number; duration?: number }) => void;
+  };
+};
+
 export default function BrandingPage() {
   const [lb, setLb] = useState<LbState | null>(null);
+
+  const scrollToProject = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    window.history.replaceState(null, "", `#${id}`);
+    const lenis = (window as WindowWithLenis).__kriLenis;
+
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -88, duration: 1 });
+      return;
+    }
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -130,15 +152,21 @@ export default function BrandingPage() {
         <Reveal>
           <div className="branding-index">
             {BRANDING_PROJECTS.map(project => (
-              <a key={project.id} href={`#${project.id}`} className="branding-index-card">
+              <a
+                key={project.id}
+                href={`#${project.id}`}
+                className="branding-index-card"
+                onClick={event => scrollToProject(event, project.id)}
+              >
                 <div className="branding-index-media">
                   <Image
                     src={project.images[0]}
                     alt={`${project.title} thumbnail`}
+                    className="branding-index-img"
                     fill
                     priority={project.number === "01"}
                     sizes="(max-width: 768px) 90vw, 24vw"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="branding-index-copy">
