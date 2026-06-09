@@ -14,7 +14,7 @@ export default function ContactPage() {
         <section className="section contact-section" style={{ position: "relative", zIndex: 1 }}>
         <div style={{ width: "100%" }}>
           <div className="sec-head" style={{ marginBottom: "2rem" }}>
-            <span className="sec-num">05</span>
+            <span className="sec-num">06</span>
             <div>
               <p className="sec-eyebrow">Get in Touch</p>
             </div>

@@ -150,7 +150,7 @@ export default function MotionPage() {
           <div className="sec-bg-img" style={{ backgroundImage: `url(/media/section-bg-optimized/04-motion.webp)` }} />
           <div className="section" style={{ paddingBottom: "clamp(2rem,4vw,3rem)" }}>
             <div className="sec-head">
-              <span className="sec-num">04</span>
+              <span className="sec-num">05</span>
               <div>
                 <p className="sec-eyebrow">Video Lab</p>
                 <h1 className="sec-h2">

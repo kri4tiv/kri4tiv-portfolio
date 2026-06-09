@@ -12,6 +12,7 @@ type BrandingProject = {
   eyebrow: string;
   summary: string;
   palette: string[];
+  details: { label: string; value: string }[];
   images: string[];
   paragraphs: string[];
 };
@@ -25,6 +26,11 @@ const BRANDING_PROJECTS: BrandingProject[] = [
     summary:
       "A fictional World Cup campaign built around the ritual before the match: the tunnel, the boots, the bottle, and the quiet moment before kick-off.",
     palette: ["#d71920", "#050505", "#f4f1e8", "#1f5d3b", "#c7c8c2"],
+    details: [
+      { label: "Typography", value: "Condensed sport headlines with stadium-scale supporting labels." },
+      { label: "System", value: "Bottle-cap badges, pitch lines, red three-stripe taping, and matchday marks." },
+      { label: "Formats", value: "Tunnel stills, merch boards, city carousel, fan-zone experience, and social posters." },
+    ],
     images: Array.from({ length: 9 }, (_, i) => `/media/branding/adidas-coca-cola/${String(i + 1).padStart(2, "0")}.webp`),
     paragraphs: [
       "With the World Cup only days away, I wanted to explore what a fictional Adidas Originals x Coca-Cola campaign could look like if it focused on the ritual before the match, not just the match itself.",
@@ -43,6 +49,11 @@ const BRANDING_PROJECTS: BrandingProject[] = [
     summary:
       "A light, friendly campaign system that makes flexible payments feel clear, controlled, and easy to understand at a glance.",
     palette: ["#50e3b0", "#2b145f", "#cfc0ff", "#f5f2eb", "#1d1d1f"],
+    details: [
+      { label: "Typography", value: "Rounded fintech headlines with soft UI labels and short product lines." },
+      { label: "System", value: "Pill tags, dotted paths, payment cards, icon blocks, and modular layouts." },
+      { label: "Formats", value: "Campaign posters, wallet flow, education boards, and tone-of-voice assets." },
+    ],
     images: Array.from({ length: 7 }, (_, i) => `/media/branding/tabby-card/${String(i + 1).padStart(2, "0")}.webp`),
     paragraphs: [
       "For this Tabby Card concept, I wanted the campaign to feel clear, light, and easy to understand at a glance. The main idea was built around one simple line: Keep the Moment Light.",
@@ -56,13 +67,45 @@ const BRANDING_PROJECTS: BrandingProject[] = [
     ],
   },
   {
-    id: "sands",
+    id: "heinz-rebrand",
     number: "03",
+    title: "Heinz Rebrand Concept: Sauce That Starts Things",
+    eyebrow: "Food culture rebrand",
+    summary:
+      "A bolder Heinz identity concept built around everyday food moments, sharper campaign lines, and a louder shelf presence.",
+    palette: ["#d71920", "#2f6b3f", "#fff4df", "#f2b705", "#202020"],
+    details: [
+      { label: "Typography", value: "Bold condensed type designed for shelves, billboards, packaging, and social posts." },
+      { label: "System", value: "Keystone frames, edition labels, sauce streaks, sticker badges, and food-moment lockups." },
+      { label: "Formats", value: "Packaging, ingredient posters, OOH, retail POS, tray liners, and social campaign boards." },
+    ],
+    images: Array.from({ length: 10 }, (_, i) => `/media/branding/heinz-rebrand/${String(i + 1).padStart(2, "0")}.webp`),
+    paragraphs: [
+      "For this Heinz rebrand concept, I wanted to take an iconic brand and make it feel louder, sharper, and more present in modern food culture. Heinz is already instantly recognisable, but the idea here was to move it from something that sits in the background of a meal to something that starts the moment.",
+      "The campaign idea became Sauce That Starts Things, supported by the bolder line Don't Eat It Dry. It is simple, memorable, and built around a truth everyone understands: some food just feels incomplete without sauce.",
+      "Fries, burgers, nuggets, eggs, grilled cheese, hot dogs, samosas, and pizza crusts all become small everyday moments where Heinz can own the role of making food better.",
+      "The visual identity system keeps the classic Heinz cues, but makes them more direct and social-ready. The palette uses Heinz red, pickle green, creamy label white, mustard yellow, fry gold, tomato pink, and charcoal black.",
+      "The typography is bold, condensed, and high-impact, designed to be read quickly on packaging, posters, shelves, billboards, and social posts. The keystone label shape becomes a flexible brand frame across packaging, stickers, badges, campaign lockups, and point-of-sale material.",
+      "The packaging system builds on the idea of New Look. Same Icon. It keeps Heinz recognisable through the bottle shape, label structure, and 57 Varieties mark, but adds clearer hierarchy, stronger shelf blocking, and food-moment editions like Fries Edition, Burger Edition, Late Night Edition, and Breakfast Edition.",
+      "The ingredient poster adds a more honest product story. Tomatoes with a point to prove gives the brand a sharper voice while still highlighting real flavour, tomatoes, vinegar, sea salt, onions, and spices. It balances personality with trust, which matters for a heritage food brand.",
+      "The social campaign system turns the rebrand into bite-sized culture. Lines like Fries need backup, Blandness cancelled, Dip first, Bottle service, and Good food deserves good sauce are designed to work as bold, simple posts.",
+      "The out-of-home and retail systems show how the identity could work beyond social. The billboards are built for fast reading, using big type, simple food truths, and high-contrast product visuals. The retail and POS board brings the system closer to the shelf through tray liners, aisle displays, checkout stands, takeaway bags, sachet boxes, menu screens, and price strips.",
+      "Overall, this concept keeps Heinz iconic but gives it a stronger modern voice. It is bolder on shelf, clearer in campaign, more flexible for social, and more connected to everyday food culture. Same Heinz, bigger attitude.",
+    ],
+  },
+  {
+    id: "sands",
+    number: "04",
     title: "SANDS: Personal Shopping With a Quiet Luxury Language",
     eyebrow: "Luxury service campaign",
     summary:
       "A refined personal shopping campaign built around taste, access, restraint, and the feeling of a private appointment.",
     palette: ["#090807", "#f0e7d6", "#b79761", "#6f6255", "#2c2018"],
+    details: [
+      { label: "Typography", value: "Elegant serif headlines with quiet service notes and refined campaign copy." },
+      { label: "System", value: "Thin CTAs, muted gold accents, marble surfaces, silk textures, and client-file details." },
+      { label: "Formats", value: "Editorial posters, private shopping notes, Dubai lifestyle visuals, and system boards." },
+    ],
     images: Array.from({ length: 5 }, (_, i) => `/media/branding/sands/${String(i + 1).padStart(2, "0")}.webp`),
     paragraphs: [
       "For this SANDS concept, I wanted the campaign to feel less like a traditional fashion ad and more like a private appointment. The core idea was simple: luxury should feel sourced, not sold.",
@@ -76,12 +119,17 @@ const BRANDING_PROJECTS: BrandingProject[] = [
   },
   {
     id: "cleaneats",
-    number: "04",
+    number: "05",
     title: "CleanEats: Turning Food Labels Into Clearer Choices",
     eyebrow: "Health-tech product campaign",
     summary:
       "A simple food-scanning campaign that makes ingredients, sugar, additives, and nutrition choices easier to understand.",
     palette: ["#6fcf97", "#eaf4ea", "#f8f4ec", "#24382f", "#c9d9ca"],
+    details: [
+      { label: "Typography", value: "Clear health-tech hierarchy with soft product UI and direct campaign lines." },
+      { label: "System", value: "Rounded scan cards, nutrition blocks, ingredient callouts, and app-led proof points." },
+      { label: "Formats", value: "App posters, product scans, lifestyle kitchen visuals, and educational social assets." },
+    ],
     images: Array.from({ length: 4 }, (_, i) => `/media/branding/cleaneats/${String(i + 1).padStart(2, "0")}.webp`),
     paragraphs: [
       "For this CleanEats concept, I wanted the campaign to feel simple, useful, and easy to trust. The idea was built around a common everyday problem: food packaging can look clean on the front, but the real story is usually hidden in the ingredients, sugar levels, additives, and nutrition label.",
@@ -193,6 +241,14 @@ export default function BrandingPage() {
                     <span key={color} style={{ backgroundColor: color }} />
                   ))}
                 </div>
+                <dl className="branding-spec-list">
+                  {project.details.map(detail => (
+                    <div key={detail.label}>
+                      <dt>{detail.label}</dt>
+                      <dd>{detail.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </aside>
 
               <div className="branding-case-main">
@@ -233,7 +289,7 @@ export default function BrandingPage() {
                         loading="lazy"
                         decoding="async"
                         sizes="(max-width: 768px) 46vw, 25vw"
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "contain" }}
                       />
                     </button>
                   ))}
