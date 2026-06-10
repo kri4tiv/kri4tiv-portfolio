@@ -153,7 +153,7 @@ type WindowWithLenis = Window & {
 export default function BrandingPage() {
   const [lb, setLb] = useState<LbState | null>(null);
 
-  const scrollToProject = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const scrollToProject = (event: React.MouseEvent<HTMLButtonElement>, id: string) => {
     event.preventDefault();
     const target = document.getElementById(id);
     if (!target) return;
@@ -200,10 +200,11 @@ export default function BrandingPage() {
         <Reveal>
           <div className="branding-index">
             {BRANDING_PROJECTS.map(project => (
-              <a
+              <button
                 key={project.id}
-                href={`#${project.id}`}
+                type="button"
                 className="branding-index-card"
+                aria-label={`Jump to ${project.title}`}
                 onClick={event => scrollToProject(event, project.id)}
               >
                 <div className="branding-index-media">
@@ -222,7 +223,7 @@ export default function BrandingPage() {
                   <h2>{project.title}</h2>
                   <p>{project.summary}</p>
                 </div>
-              </a>
+              </button>
             ))}
           </div>
         </Reveal>

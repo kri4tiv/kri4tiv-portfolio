@@ -821,14 +821,20 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   border-left: 1px solid var(--br);
 }
 .branding-index-card {
+  appearance: none;
+  -webkit-appearance: none;
   position: relative;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   color: inherit;
+  font: inherit;
+  text-align: left;
   text-decoration: none;
   border-right: 1px solid var(--br);
   border-bottom: 1px solid var(--br);
+  border-top: 0;
+  border-left: 0;
   background: rgba(255,255,255,.018);
   transition: background .35s ease, transform .45s var(--ease), box-shadow .45s var(--ease);
   isolation: isolate;
@@ -1073,14 +1079,18 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .branding-index-card:hover {
     transform: none;
     box-shadow: none;
-    touch-action: pan-y;
+    transition: background .2s ease;
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
   .branding-index-media,
   .branding-index-card:hover .branding-index-media {
     overflow: hidden;
     transform: none;
-    touch-action: pan-y;
+    transition: none;
+    touch-action: manipulation;
+    pointer-events: none;
   }
   .branding-index-media::before,
   .branding-index-media::after {
@@ -1090,9 +1100,12 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .branding-index-media img,
   .branding-index-card:hover .branding-index-media img {
     transform: none !important;
+    transition: none !important;
     touch-action: pan-y;
     user-select: none;
     -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
   }
   .branding-case {
     display: block;
