@@ -136,6 +136,22 @@ export default function MotionPage() {
   const activeGroup = groupedProjects.find(group => group.category === activeCategory) ?? groupedProjects[0];
   const activeCopy = CATEGORY_COPY[activeGroup.category];
 
+  const selectCategory = (category: string, index: number) => {
+    setActiveCategory(category);
+
+    if (typeof window === "undefined" || !window.matchMedia("(max-width: 768px)").matches) return;
+
+    window.setTimeout(() => {
+      const firstVideo = document.querySelector<HTMLElement>(`#motion-mobile-panel-${index} .motion-thumb-card`);
+      const panel = document.getElementById(`motion-mobile-panel-${index}`);
+      const target = firstVideo ?? panel;
+      if (!target) return;
+
+      const top = target.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 60);
+  };
+
   return (
     <>
       <VideoLightbox
@@ -191,7 +207,7 @@ export default function MotionPage() {
                       <button
                         type="button"
                         className={isActive ? "active" : ""}
-                        onClick={() => setActiveCategory(group.category)}
+                        onClick={() => selectCategory(group.category, index)}
                         role="tab"
                         aria-selected={isActive}
                         aria-controls={isActive ? "motion-category-panel" : undefined}

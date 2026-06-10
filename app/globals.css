@@ -1918,6 +1918,36 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   .motion-thumb-card { width: 100%; min-height: 0; }
   .motion-thumb-card.is-reel { width: 100%; }
   .motion-thumb-card.is-reel .motion-thumb-media { aspect-ratio: 4/5; }
+  .motion-thumb-copy {
+    padding: 1.05rem 1rem 1.15rem;
+  }
+  .motion-thumb-copy p {
+    color: var(--t1);
+    font-size: .92rem;
+  }
+  .motion-watch-btn,
+  .motion-thumb-card.is-reel .motion-watch-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    margin-top: .25rem;
+    padding: .88rem 1rem;
+    color: #050505;
+    background: var(--ac);
+    border-color: var(--ac);
+    box-shadow: 0 0 0 1px rgba(210,243,77,.18), 0 12px 30px rgba(210,243,77,.16);
+    font-size: .72rem;
+    letter-spacing: .16em;
+  }
+  .motion-watch-btn:active:not(:disabled) {
+    transform: scale(.98);
+  }
+  .motion-watch-btn:disabled {
+    color: rgba(244,241,232,.42);
+    background: rgba(255,255,255,.045);
+    border-color: rgba(255,255,255,.1);
+    box-shadow: none;
+  }
   .motion-editorial-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
   .motion-editorial-card,
   .motion-editorial-card.alternate,
