@@ -1069,6 +1069,31 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 100%;
   }
+  .branding-index-card,
+  .branding-index-card:hover {
+    transform: none;
+    box-shadow: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .branding-index-media,
+  .branding-index-card:hover .branding-index-media {
+    overflow: hidden;
+    transform: none;
+    touch-action: pan-y;
+  }
+  .branding-index-media::before,
+  .branding-index-media::after {
+    display: none;
+  }
+  .branding-index-img,
+  .branding-index-media img,
+  .branding-index-card:hover .branding-index-media img {
+    transform: none !important;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
   .branding-case {
     display: block;
     min-height: 0;
