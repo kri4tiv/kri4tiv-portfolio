@@ -42,8 +42,36 @@ const BRANDING_PROJECTS: BrandingProject[] = [
     ],
   },
   {
-    id: "tabby-card",
+    id: "whoop-rebranded",
     number: "02",
+    title: "WHOOP Rebranded",
+    eyebrow: "Performance identity system",
+    summary:
+      "A premium wearable strap and performance accessories concept built around product clarity, movement, packaging, social design, and AI campaign stills.",
+    palette: ["#070707", "#f3efe6", "#4b4d4f", "#1f7cff", "#71d66b", "#b67858"],
+    details: [
+      { label: "Typography", value: "Space Grotesk for bold headlines, with Inter for clean product information and digital layouts." },
+      { label: "System", value: "Connected loop mark, strap tags, product stamps, colour codes, packaging sleeves, and campaign end frames." },
+      { label: "Formats", value: "Brand identity, packaging, Instagram feed, story assets, product cards, social design, and AI lifestyle campaign stills." },
+    ],
+    images: Array.from({ length: 11 }, (_, i) => `/media/branding/whoop-rebranded/${String(i + 1).padStart(2, "0")}.webp`),
+    paragraphs: [
+      "WHOOP & CO was developed as a premium wearable strap and performance accessories concept, built around one simple idea: a strap should feel as considered as the technology it supports.",
+      "The goal was to move the brand away from generic fitness accessory design and give it a sharper, more ownable identity. The visual direction sits between Apple-level product clarity and Nike-style movement: clean, bold, tactile, and performance-led, but still wearable enough for everyday life.",
+      "The identity begins with a custom WHOOP & CO wordmark. The rounded, connected letterforms create a sense of flow and motion, while the double OO becomes the brand's most recognisable symbol.",
+      "This connected loop mark was then developed as a short-form logo for packaging, social icons, strap tags, product stamps, and campaign end frames.",
+      "The colour system was built to balance performance with lifestyle. Core Black, Warm Off-White, and Graphite Grey create a premium base, while Signal Blue, Recovery Green, and Motion Clay add controlled moments of energy, recovery, and human warmth.",
+      "The palette was designed to work across product cards, campaign stills, packaging, and digital applications without feeling loud or overdesigned.",
+      "For typography, Space Grotesk gives the brand a strong headline voice, while Inter keeps product information clean and readable across packaging, captions, and digital layouts. The system is intentionally simple: bold where it needs impact, quiet where the product needs space.",
+      "The brand was then extended into real-world applications. The Instagram feed and story assets show the strap in use through movement, recovery, sweat, texture, and daily wear.",
+      "The packaging system turns the identity into a physical product experience, using clean cards, sleeves, labels, colour codes, and material details to make the strap feel premium and considered.",
+      "The AI lifestyle stills push the brand into campaign territory. Each image was built around realistic skin texture, product clarity, cinematic lighting, and different use cases: track starts, recovery stretches, gym pressure, poolside recovery, and everyday movement.",
+      "The result is a compact but complete identity system for WHOOP & CO: bold enough to stand out, clean enough to feel premium, and flexible enough to work across packaging, social, campaign stills, and short-form video. Designed for movement. Built for everyday.",
+    ],
+  },
+  {
+    id: "tabby-card",
+    number: "03",
     title: "Tabby Card: Making Flexible Payments Feel Simple",
     eyebrow: "Fintech campaign system",
     summary:
@@ -68,7 +96,7 @@ const BRANDING_PROJECTS: BrandingProject[] = [
   },
   {
     id: "heinz-rebrand",
-    number: "03",
+    number: "04",
     title: "Heinz Rebrand Concept: Sauce That Starts Things",
     eyebrow: "Food culture rebrand",
     summary:
@@ -95,7 +123,7 @@ const BRANDING_PROJECTS: BrandingProject[] = [
   },
   {
     id: "sands",
-    number: "04",
+    number: "05",
     title: "SANDS: Personal Shopping With a Quiet Luxury Language",
     eyebrow: "Luxury service campaign",
     summary:
@@ -119,7 +147,7 @@ const BRANDING_PROJECTS: BrandingProject[] = [
   },
   {
     id: "cleaneats",
-    number: "05",
+    number: "06",
     title: "CleanEats: Turning Food Labels Into Clearer Choices",
     eyebrow: "Health-tech product campaign",
     summary:
