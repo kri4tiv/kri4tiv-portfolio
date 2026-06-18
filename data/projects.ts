@@ -277,6 +277,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "squatwolf-world-cup-the-last-one-in",
+    title: "SQUATWOLF x World Cup The Last One In",
+    category: "BRAND & COMMERCIAL ADS",
+    poster: "/media/motion-optimized/squatwolf-world-cup-thumbnail.webp",
+    youtubeId: "9JDfk9dDgfo",
+    youtubeUrl: "https://youtube.com/shorts/9JDfk9dDgfo",
+    description: "A short-form SQUATWOLF campaign concept built around World Cup tension, athletic presence, and performance-led visual energy.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "fyonlli-science-of-gifting",
     title: "Fyonlli - The Science of Gifting",
     category: "BRAND & COMMERCIAL ADS",
