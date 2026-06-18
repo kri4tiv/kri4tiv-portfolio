@@ -247,6 +247,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     aspectRatio: "16:9",
   },
   {
+    id: "genesis-gv80-coupe-presence-in-motion",
+    title: "2026 Genesis GV80 Coupe | Presence, In Motion",
+    category: "BRAND & COMMERCIAL ADS",
+    poster: "https://i.ytimg.com/vi/9ohFMLOhw0I/maxresdefault.jpg",
+    youtubeId: "9ohFMLOhw0I",
+    youtubeUrl: "https://youtu.be/9ohFMLOhw0I",
+    description: "A premium automotive spec ad built around presence, motion, and the sculpted character of the 2026 Genesis GV80 Coupe.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "sony-bravia",
     title: "Sony Bravia",
     category: "BRAND & COMMERCIAL ADS",
