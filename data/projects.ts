@@ -308,7 +308,7 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
   },
   {
     id: "reels-shorts-ugc-ae7e9ajk06o",
-    title: "Short-Form UGC Concept",
+    title: "Showreel: Taste that is Questioned",
     category: "REELS / SHORTS / UGC",
     poster: "https://i.ytimg.com/vi/AE7E9ajK06o/maxresdefault.jpg",
     youtubeId: "AE7E9ajK06o",
