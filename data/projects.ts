@@ -229,6 +229,16 @@ export type MotionVideoProject = {
 
 export const MOTION_VIDEOS: MotionVideoProject[] = [
   {
+    id: "odyssey-world-cup-messi-vs-yamal-short-teaser",
+    title: "The Odyssey x World Cup | Messi vs Yamal (Short Teaser)",
+    category: "AI FILMS",
+    poster: "https://i.ytimg.com/vi/4d7qk5oF7PY/maxresdefault.jpg",
+    youtubeId: "4d7qk5oF7PY",
+    youtubeUrl: "https://youtu.be/4d7qk5oF7PY",
+    description: "A short AI film teaser built around World Cup mythology, Messi, Yamal, and cinematic football tension.",
+    aspectRatio: "16:9",
+  },
+  {
     id: "hold-your-gaze",
     title: "Hold Your Gaze",
     category: "AI FILMS",
@@ -295,6 +305,16 @@ export const MOTION_VIDEOS: MotionVideoProject[] = [
     youtubeUrl: "https://youtu.be/-uwYQDg1eXI",
     description: "A lifestyle product film exploring gifting rituals, detail, and emotional recall.",
     aspectRatio: "16:9",
+  },
+  {
+    id: "reels-shorts-ugc-ae7e9ajk06o",
+    title: "Short-Form UGC Concept",
+    category: "REELS / SHORTS / UGC",
+    poster: "https://i.ytimg.com/vi/AE7E9ajK06o/maxresdefault.jpg",
+    youtubeId: "AE7E9ajK06o",
+    youtubeUrl: "https://youtube.com/shorts/AE7E9ajK06o",
+    description: "A vertical short-form video concept made for fast social storytelling, mobile-first pacing, and direct audience attention.",
+    aspectRatio: "9:16",
   },
   {
     id: "go-pro-ad-proof-you-were-there",
