@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const TOOL_LOGOS = [
-  { src: "/media/tool-logos/adobe-creative-cloud.webp", name: "Adobe Creative Cloud" },
-  { src: "/media/tool-logos/premiere-pro.webp", name: "Premiere Pro" },
+  { src: "/media/tool-logos/adobe-creative-cloud.webp", name: "Adobe Creative Cloud", showName: true },
+  { src: "/media/tool-logos/premiere-pro.webp", name: "Premiere Pro", showName: true },
   { src: "/media/tool-logos/capcut.webp", name: "CapCut" },
-  { src: "/media/tool-logos/photoshop.webp", name: "Photoshop" },
+  { src: "/media/tool-logos/photoshop.webp", name: "Photoshop", showName: true },
   { src: "/media/tool-logos/canva.webp", name: "Canva" },
   { src: "/media/tool-logos/higgsfield.webp", name: "Higgsfield", tone: "light" },
   { src: "/media/tool-logos/runway-ai.webp", name: "Runway AI", tone: "light" },
@@ -14,12 +14,12 @@ const TOOL_LOGOS = [
   { src: "/media/tool-logos/veo.webp", name: "Veo" },
   { src: "/media/tool-logos/seedance.webp", name: "Seedance" },
   { src: "/media/tool-logos/kling-3.webp", name: "Kling 3.0" },
-  { src: "/media/tool-logos/higgsfield-mcp.webp", name: "Higgsfield MCP" },
+  { src: "/media/tool-logos/higgsfield-mcp.webp", name: "Higgsfield MCP", showName: true },
   { src: "/media/tool-logos/figma-weave.webp", name: "Figma Weave", tone: "light" },
   { src: "/media/tool-logos/elevenlabs.webp", name: "ElevenLabs" },
   { src: "/media/tool-logos/heygen.webp", name: "HeyGen" },
   { src: "/media/tool-logos/openclaw.webp", name: "OpenClaw" },
-  { src: "/media/tool-logos/hermes.webp", name: "Hermes", tone: "light" },
+  { src: "/media/tool-logos/hermes.webp", name: "Hermes", tone: "light", showName: true },
   { src: "/media/tool-logos/claude.webp", name: "Claude" },
   { src: "/media/tool-logos/hubspot.webp", name: "HubSpot" },
   { src: "/media/tool-logos/google-analytics.webp", name: "Google Analytics" },
@@ -46,7 +46,9 @@ function LogoSet({ duplicate = false }: { duplicate?: boolean }) {
               unoptimized
             />
           </span>
-          <span className="tool-logo-name" aria-hidden="true">{tool.name}</span>
+          {"showName" in tool && tool.showName ? (
+            <span className="tool-logo-name" aria-hidden="true">{tool.name}</span>
+          ) : null}
         </div>
       ))}
     </div>
