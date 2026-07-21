@@ -3,6 +3,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import Preloader from "@/components/Preloader";
 import Reveal from "@/components/Reveal";
+import ToolLogoRail from "@/components/ToolLogoRail";
 import { SERVICES, TOOLS } from "@/data/projects";
 
 const MARQUEE_ITEMS = [
@@ -80,12 +81,9 @@ export default function Home() {
             <p className="hero-desc">
               Brand strategy, AI-powered creative production, and motion work that stops the scroll and stays in the mind.
             </p>
-            <div className="scroll-indicator">
-              <span>Scroll</span>
-              <div className="scroll-line" />
-            </div>
           </div>
         </div>
+        <ToolLogoRail />
       </section>
 
       {/* MARQUEE */}

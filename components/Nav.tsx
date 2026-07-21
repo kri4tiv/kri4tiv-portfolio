@@ -89,7 +89,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`nav${scrolled ? " scrolled" : ""}`}>
+      <nav className={`nav${pathname === "/" ? " nav-home" : ""}${scrolled ? " scrolled" : ""}`}>
         <Link href="/" className="nav-logo">
           KRI<span className="ac">4</span>TIV
         </Link>
