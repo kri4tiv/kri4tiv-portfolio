@@ -141,8 +141,9 @@ export default function Home() {
                   { val: "20+", label: "Brands Worked With" },
                   { val: "MSc", label: "Marketing and Management" },
                   { val: "AI",  label: "First Approach" },
+                  { val: "ImagineArt, OpenArt & Pollo AI", label: "Creative Content Partner", featured: true },
                 ].map(s => (
-                  <div key={s.label} className="stat-card">
+                  <div key={s.label} className={`stat-card${s.featured ? " stat-card-featured" : ""}`}>
                     <div className="stat-val">{s.val}</div>
                     <div className="stat-label">{s.label}</div>
                   </div>

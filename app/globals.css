@@ -449,7 +449,14 @@ a, button, input, textarea, select, [role="button"] { cursor: none; }
   transition: color .3s;
 }
 .stat-card:hover .stat-val { color: var(--t0); }
-.stat-label { font-family: var(--fm); font-size: .5rem; color: var(--t3); letter-spacing: .14em; text-transform: uppercase; margin-top: .3rem; }
+.stat-label { font-family: var(--fm); font-size: .5rem; color: rgba(255,255,255,.76); letter-spacing: .14em; text-transform: uppercase; margin-top: .3rem; }
+.stat-card-featured { grid-column: 1 / -1; }
+.stat-card-featured .stat-val {
+  max-width: 100%;
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
 .tools-list { display: flex; flex-wrap: wrap; gap: .32rem; }
 .tool-pill { font-size: .84rem; color: var(--t3); padding: .5rem 1.1rem; border: 1px solid var(--br); border-radius: 100px; transition: all .3s var(--ease); cursor: default; }
 .tool-pill:hover { color: var(--ac); border-color: var(--ac); background: var(--ac2); }
