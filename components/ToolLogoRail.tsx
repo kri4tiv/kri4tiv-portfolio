@@ -1,26 +1,28 @@
+import Image from "next/image";
+
 const TOOL_LOGOS = [
-  { mark: "CC", name: "Adobe Creative Cloud", style: "compact" },
-  { mark: "Pr", name: "Adobe Premiere Pro", style: "app" },
-  { mark: "CAPCUT", name: "CapCut", style: "wide" },
-  { mark: "Ps", name: "Adobe Photoshop", style: "app" },
-  { mark: "Canva", name: "Canva", style: "script" },
-  { mark: "HIGGSFIELD", name: "Higgsfield", style: "wide" },
-  { mark: "RUNWAY", name: "Runway AI", style: "wide" },
-  { mark: "NB", name: "Nano Banana", style: "compact" },
-  { mark: "MJ", name: "Midjourney", style: "compact" },
-  { mark: "CHATGPT", name: "ChatGPT", style: "wide" },
-  { mark: "VEO", name: "Google Veo", style: "wide" },
-  { mark: "SEEDANCE", name: "Seedance", style: "wide" },
-  { mark: "KLING 3.0", name: "Kling 3.0", style: "wide" },
-  { mark: "HIGGSFIELD MCP", name: "Higgsfield MCP", style: "wide small" },
-  { mark: "WEAVE", name: "Figma Weave", style: "wide" },
-  { mark: "ELEVENLABS", name: "ElevenLabs", style: "wide small" },
-  { mark: "HEYGEN", name: "HeyGen", style: "wide" },
-  { mark: "OPENCLAW", name: "OpenClaw", style: "wide small" },
-  { mark: "HERMES", name: "Hermes", style: "wide" },
-  { mark: "Claude", name: "Claude", style: "serif" },
-  { mark: "HUBSPOT", name: "HubSpot", style: "wide" },
-  { mark: "GA", name: "Google Analytics", style: "compact" },
+  { src: "/media/tool-logos/adobe-creative-cloud.webp", name: "Adobe Creative Cloud" },
+  { src: "/media/tool-logos/premiere-pro.webp", name: "Premiere Pro" },
+  { src: "/media/tool-logos/capcut.webp", name: "CapCut" },
+  { src: "/media/tool-logos/photoshop.webp", name: "Photoshop" },
+  { src: "/media/tool-logos/canva.webp", name: "Canva" },
+  { src: "/media/tool-logos/higgsfield.webp", name: "Higgsfield", tone: "light" },
+  { src: "/media/tool-logos/runway-ai.webp", name: "Runway AI", tone: "light" },
+  { src: "/media/tool-logos/nano-banana.webp", name: "Nano Banana" },
+  { src: "/media/tool-logos/midjourney.webp", name: "Midjourney", tone: "light" },
+  { src: "/media/tool-logos/chatgpt.webp", name: "ChatGPT", tone: "light" },
+  { src: "/media/tool-logos/veo.webp", name: "Veo" },
+  { src: "/media/tool-logos/seedance.webp", name: "Seedance" },
+  { src: "/media/tool-logos/kling-3.webp", name: "Kling 3.0" },
+  { src: "/media/tool-logos/higgsfield-mcp.webp", name: "Higgsfield MCP" },
+  { src: "/media/tool-logos/figma-weave.webp", name: "Figma Weave", tone: "light" },
+  { src: "/media/tool-logos/elevenlabs.webp", name: "ElevenLabs" },
+  { src: "/media/tool-logos/heygen.webp", name: "HeyGen" },
+  { src: "/media/tool-logos/openclaw.webp", name: "OpenClaw" },
+  { src: "/media/tool-logos/hermes.webp", name: "Hermes", tone: "light" },
+  { src: "/media/tool-logos/claude.webp", name: "Claude" },
+  { src: "/media/tool-logos/hubspot.webp", name: "HubSpot" },
+  { src: "/media/tool-logos/google-analytics.webp", name: "Google Analytics" },
 ] as const;
 
 function LogoSet({ duplicate = false }: { duplicate?: boolean }) {
@@ -28,13 +30,23 @@ function LogoSet({ duplicate = false }: { duplicate?: boolean }) {
     <div className="tool-logo-set" aria-hidden={duplicate || undefined}>
       {TOOL_LOGOS.map((tool) => (
         <div
-          className={`tool-logo tool-logo-${tool.style.replace(" ", "-")}`}
+          className={`tool-logo${"tone" in tool ? ` tool-logo-${tool.tone}` : ""}`}
           key={`${duplicate ? "copy-" : ""}${tool.name}`}
-          title={tool.name}
           role={duplicate ? undefined : "img"}
           aria-label={duplicate ? undefined : tool.name}
         >
-          <span aria-hidden="true">{tool.mark}</span>
+          <span className="tool-logo-mark" aria-hidden="true">
+            <Image
+              src={tool.src}
+              alt=""
+              width={192}
+              height={96}
+              sizes="84px"
+              loading="eager"
+              unoptimized
+            />
+          </span>
+          <span className="tool-logo-name" aria-hidden="true">{tool.name}</span>
         </div>
       ))}
     </div>
