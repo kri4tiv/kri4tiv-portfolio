@@ -25,7 +25,7 @@ export default function ContactPage() {
               Let&apos;s Talk
             </a>
             <p className="contact-desc">
-              Open to creative marketing, brand strategy, AI production, and video work. Based in Dubai, working with teams globally.
+              Open to creative marketing, brand strategy, AI production, and video work. Available to work with teams globally.
             </p>
             <div className="contact-links">
               {links.map(l => (
@@ -48,7 +48,7 @@ export default function ContactPage() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Anirudh Kandpal, Dubai</span>
+        <span>Anirudh Kandpal</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

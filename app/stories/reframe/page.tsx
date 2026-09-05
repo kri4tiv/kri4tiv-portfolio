@@ -200,7 +200,7 @@ export default function ReframePage() {
         <hr className="cs-rule" />
 
         <p style={{ color: "var(--t2)", fontStyle: "italic" }}>
-          Built by Anirudh Kandpal. Creative marketer based in Dubai. AI-first production, brand strategy, motion, and campaign work.
+          Built by Anirudh Kandpal. Creative marketer. AI-first production, brand strategy, motion, and campaign work.
         </p>
 
         <div className="cs-article-footer">

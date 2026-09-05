@@ -64,7 +64,7 @@ export default function Home() {
         </div>
         <div className="hero-content">
           <p className="hero-eyebrow">
-            <span>Creative Marketer, Dubai</span>
+            <span>AI Creative Marketer</span>
           </p>
           <h1 className="hero-h1">
             <span className="hero-line">
@@ -108,7 +108,7 @@ export default function Home() {
               The intersection of<br />
               <em>creativity</em> and performance
             </h2>
-            <p className="sec-desc">Creative Marketer based in Dubai, worked with 20+ global brands</p>
+            <p className="sec-desc">AI Creative Marketer working across Delhi, Dubai, and global markets</p>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ export default function Home() {
                   With <strong>2 years of experience in London</strong> and an <strong>MSc in Marketing and Management</strong> from the University of Manchester, I bring together creative direction, performance thinking, and the tools that are reshaping how brands communicate.
                 </p>
                 <p>
-                  Based in Dubai, working globally. Every project is built to <strong>convert, resonate, and last</strong>.
+                  Available globally. Every project is built to <strong>convert, resonate, and last</strong>.
                 </p>
               </div>
               <br />
@@ -174,7 +174,7 @@ export default function Home() {
 
       <footer className="footer">
         <span className="footer-logo">KRI<span style={{ fontStyle: "italic", color: "var(--ac)" }}>4</span>TIV</span>
-        <span>Anirudh Kandpal, Dubai, UAE</span>
+        <span>Anirudh Kandpal</span>
         <span>© {new Date().getFullYear()}</span>
       </footer>
     </>

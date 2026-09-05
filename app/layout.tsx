@@ -15,12 +15,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bekri4tiv.com"),
   title: "KRI4TIV | AI Marketer",
   description:
-    "Creative marketer based in Dubai. Brand strategy, AI video production, motion design, and creative campaigns for global brands. MSc Marketing, University of Manchester.",
+    "AI creative marketer working across Delhi, Dubai, and global markets. Brand strategy, AI video production, motion design, and creative campaigns for global brands. MSc Marketing, University of Manchester.",
   keywords: [
+    "creative marketer Delhi",
     "creative marketer Dubai",
     "AI video creator",
     "AI filmmaker",
     "motion designer",
+    "brand strategy Delhi",
     "brand strategy Dubai",
     "creative production",
     "AI reels",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "KRI4TIV | AI Marketer",
-    description: "Brand strategy, AI-powered creative production, and motion work for global brands. Based in Dubai.",
+    description: "Brand strategy, AI-powered creative production, and motion work across Delhi, Dubai, and global markets.",
     type: "website",
     locale: "en_GB",
   },
